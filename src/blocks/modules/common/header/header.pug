@@ -1,0 +1,47 @@
+.header
+    .container
+        .header__wrp
+            .header__leftbar
+                .header__burger
+                    .btn-burger(data-menu="open") 
+                        i
+                        i
+                        i
+                .header__logo
+                    a(href='#'): +bgimage('/img/common/logo.svg')
+                .header__menu
+                    ul  
+                        each item in app.mainMenu
+                            li
+                                a(href=item.href)= item.text
+
+                                if item.sub
+                                    ul.sub-menu
+                                        each sub in item.sub
+                                            li: a(href='#')= sub
+                
+            .header__rightbar
+                .header__contacts
+                    .header__contact
+                        .header-contact
+                            .header-contact__label Москва
+                            .header-contact__value: a(href='#') 8 (812) 900-08-40
+                    .header__contact
+                        .header-contact
+                            .header-contact__label Cанкт-Петербург
+                            .header-contact__value: a(href='#') 8 (812) 900-08-40
+                    .header__contact
+                        .header-contact
+                            .header-contact__label Время
+                            .header-contact__value: a(href='#') Пн-Пт: c 10 до 19
+
+                
+                
+                .header__lang
+                    .dropdown
+                        .dropdown__title 
+                            +icons('#ic_earth', 24)
+                            span EN
+                        .dropdown__list
+                            ul
+                                li: a(href='#RU') RU
