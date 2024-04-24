@@ -12,21 +12,23 @@
     white-space: nowrap;
     transition: .3s cubic-bezier(.1, .82, .25, 1);
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 18px;
     text-align: center;
-
-    background-color: var(--main);
-    border-radius: 3px;
-    text-transform: uppercase;
+    background-color: var(--color-bg-03);
 
 
     @media screen and (min-width: $w1200) {
-        height: 60px;
+        height: 56px;
     }
 
     &:hover {
-        opacity: 0.9;
+        background-color: var(--color-bg-contrast);
+        color: var(--color-text-icons-contrast);
+    }
+
+    &:active {
+        opacity: 0.8;
     }
 
     &:active,
@@ -46,7 +48,6 @@
 
     & svg {
         fill: #fff;
-
 
         &:first-child {
             margin-right: 1em;
@@ -157,6 +158,11 @@
             position: relative;
             left: 5px;
         }
+    }
+
+    &[disabled] {
+        opacity: 0.9;
+        cursor: not-allowed;
     }
 
 

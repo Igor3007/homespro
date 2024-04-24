@@ -1,5 +1,12 @@
 extends layouts/main
 
+include ../blocks/modules/main-block/main-block
+include ../blocks/modules/about-block/about-block
+include ../blocks/modules/projects-block/projects-block
+include ../blocks/modules/services-block/services-block
+include ../blocks/modules/video-block/video-block
+include ../blocks/modules/team-block/team-block
+
  
 block variables
   include ../data/data.pug
@@ -8,7 +15,12 @@ block variables
 
 block main
    
-  div homespro 
+  +main-block
+  +about-block
+  +projects-block
+  +services-block
+  +video-block
+  +team-block
 
  
  

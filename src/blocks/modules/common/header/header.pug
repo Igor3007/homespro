@@ -1,7 +1,6 @@
 .header
-    .container
         .header__wrp
-            .header__leftbar
+           
                 .header__burger
                     .btn-burger(data-menu="open") 
                         i
@@ -20,7 +19,7 @@
                                         each sub in item.sub
                                             li: a(href='#')= sub
                 
-            .header__rightbar
+           
                 .header__contacts
                     .header__contact
                         .header-contact
@@ -30,7 +29,7 @@
                         .header-contact
                             .header-contact__label Cанкт-Петербург
                             .header-contact__value: a(href='#') 8 (812) 900-08-40
-                    .header__contact
+                    .header__contact.header__contact--time
                         .header-contact
                             .header-contact__label Время
                             .header-contact__value: a(href='#') Пн-Пт: c 10 до 19

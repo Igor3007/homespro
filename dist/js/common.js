@@ -1,66 +1,95 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function (event) {
 
 
-    function scrollElement(container, elem) {
+    if (document.querySelector('.btn-burger')) {
+        document.querySelector('.btn-burger').addEventListener('click', e => {
+            document.querySelector('.btn-burger').classList.toggle('open')
+        })
+    }
 
-        var rect = elem.getBoundingClientRect();
-        var rectContainer = container.getBoundingClientRect();
+    /* ===========================================
+    marquee 
+    ===========================================*/
 
-        let elemOffset = {
-            top: rect.top + document.body.scrollTop,
-            left: rect.left + document.body.scrollLeft
+    class Marquee {
+        constructor(el) {
+            this.$el = el
+            this.containerWidth = this.$el.clientWidth
+            this.trackWidth = 0
+            this.deltaWidth = 0
+            this.currentPosition = 0
+            this.shift = 17
+            this.scrollDirection = '-'
+
+            setTimeout(() => {
+                this.init()
+            }, 3000)
+
         }
 
-        let containerOffset = {
-            top: rectContainer.top + document.body.scrollTop,
-            left: rectContainer.left + document.body.scrollLeft
+
+        init() {
+
+            this.getTrackWidth()
+            this.deltaWidth = this.trackWidth - this.containerWidth
+            this.run()
+            this.scrollHandler()
+
+
         }
 
-        let leftPX = elemOffset.top - containerOffset.top + container.scrollTop - (container.offsetWidth / 2) + (elem.offsetWidth / 2)
+        getTrackWidth() {
+            this.$el.querySelectorAll('.about-block__slide').forEach(li => {
+                this.trackWidth += li.offsetWidth
+            })
 
-        container.scrollTo({
-            top: leftPX,
-            behavior: 'smooth'
-        });
+            this.$el.querySelector('.about-block__track').style.width = this.trackWidth + 'px'
+
+        }
+
+        run() {
+            setInterval(() => {
+
+                if (this.currentPosition < this.deltaWidth && this.scrollDirection == '-') {
+                    this.currentPosition = this.currentPosition + this.shift;
+                } else {
+                    this.scrollDirection = '+'
+                    this.currentPosition = this.currentPosition - this.shift;
+
+                    if (this.currentPosition <= 0) {
+                        this.scrollDirection = '-'
+                    }
+                }
+
+                this.$el.querySelector('.about-block__track').style.transform = 'translateX(-' + this.currentPosition + 'px)'
+            }, 290)
+        }
+
+        scrollHandler() {
+
+            const checkScrollDirection = (event) => {
+                this.scrollDirection = checkScrollDirectionIsUp(event) ? '+' : '-'
+            }
+
+            const checkScrollDirectionIsUp = (event) => {
+                if (event.wheelDelta) {
+                    return event.wheelDelta > 0;
+                }
+                return event.deltaY < 0;
+            }
+
+            document.body.addEventListener('wheel', checkScrollDirection);
+
+
+
+        }
+
 
     }
 
-    const thumbContainer = document.querySelector('[data-slider-thumb="gallery"]')
-
-    $('[data-slider="gallery"]').slick({
-        arrows: false
-    });
-
-    $('[data-slider="gallery"]').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        thumbContainer.querySelectorAll('li').forEach((item, index) => {
-            if (item.classList.contains('is-active')) {
-                item.classList.remove('is-active')
-            }
-
-            if (nextSlide == index) {
-                item.classList.add('is-active')
-                scrollElement(thumbContainer, item)
-            }
-
-        })
-
-
-    });
-
-    thumbContainer.querySelectorAll('li').forEach((item, i) => {
-        item.addEventListener('click', e => {
-            $('[data-slider="gallery"]').slick('slickGoTo', i)
-        })
-    })
-
-
+    if (document.querySelector('[data-marquee]')) {
+        document.querySelectorAll('[data-marquee="container"]').forEach(item => new Marquee(item))
+    }
 
 
 });
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
-
-
-
-})

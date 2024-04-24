@@ -12,7 +12,11 @@
     --color-red-01: rgba(228, 88, 71, 1);
 }
 
-html {
+
+
+html,
+body {
+
     font-family: "Inter", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -26,22 +30,16 @@ html {
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
     height: -webkit-fill-available;
-
     background-color: var(--color-bg-01);
+    scrollbar-color: var(--black) #fff;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
 
     @media screen and (min-width: $w1376) {
         font-size: 16px;
     }
 
-}
 
-
-
-html,
-body {
-    scrollbar-color: var(--black) #fff;
-    scrollbar-width: thin;
-    scrollbar-gutter: stable;
 
 
     @media screen and (min-width: $w992) {
@@ -163,7 +161,7 @@ input[type="date"] {
 }
 
 @mixin container-breakpoint {
-    padding: 0 24px;
+    padding: 0 16px;
     min-width: 316px;
 
     @media screen and (min-width: $w480) {
@@ -193,7 +191,7 @@ input[type="date"] {
 
     @media screen and (min-width: $w1440) {
         padding: 0 45px;
-        max-width: 1890px;
+        max-width: 1500px;
     }
 }
 
@@ -261,13 +259,23 @@ input[type="date"] {
 
 .formated-text {
 
+    & h1 {
+        @include font-h1;
+    }
+
+    & h2 {
+        @include font-h2;
+    }
+
+    & h3 {
+        @include font-h3;
+    }
+
     & * {
         line-height: 140%;
     }
 
-    & h1,
-    & h2,
-    & h3,
+
     & h4,
     & h5,
     & h6 {
@@ -278,18 +286,7 @@ input[type="date"] {
     }
 
     @media screen and (min-width: $w1200) {
-        & h1 {
-            font-size: 46px;
-        }
 
-        & h2 {
-            font-size: 38px;
-        }
-
-        & h3 {
-            font-size: 32px;
-            color: #222429;
-        }
 
         & h4 {
             font-size: 28px;

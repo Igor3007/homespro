@@ -3,15 +3,13 @@
     src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Inter';
     src: url('/fonts/inter/Inter-SemiBold.woff2') format('woff2');
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -19,5 +17,18 @@
     src: url('/fonts/inter/Inter-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter/subset-Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/fonts/roboto/subset-RobotoCondensed-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
