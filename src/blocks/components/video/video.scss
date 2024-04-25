@@ -1,10 +1,7 @@
 .video {
     margin: 0 auto;
     position: relative;
-    background: #ccc;
-    border-radius: 0px;
-    overflow: hidden;
-    border-radius: 6px;
+    background: var(--color-bg-02);
     overflow: hidden;
 
 
@@ -14,7 +11,7 @@
         z-index: 2;
     }
 
-    &.play {
+    &.is-play {
 
         position: relative;
 
@@ -58,9 +55,16 @@
 
         }
 
-        & .video__preview,
+        & .video__preview {
+            visibility: hidden;
+        }
+
         & .video__action {
             display: none;
+        }
+
+        & .video__iframe {
+            display: block;
         }
     }
 
@@ -101,7 +105,7 @@
 
         @media screen and (min-width: $w760) {
             padding: 24px;
-            display: block;
+
         }
 
         &:hover {
@@ -130,11 +134,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         cursor: pointer;
-        background-color: #fff;
+        background-color: var(--color-bg-03);
         width: 48px;
         height: 48px;
-        border-radius: 50%;
+
 
         & span {
             display: none;
@@ -190,5 +195,21 @@
             // }
 
         }
+    }
+
+    &__iframe {
+        position: absolute;
+        z-index: 4;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        & iframe {
+            width: 100%;
+            height: 100%;
+        }
+
     }
 }

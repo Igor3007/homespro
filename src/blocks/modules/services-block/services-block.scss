@@ -1,0 +1,79 @@
+.section-services-block {
+    padding: 50px 0;
+    background-color: var(--color-bg-02)
+}
+
+
+.services-block {
+    &__title {
+        @include font-h1;
+        padding-bottom: 0.6em;
+    }
+
+    &__subtitle {
+        padding-bottom: 16px;
+        color: var(--color-text-02);
+    }
+
+    &__item {
+        padding-bottom: 12px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+
+}
+
+.card-services {
+    background-color: var(--color-bg-01);
+    padding: 20px;
+
+    @media screen and (min-width: $w576) {
+        padding: 24px;
+    }
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+    }
+
+    &__btn {
+
+        @media screen and (min-width: $w992) {
+            display: flex;
+            align-items: center;
+        }
+
+        & .btn {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        @include font-h4;
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__desc {
+        padding-bottom: 16px;
+        color: var(--color-text-02);
+
+        @media screen and (min-width: $w992) {
+            padding-right: 24px;
+        }
+    }
+
+    &__icon {
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 0;
+            padding-right: 24px;
+        }
+    }
+}

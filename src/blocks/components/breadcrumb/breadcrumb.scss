@@ -11,8 +11,8 @@
         overflow-y: hidden;
         white-space: nowrap;
 
-        scrollbar-color: transparent transparent;
-        scrollbar-width: thin !important;
+        -moz-scrollbar-color: transparent transparent;
+        -moz-scrollbar-width: thin !important;
 
 
         &::-webkit-scrollbar {

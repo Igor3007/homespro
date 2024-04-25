@@ -1,4 +1,72 @@
+mixin card-services(data)
+    .card-services
+        .card-services__icon
+            if data.icon == '/img/icons/01-house.svg'
+                include ../../../img/icons/01-house.svg
+            if data.icon == '/img/icons/02-interior.svg'
+                include ../../../img/icons/02-interior.svg
+            if data.icon == '/img/icons/03-landscape.svg'
+                include ../../../img/icons/03-landscape.svg
+            if data.icon == '/img/icons/04-engineering.svg'
+                include ../../../img/icons/04-engineering.svg
+            if data.icon == '/img/icons/05-interior.svg'
+                include ../../../img/icons/05-interior.svg
+            if data.icon == '/img/icons/06-landscape.svg'
+                include ../../../img/icons/06-landscape.svg
+            if data.icon == '/img/icons/07-other.svg'
+                include ../../../img/icons/07-other.svg
+        .card-services__main 
+            .card-services__title= data.title
+            .card-services__desc= data.subtitle
+        .card-services__btn
+            a(href='#'): button.btn Подробнее
+
 mixin services-block
+
+    -
+        const homeservices = [
+            {
+                icon: '/img/icons/01-house.svg',
+                title: 'Эскизный проект',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+            {
+                icon: '/img/icons/02-interior.svg',
+                title: 'Архитектурный раздел',
+                subtitle: 'Это важная часть проектной документации, которая содержит документы, схемы и чертежи, детализирующие эскизный проект и предваряет последующие разделы работы над проектом.',
+            },
+            {
+                icon: '/img/icons/03-landscape.svg',
+                title: 'Конструктивный раздел',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+            {
+                icon: '/img/icons/04-engineering.svg',
+                title: 'Инженерный раздел',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+            {
+                icon: '/img/icons/05-interior.svg',
+                title: 'Дизайн интерьера',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+            {
+                icon: '/img/icons/06-landscape.svg',
+                title: 'Ландшафтный дизайн',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+            {
+                icon: '/img/icons/07-other.svg',
+                title: 'Дополнительные услуги',
+                subtitle: 'Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем...',
+            },
+        ]
+
     section.section-services-block
         .container
-            .services-block services-block
+            .services-block
+                .services-block__title Наши услуги и цены
+                .services-block__subtitle От эскиза до полностью готового функционального проекта
+                .services-block__list
+                    each item in homeservices
+                        .services-block__item: +card-services(item)

@@ -1,4 +1,75 @@
+include ../../components/video/video.pug
+
+mixin card-playlist(data)
+    .card-playlist
+        .card-playlist__preview
+            +bgimage(data.image)
+        .card-playlist__main
+            .card-playlist__title: a(href=data.url)=data.title
+            .card-playlist__desc: span=data.desc
+
 mixin video-block
+
+    -
+        const videoblock = [
+            {
+                'image': '/img/video/video_0.jpg',
+                'url': 'https://www.youtube.com/watch?v=rqzQS516pA8',
+                'title': 'Проект дома A-frame // Как сделать? // Плюсы и минусы // Планировки // Фасады // Конструкции',
+                'desc': 'А-фрейм является экзотикой для нашей страны. Своеобразный, но узнаваемый силуэт этого дома стал популярен не только среди дачного строительства, но и среди строительства домов круглогодичного проживания. Здесь возникает ряд вопросов и даже трудностей. Об этом мы расскажем в этом ролике.',
+            },
+            {
+                'image': '/img/video/video_1.jpg',
+                'url': 'https://www.youtube.com/watch?v=O6FYRa1aELE',
+                'title': 'ТОП-10 решений, о которых забывают В СВОЕМ ДОМЕ //Лайфхаки для планировок // В планировках это важно',
+                'desc': 'В преддверии выхода моей новой книги я записал несколько видео про планировки частных жилых домов. В предыдущем ролике...',
+            },
+            {
+                'image': '/img/video/video_2.jpg',
+                'url': 'https://www.youtube.com/watch?v=uIeE4FOqGSk',
+                'title': 'Индивидуальный проект дома в горах Грузии // Планировки и фасады',
+                'desc': 'Проект этого дома на склоне мы делали в конце 2023 года. В этом году он будет строится. Участок расположен в Аджарии на...',
+            },
+            {
+                'image': '/img/video/video_3.jpg',
+                'url': 'https://www.youtube.com/watch?v=mKmlnnJEHak',
+                'title': 'Смелый ОДНОЭТАЖНЫЙ ДОМ с плоской крышей // Индивидуальный проект // Форма трубы в плане и на...',
+                'desc': 'Новый индивидуальный проект от нашей архитектурной студии. Изломанная форма в плане делает этот одноэтажный дом...',
+            },
+            {
+                'image': '/img/video/video_4.jpg',
+                'url': 'https://www.youtube.com/watch?v=VtY-cnqwShY',
+                'title': 'Заехал в гости к заказчику // КОМФОРТНЫЙ ДОМ 600м2 по нашему проекту // 5 спален // 9 санузлов',
+                'desc': 'Я давно хотел начать обозревать большие дома, построенные по моим проектам. Это новый для меня формат. Это видео-эксперимент...',
+            },
+            {
+                'image': '/img/video/video_5.jpg',
+                'url': 'https://www.youtube.com/watch?v=SVl6orMhONk',
+                'title': 'СТАЛЬНОЙ ФАСАД для вашего дома // Кортен (CORTEN) // Форсера (Forcera) // Коррозионностойкая сталь',
+                'desc': 'В середине декабря я посетил славный город Череповец. Меня пригласили на завод ЧерМК компании Северсталь, чтобы лично...',
+            },
+        ]
+
     section.section-video-block
         .container
-            .video-block video-block
+            .video-block
+                .video-block__title Наши видео
+                .video-block__wrp
+                    .video-block__main
+                        .video-block__tools
+                            ul
+                                li(data-video="fw" title="На всю ширину сайта") full
+                        .video-block__yt: +video({
+                            preview: '/img/video/video_0',
+                            link: 'https://www.youtube.com/watch?v=IpiIt1EBkGQ'
+                        })
+                        .video-block__label(data-video="title") Проект дома A-frame // Как сделать? // Плюсы и минусы // Планировки // Фасады // Конструкции
+                        .video-block__desc(data-video="desc"): span А-фрейм является экзотикой для нашей страны. Своеобразный, но узнаваемый силуэт этого дома стал популярен не только среди дачного строительства, но и среди строительства домов круглогодичного проживания. Здесь возникает ряд вопросов и даже трудностей. Об этом мы расскажем в этом ролике.
+
+                    .video-block__playlist
+                        .video-playlist
+                            .video-playlist__list.dragscroll(data-video="list")
+                                each item in videoblock
+                                    .video-playlist__item: +card-playlist(item)
+                            .video-playlist__btn
+                                a(href='#'): button.btn Перейти на канал

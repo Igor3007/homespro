@@ -1,12 +1,14 @@
 mixin video (data)
   .video(data-id=""+data.link+"")
-    .video__preview
-      +picture(data.preview)
+    .video__preview(data-video="preview")
+      picture
+        img(src=data.preview+'.jpg' loading="lazy")
+    .video__iframe
     .video__action
       if data.title
         .video__title= data.title
-      .video__button
-        a(href='https://youtu.be/G7KNmW9a75Y' data-fslightbox="video" ): +icons('#ic_play', 70)
+      .video__button(data-video="play")
+        +icons('#ic_play', 70)
      
 
 mixin video-review (data)
