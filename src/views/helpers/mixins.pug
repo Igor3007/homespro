@@ -19,6 +19,11 @@ mixin picture(url)
     source(srcset=''+url+'.webp' type="image/webp" )
     img(src=''+url+'.jpg' loading='lazy' alt='image')
 
+mixin picture_no_lazy(url)
+  picture
+    source(srcset=''+url+'.webp' type="image/webp" )
+    img(src=''+url+'.jpg' loading='lazy' alt='image')
+
 mixin pictureLazy(url)
   picture
     source(srcset=''+url+'.webp' type="image/webp" )

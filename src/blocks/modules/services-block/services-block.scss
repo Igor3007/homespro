@@ -1,6 +1,10 @@
 .section-services-block {
     padding: 50px 0;
-    background-color: var(--color-bg-02)
+    background-color: var(--color-bg-02);
+
+    @media screen and (min-width: $w1440) {
+        padding-bottom: 94px;
+    }
 }
 
 
@@ -13,6 +17,10 @@
     &__subtitle {
         padding-bottom: 16px;
         color: var(--color-text-02);
+
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 32px;
+        }
     }
 
     &__item {
@@ -20,6 +28,21 @@
 
         &:last-child {
             padding-bottom: 0;
+        }
+    }
+
+    &__list {
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 46px;
+        }
+    }
+
+    &__all {
+        & .btn {
+            padding-left: 2.8em;
+            padding-right: 2.8em;
         }
     }
 
@@ -31,7 +54,7 @@
     padding: 20px;
 
     @media screen and (min-width: $w576) {
-        padding: 24px;
+        padding: 21px 24px;
     }
 
     @media screen and (min-width: $w992) {
@@ -43,10 +66,20 @@
         @media screen and (min-width: $w992) {
             display: flex;
             align-items: center;
+            width: 100%;
+            max-width: 200px;
+
+            & a {
+                display: block;
+                width: 100%;
+            }
         }
 
         & .btn {
             width: 100%;
+            font-weight: 500;
+
+
         }
     }
 
@@ -55,16 +88,18 @@
         padding-bottom: 12px;
 
         @media screen and (min-width: $w760) {
-            padding-bottom: 0;
+            padding-bottom: 10px;
         }
     }
 
     &__desc {
         padding-bottom: 16px;
         color: var(--color-text-02);
+        font-size: 15px;
 
         @media screen and (min-width: $w992) {
             padding-right: 24px;
+            padding-bottom: 0;
         }
     }
 

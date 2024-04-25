@@ -1,11 +1,15 @@
 .section-video-block {
     padding: 50px 0;
+
+    @media screen and (min-width: $w1440) {
+        padding: 64px 0 96px;
+    }
 }
 
 .video-block {
     &__title {
-        @include font-h1;
-        padding-bottom: 0.8em;
+        @include font-h2;
+        padding-bottom: 1em;
     }
 
     &__subtitle {
@@ -24,6 +28,10 @@
 
     &__main {
         padding-bottom: 24px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 64px;
+        }
     }
 
     &__desc {

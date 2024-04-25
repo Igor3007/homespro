@@ -1,0 +1,141 @@
+.section-projects-block {
+    padding: 60px 0;
+}
+
+.projects-block {
+    &__title {
+        @include font-h1;
+        padding-bottom: 0.6em;
+    }
+
+    &__head {
+        @media screen and (min-width: $w992) {
+            display: flex;
+        }
+    }
+
+    &__left {
+        @media screen and (min-width: $w992) {
+            flex-grow: 1;
+        }
+    }
+
+    &__all {
+        display: none;
+
+        @media screen and (min-width: $w992) {
+            display: block;
+        }
+    }
+
+    &__tags {
+
+        padding-bottom: 30px;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 46px;
+        }
+
+        & ul {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            margin: -8px;
+
+            & li {
+                padding: 8px;
+
+                &.is-active {
+                    & a {
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+
+                & a {
+                    border-bottom: 2px solid transparent;
+                    padding-bottom: 10px;
+                }
+
+            }
+        }
+    }
+
+    &__slider {
+        padding-bottom: 24px;
+    }
+}
+
+.card-project {
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    &__image {
+
+        @media screen and (min-width: $w992) {
+            width: calc(100% - 360px);
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: calc(100% - 520px);
+        }
+
+        & picture {
+            @include picture(58.5%, cover);
+        }
+    }
+
+    &__main {
+        padding: 24px;
+        background-color: var(--color-bg-02);
+
+        @media screen and (min-width: $w992) {
+            width: 360px;
+            padding: 42px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: 520px;
+        }
+    }
+
+    &__name {
+        @include font-h4;
+        padding-bottom: 24px;
+    }
+
+    &__details {
+        padding-bottom: 12px;
+
+        &-item {
+            padding-bottom: 12px;
+        }
+
+        &-label {
+            color: var(--color-text-02);
+            font-size: 15px;
+            padding-bottom: 6px;
+        }
+
+        &-value {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    &__desc {
+        padding-bottom: 24px;
+
+        & span {
+            @include line-clamp(5);
+        }
+    }
+
+    &__goto {
+        & .btn {
+            width: 100%;
+        }
+    }
+}

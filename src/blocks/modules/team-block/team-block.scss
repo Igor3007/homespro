@@ -1,0 +1,164 @@
+.section-team-block {
+    background-color: var(--color-bg-02);
+    padding: 45px 0;
+
+    @media screen and (min-width: $w1440) {
+        padding: 65px 0;
+    }
+}
+
+.team-block {
+    &__title {
+        @include font-h1;
+        padding-bottom: 0.2em;
+    }
+
+    &__subtitle {
+        padding-bottom: 16px;
+        color: var(--color-text-02);
+        padding-bottom: 49px;
+    }
+
+    &__list {}
+
+    & .splide {
+
+        display: flex;
+        flex-direction: column;
+
+        &__track {
+            margin-right: -16px;
+
+            @media screen and (min-width: $w576) {
+                margin-right: -24px;
+            }
+        }
+
+        &__list {
+            height: auto;
+        }
+
+        &__arrows {
+            @media screen and (max-width: $w760) {
+                order: 5;
+                display: flex;
+                justify-content: space-between;
+                height: auto;
+                padding-top: 24px;
+            }
+        }
+
+        &__arrow {
+
+            @media screen and (max-width: $w760) {
+
+                width: 48px;
+                height: 48px;
+                background-color: var(--color-bg-03);
+                opacity: 1;
+                border-radius: 0;
+                transition: 0.3s ease;
+
+                &--next {
+                    position: static;
+                    transform: none;
+                }
+
+                &--prev {
+                    position: static;
+                    transform: none;
+                }
+            }
+
+            @media screen and (min-width: $w760) {
+                width: 64px;
+                height: 64px;
+                background-color: var(--color-bg-03);
+                opacity: 1;
+                border-radius: 0;
+                transition: 0.3s ease;
+
+                &--next {
+                    right: -16px;
+                }
+
+                &--prev {
+                    left: -16px;
+                }
+            }
+
+            & svg {
+                fill: #fff;
+            }
+
+            &[disabled] {
+                @media screen and (min-width: $w760) {
+                    opacity: 0;
+                }
+
+                opacity: 0.5;
+            }
+        }
+
+        &__pagination {
+            bottom: 13px;
+
+
+
+            &__page {
+
+                width: 16px;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: transparent;
+                border: 1px solid transparent;
+                border-radius: 0;
+
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    background-color: var(--color-borders-01);
+                    border-radius: 0;
+                }
+
+                &.is-active {
+                    transform: none;
+                    border: 1px solid var(--color-text-03);
+                }
+            }
+        }
+    }
+}
+
+.card-member {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__image {
+        & picture {
+            background-color: #222;
+            @include picture(100%, cover);
+        }
+    }
+
+    &__main {
+        padding: 22px 24px;
+        background-color: var(--color-bg-01);
+        flex-grow: 1
+    }
+
+    &__name {
+        @include font-h4;
+        padding-bottom: 16px;
+    }
+
+    &__desc {
+        color: var(--color-text-02);
+    }
+}

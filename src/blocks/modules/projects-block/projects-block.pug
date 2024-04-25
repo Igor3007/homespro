@@ -1,4 +1,62 @@
+mixin card-project(data)
+    .card-project
+        .card-project__image: +picture(data.image)
+        .card-project__main
+            .card-project__name: a(href='#')= data.name
+            .card-project__details
+                .card-project__details-item
+                    .card-project__details-label Архитектор(ы):
+                    .card-project__details-value Виталий Злобин, Александра Тимченко
+                .card-project__details-item
+                    .card-project__details-label Общая площадь:
+                    .card-project__details-value 148 м2
+            .card-project__desc: span Проект BARN PENAL создавался для узкого участка. Этим продиктована его вытянутая форма и структурав 2 этажа. Главный фасад имеет классический силуэт барн-хауса с углами ската...
+            .card-project__goto
+                a(href='#'): button.btn Смотреть проект
+        .card-project__thumb
+            ul
+                each item in Array(10)
+                    li(data-src=data.image)
+
 mixin projects-block
+
+    -
+        const projects = [
+            {
+                name: 'BARN PENAL',
+                image: '/img/slider/asl_1'
+            },
+            {
+                name: 'Flat Light',
+                image: '/img/slider/asl_2'
+            },
+        ]
+
     section.section-projects-block
         .container
-            .projects-block projects-block
+            .projects-block
+                .projects-block__head
+                    .projects-block__left
+                        .projects-block__title Наши проекты
+                        .projects-block__tags
+                            ul
+                                li.is-active: a(href='#') Архитектурные проекты 
+                                li: a(href='#') Дизайн интерьеров 
+                    .projects-block__all
+                        a(href='#'): button.btn Все проекты
+                .projects-block__slider
+                    .splide(data-slider="project")
+                        .splide__track
+                            .splide__list
+                                each item in projects
+                                    .splide__slide: +card-project(item)
+                .projects-block__thumb
+                    .project-thumb
+                        .project-thumb__prev
+                        .project-thumb__slider
+                            .splide(data-slider="project-thumb")
+                                .splide__track
+                                    .splide__list
+                                        each item in Array(10)
+                                            .splide__slide: +picture('/img/slider/asl_1') 
+                        .project-thumb__next

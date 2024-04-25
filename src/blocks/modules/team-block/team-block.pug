@@ -1,4 +1,52 @@
+mixin card-member(data)
+    .card-member
+        .card-member__image: +picture(data.image)
+        .card-member__main
+            .card-member__name= data.name
+            .card-member__desc= data.desc
+
 mixin team-block
+
+
+
+
+    -
+        const member_list = [
+            {
+                image: '/img/team/img-project',
+                name: 'Виталий Злобин',
+                desc: 'Руководитель студии, архитектор и преподаватель',
+            },
+            {
+                image: '/img/team/img-project-1',
+                name: 'Егор Холоденко',
+                desc: 'Руководитель направления индивидуального проектирования, ведущий архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-2',
+                name: 'Александра Тимченко',
+                desc: 'Ведущий архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-3',
+                name: 'Вячеслав Новиков',
+                desc: 'Ведущий архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-2',
+                name: 'Александра Тимченко',
+                desc: 'Ведущий архитектор (офис на Бауманке)',
+            },
+        ]
+
     section.section-team-block
         .container
-            .team-block team-block
+            .team-block
+                .team-block__title Наши команда
+                .team-block__subtitle Мы – слаженная команда авторов архитектурных проектов современных жилых резиденций
+                .team-block__list
+                    .splide(data-slider="team")
+                        .splide__track
+                            .splide__list
+                                each item in member_list
+                                    .splide__slide: +card-member(item)
