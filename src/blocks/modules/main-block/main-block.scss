@@ -93,3 +93,15 @@
         }
     }
 }
+
+.main-block__image path {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    animation: dash 15s cubic-bezier(.95, .37, .57, 1.26) forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

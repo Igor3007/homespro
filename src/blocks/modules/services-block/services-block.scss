@@ -2,6 +2,7 @@
     padding: 50px 0;
     background-color: var(--color-bg-02);
 
+
     @media screen and (min-width: $w1440) {
         padding-bottom: 94px;
     }
@@ -10,7 +11,24 @@
 
 .services-block {
     &__title {
-        @include font-h1;
+        font-size: 36px;
+        font-family: Roboto Condensed;
+        font-weight: 700;
+        line-height: 123%;
+
+
+        @media screen and (min-width: $w1440) {
+            font-size: 52px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            font-size: 46px;
+        }
+
+        @media screen and (min-width: $w480) {
+            font-size: 36px;
+        }
+
         padding-bottom: 0.6em;
     }
 

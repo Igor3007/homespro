@@ -244,7 +244,7 @@
               <div class="projects-block__left">
                 <div class="projects-block__title">Наши проекты</div>
                 <div class="projects-block__tags">
-                  <ul>
+                  <ul class="dragsroll">
                     <li class="is-active"><a href="#">Архитектурные проекты </a></li>
                     <li><a href="#">Дизайн интерьеров </a></li>
                   </ul>
@@ -260,12 +260,10 @@
                     <div class="splide__slide">
                       <div class="card-project">
                         <div class="card-project__image">
-                          <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
-                          </picture>
+                          <picture><img src="/img/slider/asl_1.jpg" loading="lazy" data-ps="main-image"/></picture>
                         </div>
                         <div class="card-project__main">
-                          <div class="card-project__name"><a href="#">BARN PENAL</a></div>
+                          <div class="card-project__name"><a href="#">Barn Penal</a></div>
                           <div class="card-project__details">
                             <div class="card-project__details-item">
                               <div class="card-project__details-label">Архитектор(ы):</div>
@@ -282,16 +280,21 @@
                         </div>
                         <div class="card-project__thumb">
                           <ul>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
-                            <li data-src="/img/slider/asl_1"></li>
+                            <li data-src="/img/slider/asl_1.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
+                            <li data-src="/img/slider/asl_5.jpg"></li>
+                            <li data-src="/img/slider/asl_6.jpg"></li>
+                            <li data-src="/img/slider/asl_1.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
+                            <li data-src="/img/slider/asl_6.jpg"></li>
+                            <li data-src="/img/slider/asl_5.jpg"></li>
+                            <li data-src="/img/slider/asl_5.jpg"></li>
+                            <li data-src="/img/slider/asl_6.jpg"></li>
+                            <li data-src="/img/slider/asl_1.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
                           </ul>
                         </div>
                       </div>
@@ -299,9 +302,7 @@
                     <div class="splide__slide">
                       <div class="card-project">
                         <div class="card-project__image">
-                          <picture>
-                            <source srcset="/img/slider/asl_2.webp" type="image/webp"/><img src="/img/slider/asl_2.jpg" loading="lazy" alt="image"/>
-                          </picture>
+                          <picture><img src="/img/slider/asl_6.jpg" loading="lazy" data-ps="main-image"/></picture>
                         </div>
                         <div class="card-project__main">
                           <div class="card-project__name"><a href="#">Flat Light</a></div>
@@ -321,16 +322,20 @@
                         </div>
                         <div class="card-project__thumb">
                           <ul>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
-                            <li data-src="/img/slider/asl_2"></li>
+                            <li data-src="/img/slider/asl_6.jpg"></li>
+                            <li data-src="/img/slider/asl_5.jpg"></li>
+                            <li data-src="/img/slider/asl_4.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_4.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_6.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
+                            <li data-src="/img/slider/asl_1.jpg"></li>
+                            <li data-src="/img/slider/asl_3.jpg"></li>
+                            <li data-src="/img/slider/asl_5.jpg"></li>
+                            <li data-src="/img/slider/asl_2.jpg"></li>
+                            <li data-src="/img/slider/asl_4.jpg"></li>
                           </ul>
                         </div>
                       </div>
@@ -341,7 +346,11 @@
             </div>
             <div class="projects-block__thumb">
               <div class="project-thumb">
-                <div class="project-thumb__prev"></div>
+                <div class="project-thumb__prev" data-slider="project-thumb-prev">
+                  <svg width="25" height="25">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_arrow-prev"></use>
+                  </svg>
+                </div>
                 <div class="project-thumb__slider">
                   <div class="splide" data-slider="project-thumb">
                     <div class="splide__track">
@@ -353,7 +362,22 @@
                         </div>
                         <div class="splide__slide">
                           <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
+                            <source srcset="/img/slider/asl_2.webp" type="image/webp"/><img src="/img/slider/asl_2.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_3.webp" type="image/webp"/><img src="/img/slider/asl_3.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_5.webp" type="image/webp"/><img src="/img/slider/asl_5.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_6.webp" type="image/webp"/><img src="/img/slider/asl_6.jpg" loading="lazy" alt="image"/>
                           </picture>
                         </div>
                         <div class="splide__slide">
@@ -363,7 +387,32 @@
                         </div>
                         <div class="splide__slide">
                           <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
+                            <source srcset="/img/slider/asl_2.webp" type="image/webp"/><img src="/img/slider/asl_2.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_3.webp" type="image/webp"/><img src="/img/slider/asl_3.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_6.webp" type="image/webp"/><img src="/img/slider/asl_6.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_5.webp" type="image/webp"/><img src="/img/slider/asl_5.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_5.webp" type="image/webp"/><img src="/img/slider/asl_5.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="splide__slide">
+                          <picture>
+                            <source srcset="/img/slider/asl_6.webp" type="image/webp"/><img src="/img/slider/asl_6.jpg" loading="lazy" alt="image"/>
                           </picture>
                         </div>
                         <div class="splide__slide">
@@ -373,36 +422,27 @@
                         </div>
                         <div class="splide__slide">
                           <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
+                            <source srcset="/img/slider/asl_2.webp" type="image/webp"/><img src="/img/slider/asl_2.jpg" loading="lazy" alt="image"/>
                           </picture>
                         </div>
                         <div class="splide__slide">
                           <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
-                          </picture>
-                        </div>
-                        <div class="splide__slide">
-                          <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
-                          </picture>
-                        </div>
-                        <div class="splide__slide">
-                          <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
-                          </picture>
-                        </div>
-                        <div class="splide__slide">
-                          <picture>
-                            <source srcset="/img/slider/asl_1.webp" type="image/webp"/><img src="/img/slider/asl_1.jpg" loading="lazy" alt="image"/>
+                            <source srcset="/img/slider/asl_3.webp" type="image/webp"/><img src="/img/slider/asl_3.jpg" loading="lazy" alt="image"/>
                           </picture>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="project-thumb__next"></div>
+                <div class="project-thumb__next" data-slider="project-thumb-next">
+                  <svg width="25" height="25">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_arrow-next"></use>
+                  </svg>
+                </div>
               </div>
             </div>
+            <div class="projects-block__all-mobile"><a href="#">
+                <button class="btn btn-white">Все проекты</button></a></div>
           </div>
         </div>
       </section>

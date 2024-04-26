@@ -1,6 +1,7 @@
 mixin card-project(data)
     .card-project
-        .card-project__image: +picture(data.image)
+        .card-project__image
+            picture: img(src=data.image + '.jpg' loading="lazy" data-ps="main-image")
         .card-project__main
             .card-project__name: a(href='#')= data.name
             .card-project__details
@@ -15,20 +16,24 @@ mixin card-project(data)
                 a(href='#'): button.btn Смотреть проект
         .card-project__thumb
             ul
-                each item in Array(10)
-                    li(data-src=data.image)
+                each item in data.photos
+                    li(data-src='/img/slider/asl_' + item + '.jpg')
+
+        
 
 mixin projects-block
 
     -
         const projects = [
             {
-                name: 'BARN PENAL',
-                image: '/img/slider/asl_1'
+                name: 'Barn Penal',
+                image: '/img/slider/asl_1',
+                photos: [1,2,3,5,6,1,2,3,6,5,5,6,1,2,3]
             },
             {
                 name: 'Flat Light',
-                image: '/img/slider/asl_2'
+                image: '/img/slider/asl_6',
+                photos: [6,5,4,3,2,4,2,6,3,1,3,5,2,4]
             },
         ]
 
@@ -39,7 +44,7 @@ mixin projects-block
                     .projects-block__left
                         .projects-block__title Наши проекты
                         .projects-block__tags
-                            ul
+                            ul.dragsroll
                                 li.is-active: a(href='#') Архитектурные проекты 
                                 li: a(href='#') Дизайн интерьеров 
                     .projects-block__all
@@ -52,11 +57,13 @@ mixin projects-block
                                     .splide__slide: +card-project(item)
                 .projects-block__thumb
                     .project-thumb
-                        .project-thumb__prev
+                        .project-thumb__prev(data-slider="project-thumb-prev"): +icons('#ic_arrow-prev')
                         .project-thumb__slider
                             .splide(data-slider="project-thumb")
                                 .splide__track
                                     .splide__list
-                                        each item in Array(10)
-                                            .splide__slide: +picture('/img/slider/asl_1') 
-                        .project-thumb__next
+                                        each item in [1,2,3,5,6,1,2,3,6,5,5,6,1,2,3]
+                                            .splide__slide: +picture('/img/slider/asl_' + item) 
+                        .project-thumb__next(data-slider="project-thumb-next"): +icons('#ic_arrow-next')
+                .projects-block__all-mobile
+                    a(href='#'): button.btn.btn-white Все проекты

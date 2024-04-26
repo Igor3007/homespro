@@ -183,14 +183,33 @@
         overflow: hidden;
         cursor: pointer;
 
+
+
         @media screen and (min-width: $w1200) {
             width: 175px;
             min-width: 175px;
         }
 
         & span {
-            @include bgimage_cover-scale;
+            @include bgimage_cover;
             padding-top: 56%;
+
+            &::after {
+                content: '';
+                transition: 0.3s ease;
+                background-color: transparent;
+                @include layer(2);
+            }
+
+            &:hover {
+                &::after {
+
+
+
+                    box-shadow: 0 0 0 4px var(--color-bg-03) inset;
+                    background-color: rgba(17, 17, 17, 0.438);
+                }
+            }
         }
     }
 

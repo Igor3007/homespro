@@ -1,6 +1,9 @@
 .section-about-block {
     background-color: var(--color-bg-02);
-    padding-bottom: 50px;
+
+    @media screen and (min-width: $w480) {
+        padding-bottom: 50px;
+    }
 
     @media screen and (min-width: $w1440) {
         padding-top: 75px;
@@ -260,11 +263,15 @@
 
 .mission-block {
 
-    padding: 32px 0;
+    padding: 32px 0 16px;
 
     @media screen and (min-width: $w992) {
         display: flex;
         align-items: flex-end;
+    }
+
+    @media screen and (min-width: $w576) {
+        padding-bottom: 32px 0;
     }
 
     &__title {
