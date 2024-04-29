@@ -7,7 +7,7 @@
                         i
                         i
                 .header__logo
-                    a(href='#'): +bgimage('/img/common/logo.svg')
+                    a(href='/'): +bgimage('/img/common/logo.svg')
                 .header__menu
                     ul  
                         each item in app.mainMenu
@@ -17,10 +17,10 @@
                                 if item.sub
                                     ul.sub-menu
                                         each sub in item.sub
-                                            li: a(href='#')= sub
+                                            li: a(href=sub.href)= sub.text 
                 
            
-                .header__contacts
+                .header__contacts 
                     .header__contact
                         .header-contact
                             .header-contact__label Москва

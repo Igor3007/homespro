@@ -1,0 +1,25 @@
+extends ../layouts/main
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Homespro - Услуги"
+ 
+
+block main
+   
+  .page
+    .container
+      .page__breadcrumb
+        +breadcrumb([
+          'Главная',
+          'Услуги',
+        ])
+      .page__title: h1 Наши услуги и цены
+      .page__desc Мы предлагаем возможность обратиться за консультацией к ведущему архитектору.
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  

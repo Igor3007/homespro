@@ -19,3 +19,28 @@
         font-size: 42px;
     }
 }
+
+.page {
+    padding-top: 40px;
+
+    &__breadcrumb {
+        padding-bottom: 30px
+    }
+
+    &__title {
+
+        padding-bottom: 16px;
+
+        & h1 {
+            @include font-h1;
+            margin: 0;
+        }
+    }
+
+    &__desc {
+        @media screen and (min-width: $w760) {
+            font-size: 18px;
+            color: var(--color-text-02);
+        }
+    }
+}

@@ -20,6 +20,177 @@ document.addEventListener('DOMContentLoaded', function (event) {
         });
     }
 
+    /* =================================================
+    preloader
+    ================================================= */
+
+    class Preloader {
+
+        constructor() {
+            this.$el = this.init()
+            this.state = false
+        }
+
+        init() {
+            const el = document.createElement('div')
+            el.classList.add('loading')
+            el.innerHTML = '<div class="indeterminate"></div>';
+            document.body.append(el)
+            return el;
+        }
+
+        load() {
+
+            this.state = true;
+
+            setTimeout(() => {
+                if (this.state) this.$el.classList.add('load')
+            }, 300)
+        }
+
+        stop() {
+
+            this.state = false;
+
+            setTimeout(() => {
+                if (this.$el.classList.contains('load'))
+                    this.$el.classList.remove('load')
+            }, 200)
+        }
+
+    }
+
+    window.preloader = new Preloader();
+
+
+    /* ==============================================
+    Status
+    ============================================== */
+
+    function Status() {
+
+        this.containerElem = '#status'
+        this.headerElem = '#status_header'
+        this.msgElem = '#status_msg'
+        this.btnElem = '#status_btn'
+        this.timeOut = 10000,
+            this.autoHide = true
+
+        this.init = function () {
+            let elem = document.createElement('div')
+            elem.setAttribute('id', 'status')
+            elem.innerHTML = '<div id="status_header"></div> <div id="status_msg"></div><div id="status_btn"></div>'
+            document.body.append(elem)
+
+            document.querySelector(this.btnElem).addEventListener('click', function () {
+                this.parentNode.setAttribute('class', '')
+            })
+        }
+
+        this.msg = function (_msg, _header) {
+            _header = (_header ? _header : 'Отлично!')
+            this.onShow('complete', _header, _msg)
+            if (this.autoHide) {
+                this.onHide();
+            }
+        }
+        this.err = function (_msg, _header) {
+            _header = (_header ? _header : 'Ошибка')
+            this.onShow('error', _header, _msg)
+            if (this.autoHide) {
+                this.onHide();
+            }
+        }
+        this.wrn = function (_msg, _header) {
+            _header = (_header ? _header : 'Внимание')
+            this.onShow('warning', _header, _msg)
+            if (this.autoHide) {
+                this.onHide();
+            }
+        }
+
+        this.onShow = function (_type, _header, _msg) {
+            document.querySelector(this.headerElem).innerText = _header
+            document.querySelector(this.msgElem).innerText = _msg
+            document.querySelector(this.containerElem).classList.add(_type)
+        }
+
+        this.onHide = function () {
+            setTimeout(() => {
+                document.querySelector(this.containerElem).setAttribute('class', '')
+            }, this.timeOut);
+        }
+
+    }
+
+    window.STATUS = new Status();
+    const STATUS = window.STATUS;
+    STATUS.init();
+
+    /* ==============================================
+    ajax request
+    ============================================== */
+
+    window.ajax = function (params, response) {
+
+        //params Object
+        //dom element
+        //collback function
+
+        window.preloader.load()
+
+        let xhr = new XMLHttpRequest();
+        xhr.open((params.type ? params.type : 'POST'), params.url)
+
+        if (params.responseType == 'json') {
+            xhr.responseType = 'json';
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(JSON.stringify(params.data))
+        } else {
+            let formData = new FormData()
+            for (key in params.data) {
+                formData.append(key, params.data[key])
+            }
+            xhr.send(formData)
+        }
+
+        xhr.onload = function () {
+
+            response ? response(xhr.status, xhr.response) : ''
+            window.preloader.stop()
+            setTimeout(function () {
+                if (params.btn) {
+                    params.btn.classList.remove('btn-loading')
+                }
+            }, 300)
+        };
+
+        xhr.onerror = function () {
+            window.STATUS.err('Error: ajax request failed')
+        };
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 3) {
+                if (params.btn) {
+                    params.btn.classList.add('btn-loading')
+                }
+            }
+        };
+    }
+
+    /* ==================================================
+    maska
+    ==================================================*/
+    const {
+        MaskInput,
+    } = Maska
+
+    function initMaska() {
+        new MaskInput("[data-maska]")
+    }
+
+    initMaska();
+
 
     if (document.querySelector('.btn-burger')) {
         document.querySelector('.btn-burger').addEventListener('click', e => {
@@ -462,6 +633,136 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         })
     }
+
+    /* ==============================================
+    button page scroll-top
+    ============================================== */
+
+    if (document.querySelector('.float-bar__top')) {
+        const btnPageScrollTop = document.querySelector('.float-bar__top')
+        const btnFloat = document.querySelector('.float-bar')
+        btnPageScrollTop.addEventListener('click', e => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        })
+
+        window.addEventListener('scroll', e => {
+            if (document.documentElement.scrollTop > 400) {
+                btnFloat.classList.add('is-active')
+            } else {
+                if (btnFloat.classList.contains('is-active')) btnFloat.classList.remove('is-active')
+            }
+        })
+    }
+
+    /* =================================================
+     popups
+     =================================================*/
+
+    function popupSuccess() {
+        window.ajax({
+            type: 'GET',
+            url: '/parts/_popup-thanks.html'
+        }, (status, response) => {
+
+            const instansePopup = new afLightbox({
+                mobileInBottom: true
+            })
+
+            instansePopup.open(response, false)
+        })
+    }
+
+    if (document.querySelector('[data-modal]')) {
+        const items = document.querySelectorAll('[data-modal]')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+
+                window.ajax({
+                    type: 'GET',
+                    url: item.dataset.modal
+                }, (status, response) => {
+
+                    const instansePopup = new afLightbox({
+                        mobileInBottom: true
+                    })
+
+                    instansePopup.open(response, (instanse) => {
+                        initMaska()
+
+                        if (instanse.querySelector('form')) {
+                            const form = instanse.querySelector('form')
+
+                            form.addEventListener('submit', e => {
+
+                                e.preventDefault()
+
+                                const formData = new FormData(e.target)
+
+                                window.ajax({
+                                    type: 'GET',
+                                    url: item.dataset.modal
+                                }, (status, response) => {
+
+                                    if (status == 200) {
+                                        popupSuccess();
+                                        instansePopup.close()
+                                    }
+
+
+                                })
+                            })
+                        }
+                    })
+                })
+
+            })
+        })
+    }
+
+    /* ========================================
+    block in viewport
+    ========================================*/
+
+    // Получаем нужный элемент
+
+
+    const Visible = function (target) {
+        let targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            windowPosition = {
+                top: window.pageYOffset,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top &&
+            targetPosition.top < windowPosition.bottom &&
+            targetPosition.right > windowPosition.left &&
+            targetPosition.left < windowPosition.right) {
+            element.classList.add('animated')
+        } else {
+            !element.classList.contains('animated') || element.classList.remove('animated')
+        };
+    };
+
+    if (document.querySelector('.section-services-block')) {
+        var element = document.querySelector('.section-services-block');
+        window.addEventListener('scroll', function () {
+            Visible(element);
+        });
+        Visible(element);
+    }
+
+
 
 
 

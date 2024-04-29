@@ -1,0 +1,25 @@
+extends ../layouts/main
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Homespro - Магазин проектов"
+ 
+
+block main
+   
+  .page
+    .container
+      .page__breadcrumb
+        +breadcrumb([
+          'Главная',
+          'Магазин проектов',
+        ])
+      .page__title: h1 Магазин проектов
+      .page__desc Продуманный и комфортный для жизни дизайн дома, созвучный духу нашего времени и подходящий для интеграции с современными технологиями.
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
