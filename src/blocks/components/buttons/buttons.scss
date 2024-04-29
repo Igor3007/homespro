@@ -16,6 +16,8 @@
     font-size: 18px;
     text-align: center;
     background-color: var(--color-bg-03);
+    outline: 1px solid var(--color-bg-03);
+    border: 3px solid transparent;
 
 
     @media screen and (min-width: $w1200) {
@@ -23,8 +25,10 @@
     }
 
     &:hover {
-        background-color: var(--color-bg-contrast);
-        color: var(--color-text-icons-contrast);
+
+
+        outline: 1px solid var(--color-borders-01);
+        border-color: var(--color-bg-02);
     }
 
     &:active {
@@ -79,6 +83,8 @@
 
         &:hover {
             color: #000;
+            outline: 1px solid #fff;
+
         }
 
         &:disabled {

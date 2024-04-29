@@ -1,5 +1,14 @@
+header {
+    height: 65px;
+}
+
 .header {
     background-color: var(--color-bg-02);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 25;
 
 
 

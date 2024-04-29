@@ -1,56 +1,70 @@
-mixin item-contact(data)
-  .item-contact
-    .item-contact__icon: +bgimage(data.icon)
-    .item-contact__main
-      .item-contact__label= data.label
-      .item-contact__link: a(href=data.link)= data.text
- 
 mixin main-menu(data)
   .main-menu(data-menu="container")
     .main-menu__wrp
-      //- .main-menu__close(data-menu="close"): +icons('#ic_cross', 35)
       .main-menu__nav
-        nav
-          ul
-            each item in app.mainMenu
+        .container
+          .main-menu__col
+            .main-menu__title Услуги
+            .main-menu__menu
+              ul
+                li: a(href='#') Эскизный проект
+                li: a(href='#') Архитектурный раздел
+                li: a(href='#') Конструктивный раздел
+                li: a(href='#') Инженерный раздел
+                li: a(href='#') Дизайн интерьера
+                li: a(href='#') Ландшафтный дизайн
+                li: a(href='#') Другие услуги
+            .main-menu__call
+              a(href='#'): button.btn.btn-white Связаться с архитектором
+          .main-menu__col
+            .main-menu__title Портфолио
+            .main-menu__menu
+                ul
+                    li: a(href='#') Архитектура
+                    li: a(href='#') Дизайн интерьера
+                    li: a(href='#') Ландшафтный дизайн
 
-              li(class=""+(item.sub ? 'isset-sub':'')+"")
-                if item.icon
-                  a(href=item.href)
-                    +icons(item.icon)
-                    span= item.text
-                else
-                  a(href=item.href)= item.text
+            .main-menu__title Магазин проектов
+            br
 
-                if(item.sub)
-                  ul.sub-menu
-                    each sub in item.sub
-                      li(class=""+(item.multi ? 'isset-sub':'')+"")
-                        a(href='#')= sub
-                        if(item.multi)
-                          ul.sub-menu
-                            each multi in item.multi
-                              li: a(href="#")= multi
-      .main-menu__contact
- 
-        a(href='#')
-          button.btn(data-modal="/parts/_popup-shop.html") Обратная связь
+            .main-menu__title О компании
+            .main-menu__menu
+                ul
+                    li: a(href='#') Наша команда
+                    li: a(href='#') Пресса о нас
+                    li: a(href='#') Блог
+                    li: a(href='#') Контакты
+                  
+          .main-menu__col
+            .main-menu__title О компании
+            .main-menu__link
+                .main-menu-link
+                    .main-menu-link__label Москва: 
+                    .main-menu-link__a: a(href='#')  8 (812) 900-08-40
+            .main-menu__link
+                .main-menu-link
+                    .main-menu-link__label Cанкт-Петербург:
+                    .main-menu-link__a: a(href='#') 8 (812) 900-08-40
+            .main-menu__link
+                .main-menu-link
+                    .main-menu-link__label Email:
+                    .main-menu-link__a: a(href='#') homespro@yandex.ru
 
-        //- +item-contact({
-        //-   icon: '/img/svg/ic_phone.svg', 
-        //-   label: 'Phone:', 
-        //-   link: 'tel:6474280007', 
-        //-   text: '(647) 428-0007'
-        //- })
-        //- +item-contact({
-        //-   icon: '/img/svg/ic_mail.svg', 
-        //-   label: 'Email:', 
-        //-   link: 'mailto:info@csgrenovation.ca', 
-        //-   text: 'info@csgrenovation.ca'
-        //- }) 
-      //- .main-menu__social
-      //-   ul.social-link
-      //-     li.social-link__inst: a(href='#'): +bgimage('/img/svg/ic_ig.svg')
-      //-     li.social-link__fb: a(href='#'): +bgimage('/img/svg/ic_fb.svg')
-      //-     li.social-link__google: a(href='#'): +bgimage('/img/svg/ic_google.svg')
-       
+      .main-menu__bottom
+        .container
+          .main-menu__col
+            .main-menu-link
+              .main-menu-link__label HOMESPRO на Неве:
+              .main-menu-link__a: a(href='#') Санкт-Петербург, Литейный пр-т, 41
+          .main-menu__col
+            .main-menu-link
+              .main-menu-link__label HOMESPRO на Бауманке: 
+              .main-menu-link__a: a(href='#') Москва, БЦ Суперметалл, 2-я Бауманская ул., 9/23с3, офис № 13
+          .main-menu__col
+            .main-menu__msgr
+                  ul
+                      li: a(href='#'): +bgimage('/img/icons/icon-instagram.svg')
+                      li: a(href='#'): +bgimage('/img/icons/icon-zen.svg')
+                      li: a(href='#'): +bgimage('/img/icons/icon-vk.svg')
+                      li: a(href='#'): +bgimage('/img/icons/icon-youtube.svg')
+                      li: a(href='#'): +bgimage('/img/icons/icon-telegram.svg') 

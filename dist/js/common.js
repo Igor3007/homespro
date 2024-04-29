@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.btn-burger')) {
         document.querySelector('.btn-burger').addEventListener('click', e => {
             document.querySelector('.btn-burger').classList.toggle('open')
+            document.querySelector('[data-menu="container"]').classList.toggle('is-open')
+            document.body.classList.toggle('page-hidden')
         })
     }
 
@@ -38,12 +40,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.trackWidth = 0
             this.deltaWidth = 0
             this.currentPosition = 0
-            this.shift = 17
+            this.shift = 2
             this.scrollDirection = '-'
 
             setTimeout(() => {
                 this.init()
-            }, 3000)
+            }, 1000)
 
         }
 
@@ -68,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         run() {
+
+            let el = this.$el.querySelector('.about-block__track')
+
             setInterval(() => {
 
                 if (this.currentPosition < this.deltaWidth && this.scrollDirection == '-') {
@@ -81,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     }
                 }
 
-                this.$el.querySelector('.about-block__track').style.transform = 'translateX(-' + this.currentPosition + 'px)'
-            }, 290)
+                el.style.transform = 'translate3d(-' + this.currentPosition + 'px, 0, 0)'
+            }, 45)
         }
 
         scrollHandler() {
@@ -335,7 +340,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
         splideProjects.on('active', (e) => {
-            window.PS.changeProjectActive(e.slide)
+            setTimeout(() => {
+                window.PS.changeProjectActive(e.slide)
+            }, 100)
         })
 
         splideProjects.mount();
@@ -406,6 +413,55 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
     console.log(path.getTotalLength())
+
+    /* ===============================================
+    slider project-thumb 
+    ===============================================*/
+
+    const items = document.querySelectorAll('.eff-respective');
+    const pushAmount = 5;
+
+    for (x = 0; x < items.length; x++) {
+        // Rotate on Hover
+
+        items[x].classList.add('animation-mousemove')
+        items[x].addEventListener('mousemove', (e) => {
+            // Get Mouse Pos Relative to Element
+            const target = e.target.closest('.eff-respective');
+            const rect = target.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            setTimeout(() => {
+                !target.classList.contains('animation-mousemove') || target.classList.remove('animation-mousemove')
+            }, 300)
+
+            // Normalize
+            const normalizedX = x / rect.width;
+            const normalizedY = y / rect.height;
+
+            // Convert to value between (-12.5 * 12.5)
+            const yRotate = -pushAmount + ((pushAmount * 2) * normalizedX);
+            const xRotate = -pushAmount + ((pushAmount * 2) * normalizedY);
+
+            // Apply Rotation
+            target.style.transform = 'perspective(300px) RotateY(' + yRotate + 'deg) RotateX(' + -xRotate + 'deg)';
+            //target.style.boxShadow = '0px 0px 62px 9px rgba(53,46,255,0.9), inset 0px 0px 27px 0px rgba(255,255,255,1)';
+        });
+
+        // Restore on Exit
+        items[x].addEventListener('mouseleave', (e) => {
+            const target = e.target;
+            target.classList.add('animation-mouseleave')
+            setTimeout(() => {
+                !target.classList.contains('animation-mouseleave') || target.classList.remove('animation-mouseleave')
+                target.style.transform = 'Rotate(0deg)';
+                target.style.boxShadow = 'none'
+                target.classList.add('animation-mousemove')
+            }, 300)
+
+        })
+    }
 
 
 

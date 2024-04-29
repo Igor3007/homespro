@@ -70,6 +70,13 @@
 .card-services {
     background-color: var(--color-bg-01);
     padding: 20px;
+    border-left: 2px solid transparent;
+
+    transition: border 0.5s ease;
+
+    &:hover {
+        border-color: #fff;
+    }
 
     @media screen and (min-width: $w576) {
         padding: 21px 24px;
@@ -124,9 +131,41 @@
     &__icon {
         padding-bottom: 12px;
 
+        &:hover {
+            & svg {
+                background-color: #eee;
+            }
+        }
+
         @media screen and (min-width: $w992) {
             padding-bottom: 0;
             padding-right: 24px;
         }
     }
+}
+
+
+.card-services__icon path {
+    stroke-dasharray: 330;
+    stroke-dashoffset: 330;
+    animation: dash2 3s linear alternate forwards;
+}
+
+@keyframes dash2 {
+    from {
+        stroke-dashoffset: 330;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animation-mouseleave {
+    transform: rotate(0) !important;
+    transition: 0.9s ease;
+}
+
+.animation-mousemove {
+    transition: 0.5s ease;
 }

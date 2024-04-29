@@ -22,7 +22,7 @@ mixin picture(url)
 mixin picture_no_lazy(url)
   picture
     source(srcset=''+url+'.webp' type="image/webp" )
-    img(src=''+url+'.jpg' loading='lazy' alt='image')
+    img(src=''+url+'.jpg' alt='Image')
 
 mixin pictureLazy(url)
   picture
