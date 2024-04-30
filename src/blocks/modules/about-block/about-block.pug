@@ -42,12 +42,12 @@ mixin about-block
 
             .container
             
-                .about-block__digits
+                .about-block__digits.animate
 
                     .digits-block
                         .digits-block__list
                             each item in digits
-                                .digits-block__item.eff-respective
+                                .digits-block__item 
                                     .digits-block__title= item.num
                                     .digits-block__desc= item.desc
                                     .digits-block__wave
@@ -55,7 +55,7 @@ mixin about-block
 
                 .about-block__mission
 
-                    .mission-block
+                    .mission-block.animate
                         .mission-block__main
                             .mission-block__title Наша миссия
                             .mission-block__desc Создавать проект дома как системный продукт, который отвечает на все строительные вопросы: о дизайне и внешнем виде, грамотной функциональной организации планировок, бюджете строительства и технологиях. Это всесторонне-проработанный проект, где учтены все этапы работы от начала до завершения строительства.

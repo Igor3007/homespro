@@ -62,13 +62,13 @@ mixin services-block
             },
         ]
 
-    section.section-services-block
+    section.section-services-block.animate
         .container
             .services-block
                 .services-block__title Наши услуги и цены
                 .services-block__subtitle От эскиза до полностью готового функционального проекта
                 .services-block__list
                     each item in homeservices
-                        .services-block__item: +card-services(item)
+                        .services-block__item.animate: +card-services(item)
                 .services-block__all
                     a(href='#'): button.btn.btn-white Все услуги

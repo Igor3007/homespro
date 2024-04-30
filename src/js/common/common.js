@@ -442,7 +442,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         changeImageOnProject(url) {
-            this.getElProjectActiveSlide().querySelector('[data-ps="main-image"]').setAttribute('src', url)
+
+
+            let picture = this.getElProjectActiveSlide().querySelector('.card-project__image picture')
+
+            picture.classList.add('change-image-animate--start')
+
+            setTimeout(() => {
+                this.getElProjectActiveSlide().querySelector('[data-ps="main-image"]').setAttribute('src', url)
+            }, 500)
+
+            setTimeout(() => {
+                picture.classList.add('change-image-animate--end')
+            }, 600)
+
+            setTimeout(() => {
+                picture.setAttribute('class', '')
+            }, 1150)
+
+
         }
 
         getTemplateSlide(url) {
@@ -748,18 +766,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
             targetPosition.top < windowPosition.bottom &&
             targetPosition.right > windowPosition.left &&
             targetPosition.left < windowPosition.right) {
-            element.classList.add('animated')
+            target.classList.add('animated')
         } else {
-            !element.classList.contains('animated') || element.classList.remove('animated')
+            !target.classList.contains('animated') || target.classList.remove('animated')
         };
     };
 
-    if (document.querySelector('.section-services-block')) {
-        var element = document.querySelector('.section-services-block');
+    if (document.querySelector('.animate')) {
+        const items = document.querySelectorAll('.animate');
+
+        const checkVisible = (items) => {
+            items.forEach(item => Visible(item))
+        }
+
         window.addEventListener('scroll', function () {
-            Visible(element);
+            checkVisible(items);
         });
-        Visible(element);
+
+        checkVisible(items);
     }
 
 

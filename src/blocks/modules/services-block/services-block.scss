@@ -44,6 +44,20 @@
     &__item {
         padding-bottom: 12px;
 
+        &:nth-child(even) {
+            &.animated {
+                animation: slide-in-blurred-left 1s ease forwards;
+                animation-delay: 200;
+            }
+        }
+
+        &:nth-child(odd) {
+            &.animated {
+                animation: slide-in-blurred-right 1s ease forwards;
+                animation-delay: 200;
+            }
+        }
+
         &:last-child {
             padding-bottom: 0;
         }
@@ -63,6 +77,8 @@
             padding-right: 2.8em;
         }
     }
+
+
 
 
 }
