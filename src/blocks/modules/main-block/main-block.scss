@@ -19,6 +19,16 @@
         transform: skewX(31deg) translateX(-100%);
         z-index: 1;
         animation: slide-block-left 2s ease forwards;
+
+        @media screen and (max-width: $w480) {
+
+            left: 20vw;
+        }
+    }
+
+    & .container {
+        position: relative;
+        z-index: 3;
     }
 }
 

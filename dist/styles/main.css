@@ -3394,6 +3394,11 @@ header {
   animation: slide-block-left 2s ease forwards;
 }
 
+.section-main-block .container {
+  position: relative;
+  z-index: 3;
+}
+
 .main-block {
   padding: 50px 0 0 0;
 }
@@ -5792,6 +5797,10 @@ header {
 
   .main-menu__bottom .main-menu-link__a a {
     font-size: 13px;
+  }
+
+  .section-main-block::before {
+    left: 20vw;
   }
 }
 
