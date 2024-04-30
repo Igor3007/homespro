@@ -21,7 +21,11 @@
 }
 
 .page {
-    padding-top: 40px;
+    padding-top: 8px;
+
+    @media screen and (min-width: $w576) {
+        padding-top: 40px;
+    }
 
     &__breadcrumb {
         padding-bottom: 30px

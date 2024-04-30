@@ -598,11 +598,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
 
-    var path = document.querySelector('.main-block__image path');
-
-
-    console.log(path.getTotalLength())
-
     /* ===============================================
     slider project-thumb 
     ===============================================*/

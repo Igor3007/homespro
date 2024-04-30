@@ -27,8 +27,10 @@
     }
 
     & .container {
-        position: relative;
-        z-index: 3;
+        @media screen and (max-width: $w992) {
+            position: relative;
+            z-index: 3;
+        }
     }
 }
 

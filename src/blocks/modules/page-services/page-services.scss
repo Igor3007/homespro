@@ -1,0 +1,32 @@
+.page-services {
+    padding: 16px 0;
+
+    &__item {
+        padding: 12px 0;
+    }
+}
+
+.item-service {
+
+    &__title {
+        @include font-h3;
+        padding-bottom: 12px;
+    }
+
+    &__dl {
+        display: none;
+    }
+
+    &__content,
+    &__tabs {
+        display: none;
+    }
+
+    &__tab {
+        &-item {
+            display: none;
+        }
+    }
+
+
+}

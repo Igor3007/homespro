@@ -229,7 +229,6 @@ input[type="date"] {
 .formated-text h6 {
   margin-bottom: 25px;
   line-height: 120%;
-  color: #222429;
   font-weight: 700;
 }
 
@@ -3394,11 +3393,6 @@ header {
   animation: slide-block-left 2s ease forwards;
 }
 
-.section-main-block .container {
-  position: relative;
-  z-index: 3;
-}
-
 .main-block {
   padding: 50px 0 0 0;
 }
@@ -4544,6 +4538,35 @@ header {
   width: 100%;
 }
 
+.page-services {
+  padding: 16px 0;
+}
+
+.page-services__item {
+  padding: 12px 0;
+}
+
+.item-service__title {
+  font-size: 24px;
+  font-family: Roboto Condensed;
+  font-weight: 700;
+  line-height: 123%;
+  padding-bottom: 12px;
+}
+
+.item-service__dl {
+  display: none;
+}
+
+.item-service__content,
+.item-service__tabs {
+  display: none;
+}
+
+.item-service__tab-item {
+  display: none;
+}
+
 /* common styles */
 
 .font-h2 {
@@ -4559,7 +4582,7 @@ header {
 }
 
 .page {
-  padding-top: 40px;
+  padding-top: 8px;
 }
 
 .page__breadcrumb {
@@ -4680,6 +4703,10 @@ header {
     font-size: 20px;
   }
 
+  .item-service__title {
+    font-size: 26px;
+  }
+
   .font-h2 {
     font-size: 42px;
   }
@@ -4751,6 +4778,10 @@ header {
 
   .popup-success {
     padding: 24px;
+  }
+
+  .page {
+    padding-top: 40px;
   }
 }
 
@@ -5250,12 +5281,10 @@ header {
 
   .formated-text h4 {
     font-size: 28px;
-    color: #222429;
   }
 
   .formated-text h5 {
     font-size: 24px;
-    color: #222429;
   }
 
   .formated-text h6 {
@@ -5458,6 +5487,10 @@ header {
   }
 
   .popup-form__title {
+    font-size: 30px;
+  }
+
+  .item-service__title {
     font-size: 30px;
   }
 
@@ -5712,8 +5745,19 @@ header {
     height: 58px;
   }
 
+  .item-service__title {
+    font-size: 36px;
+  }
+
   .page__title h1 {
     font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 992.98px) {
+  .section-main-block .container {
+    position: relative;
+    z-index: 3;
   }
 }
 
