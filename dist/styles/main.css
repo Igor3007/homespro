@@ -2772,6 +2772,30 @@ header {
   font-weight: bold;
 }
 
+.section-main-block {
+  position: relative;
+}
+
+@keyframes slide-block-left {
+  to {
+    transform: skewX(31deg) translateX(60%);
+    opacity: 1;
+  }
+}
+
+.section-main-block::before {
+  content: '';
+  position: absolute;
+  background-color: rgba(46, 46, 46, 0.58);
+  width: 378px;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  transform: skewX(31deg) translateX(-100%);
+  z-index: 1;
+  animation: slide-block-left 2s ease forwards;
+}
+
 .main-block {
   padding: 50px 0 0 0;
 }
@@ -2804,7 +2828,7 @@ header {
 .main-block__image path {
   stroke-dasharray: 3500;
   stroke-dashoffset: 3500;
-  animation: dash 4s cubic-bezier(0.95, 0.37, 0.57, 1.26) forwards;
+  animation: dash 2s cubic-bezier(0.95, 0.37, 0.57, 1.26) forwards;
 }
 
 @keyframes dash {
