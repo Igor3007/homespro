@@ -36,29 +36,22 @@
         & a,
         & span {
             padding: 6px 12px;
-            border-radius: 6px;
+
             display: inline-flex;
             font-size: 14px;
+            background-color: var(--color-bg-02);
 
-            @media screen and (min-width: $w375) {
-                font-size: 15px;
-            }
         }
 
         & a {
-            color: #fff;
-
-            background-color: var(--green);
+            color: var(--color-text-01);
 
             &:hover {
-                background-color: var(--green-light);
+                background-color: var(--color-bg-03);
             }
         }
 
-        & span {
 
-            background: #EBEBEB;
-        }
 
 
 
@@ -84,7 +77,7 @@
 
             & span,
             & a {
-                color: var(--text-01)
+                color: var(--color-text-03);
             }
         }
 

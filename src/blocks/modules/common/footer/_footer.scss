@@ -277,6 +277,11 @@
     cursor: pointer;
     z-index: 50;
     transition: 0.3s ease;
+    transform: translateX(-100%);
+
+    &.is-active {
+        transform: translateX(0);
+    }
 
     &:hover {
         background-color: #222;
