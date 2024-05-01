@@ -110,7 +110,11 @@ header {
 
                 &>a {
                     height: 56px;
-                    font-size: 16px;
+                    font-size: 15px;
+
+                    @media screen and (min-width: $w1440) {
+                        font-size: 16px;
+                    }
                 }
             }
         }
@@ -134,9 +138,15 @@ header {
                     height: 64px;
                     display: flex;
                     align-items: center;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 500;
                     white-space: nowrap;
+
+                    @media screen and (min-width: $w1440) {
+                        font-size: 18px;
+                    }
+
+
                 }
 
                 &:hover {

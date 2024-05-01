@@ -390,6 +390,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
             pagination: false,
 
             breakpoints: {
+                1440: {
+                    gap: 24,
+                },
                 1024: {
                     perPage: 3,
                     gap: 20
@@ -761,9 +764,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
             targetPosition.top < windowPosition.bottom &&
             targetPosition.right > windowPosition.left &&
             targetPosition.left < windowPosition.right) {
-            target.classList.add('animated')
+
+
+            if (!target.classList.contains('animated')) {
+                target.classList.add('animated')
+            }
+
         } else {
-            !target.classList.contains('animated') || target.classList.remove('animated')
+            // !target.classList.contains('animated') || target.classList.remove('animated')
         };
     };
 

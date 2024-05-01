@@ -129,9 +129,11 @@
     height: 24px;
     stroke: #ccc;
     stroke-width: 2px;
+    transition: 0.4s ease;
 
     &:hover {
-        stroke: var(--main);
+        stroke: #fff;
+        transform: rotate(90deg);
     }
 }
 

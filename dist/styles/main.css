@@ -1531,7 +1531,7 @@ template {
   transition: 0.3s cubic-bezier(0.1, 0.82, 0.25, 1);
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   background-color: var(--color-bg-03);
   outline: 1px solid var(--color-bg-03);
@@ -2103,7 +2103,7 @@ template {
 }
 
 .form__note {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--gray-36, #5B5B5B);
   width: 100%;
   line-height: 150%;
@@ -2608,10 +2608,12 @@ template {
   height: 24px;
   stroke: #ccc;
   stroke-width: 2px;
+  transition: 0.4s ease;
 }
 
 .af-popup__close svg:hover {
-  stroke: var(--main);
+  stroke: #fff;
+  transform: rotate(90deg);
 }
 
 .af-spiner {
@@ -2886,7 +2888,7 @@ header {
 
 .header__menu .sub-menu > li > a {
   height: 56px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .header__menu > ul {
@@ -2905,7 +2907,7 @@ header {
   height: 64px;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -5167,7 +5169,7 @@ header {
     position: relative;
     z-index: 2;
     max-width: 500px;
-    min-height: 576px;
+    min-height: 420px;
   }
 
   .main-block__image {
@@ -5183,6 +5185,10 @@ header {
 
   .main-block__image svg {
     height: auto;
+  }
+
+  .section-about-block {
+    padding-top: 30px;
   }
 
   .about-block__slider {
@@ -5628,6 +5634,10 @@ header {
     margin: 20px 0;
   }
 
+  .btn {
+    font-size: 18px;
+  }
+
   .form__item > .form__item {
     flex-direction: row;
   }
@@ -5636,8 +5646,16 @@ header {
     padding-left: 20px;
   }
 
+  .header__menu .sub-menu > li > a {
+    font-size: 16px;
+  }
+
   .header__menu > ul > li {
     padding: 0 calc(3%);
+  }
+
+  .header__menu > ul > li a {
+    font-size: 18px;
   }
 
   .header__contact {
