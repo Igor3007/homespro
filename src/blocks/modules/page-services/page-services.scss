@@ -4,9 +4,14 @@
     &__item {
         padding: 12px 0;
     }
+
+
 }
 
 .item-service {
+
+    padding: 12px;
+    background-color: var(--color-bg-02);
 
     &__title {
         @include font-h3;
@@ -20,6 +25,44 @@
     &__content,
     &__tabs {
         display: none;
+
+        & ul {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            margin: -14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none !important;
+
+            & li {
+                padding: 14px;
+
+                &.is-active {
+
+                    & span,
+                    & a {
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+
+                & span,
+                & a {
+                    border-bottom: 2px solid transparent;
+                    padding-bottom: 8px;
+                    font-size: 16px;
+
+                    @media screen and (min-width: $w992) {
+                        padding-bottom: 5px;
+                    }
+
+                    @media screen and (min-width: $w1440) {
+                        font-size: 18px;
+                    }
+                }
+
+            }
+        }
     }
 
     &__tab {
@@ -28,5 +71,51 @@
         }
     }
 
+    &__show-all {
+        padding-top: 24px;
+
+        @media screen and (min-width: $w992) {
+            display: none;
+        }
+
+        & .btn {
+            @media screen and (max-width: $w480) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__more {
+        display: none;
+
+        @media screen and (min-width: $w992) {
+            display: block;
+        }
+    }
+
+    &.is-open {
+        & .item-service {
+
+            &__preview,
+            &__show-all {
+                display: none;
+            }
+
+            &__content,
+            &__tabs {
+                display: block;
+
+                & ul {
+                    display: flex;
+
+                }
+            }
+
+            &__tab-item {
+                display: block;
+            }
+
+        }
+    }
 
 }

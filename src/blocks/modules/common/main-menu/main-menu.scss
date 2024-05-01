@@ -134,6 +134,7 @@
             & li {
                 padding: 10px 0;
                 transition: 0.3s ease;
+                transform: translateX(0.1px);
 
                 @media screen and (min-width: $w1440) {
                     padding: 8px 0;

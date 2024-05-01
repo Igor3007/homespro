@@ -789,6 +789,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
         checkVisible(items);
     }
 
+    /* ========================================
+    sdsjd
+    ========================================*/
+
+    if (document.querySelector('[data-services="show"]')) {
+        const items = document.querySelectorAll('[data-services="show"]')
+
+        items.forEach(item => {
+            item.addEventListener('click', (e) => {
+                item.closest('.item-service').classList.add('is-open')
+            })
+        })
+
+    }
+
 
 
 

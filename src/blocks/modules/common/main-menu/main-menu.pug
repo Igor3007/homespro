@@ -4,36 +4,34 @@ mixin main-menu(data)
       .main-menu__nav
         .container
           .main-menu__col
-            .main-menu__title Услуги
+            .main-menu__title: a(href='services.html') Услуги
             .main-menu__menu
               ul
-                li: a(href='#') Эскизный проект
-                li: a(href='#') Архитектурный раздел
-                li: a(href='#') Конструктивный раздел
-                li: a(href='#') Инженерный раздел
-                li: a(href='#') Дизайн интерьера
-                li: a(href='#') Ландшафтный дизайн
-                li: a(href='#') Другие услуги
+                li: a(href='services.html') Эскизный проект
+                li: a(href='services.html') Архитектурный раздел
+                li: a(href='services.html') Конструктивный раздел
+                li: a(href='services.html') Инженерный раздел
+                li: a(href='services.html') Дизайн интерьера
+                li: a(href='services.html') Ландшафтный дизайн
+                li: a(href='services.html') Другие услуги
             .main-menu__call
               button.btn.btn-white(data-modal="/parts/_popup-callback.html") Связаться с архитектором
           .main-menu__col
             .main-menu__title Портфолио
             .main-menu__menu
-                ul
-                    li: a(href='#') Архитектура
-                    li: a(href='#') Дизайн интерьера
-                    li: a(href='#') Ландшафтный дизайн
+              ul
+                each item in app.mainMenu[1].sub
+                  li: a(href=item.href)=item.text
+                    
 
             .main-menu__title Магазин проектов
             br
 
             .main-menu__title О компании
             .main-menu__menu
-                ul
-                    li: a(href='#') Наша команда
-                    li: a(href='#') Пресса о нас
-                    li: a(href='#') Блог
-                    li: a(href='#') Контакты
+              ul
+                each item in app.mainMenu[3].sub 
+                  li: a(href=item.href)=item.text
                   
           .main-menu__col
             .main-menu__title О компании
