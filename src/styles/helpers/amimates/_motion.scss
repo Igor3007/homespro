@@ -1,17 +1,37 @@
 @keyframes slit-in-vertical {
     0% {
-        transform: perspective(400px) rotateX(-80deg);
+        transform: translateY(30px);
         opacity: 0;
-        transform-origin: top;
+
     }
 
 
 
     100% {
-
-        transform: perspective(400px) rotateX(0);
+        transform: translateY(0);
         opacity: 1;
-        transform-origin: top;
+    }
+}
+
+
+
+@-webkit-keyframes bg-pan-left {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes bg-pan-left {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 

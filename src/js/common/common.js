@@ -602,50 +602,50 @@ document.addEventListener('DOMContentLoaded', function (event) {
     slider project-thumb 
     ===============================================*/
 
-    const items = document.querySelectorAll('.eff-respective');
-    const pushAmount = 5;
+    // const items = document.querySelectorAll('.eff-respective');
+    // const pushAmount = 5;
 
-    for (x = 0; x < items.length; x++) {
-        // Rotate on Hover
+    // for (x = 0; x < items.length; x++) {
+    //     // Rotate on Hover
 
-        items[x].classList.add('animation-mousemove')
-        items[x].addEventListener('mousemove', (e) => {
-            // Get Mouse Pos Relative to Element
-            const target = e.target.closest('.eff-respective');
-            const rect = target.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    //     items[x].classList.add('animation-mousemove')
+    //     items[x].addEventListener('mousemove', (e) => {
+    //         // Get Mouse Pos Relative to Element
+    //         const target = e.target.closest('.eff-respective');
+    //         const rect = target.getBoundingClientRect();
+    //         const x = e.clientX - rect.left;
+    //         const y = e.clientY - rect.top;
 
-            setTimeout(() => {
-                !target.classList.contains('animation-mousemove') || target.classList.remove('animation-mousemove')
-            }, 300)
+    //         setTimeout(() => {
+    //             !target.classList.contains('animation-mousemove') || target.classList.remove('animation-mousemove')
+    //         }, 300)
 
-            // Normalize
-            const normalizedX = x / rect.width;
-            const normalizedY = y / rect.height;
+    //         // Normalize
+    //         const normalizedX = x / rect.width;
+    //         const normalizedY = y / rect.height;
 
-            // Convert to value between (-12.5 * 12.5)
-            const yRotate = -pushAmount + ((pushAmount * 2) * normalizedX);
-            const xRotate = -pushAmount + ((pushAmount * 2) * normalizedY);
+    //         // Convert to value between (-12.5 * 12.5)
+    //         const yRotate = -pushAmount + ((pushAmount * 2) * normalizedX);
+    //         const xRotate = -pushAmount + ((pushAmount * 2) * normalizedY);
 
-            // Apply Rotation
-            target.style.transform = 'perspective(300px) RotateY(' + yRotate + 'deg) RotateX(' + -xRotate + 'deg)';
-            //target.style.boxShadow = '0px 0px 62px 9px rgba(53,46,255,0.9), inset 0px 0px 27px 0px rgba(255,255,255,1)';
-        });
+    //         // Apply Rotation
+    //         target.style.transform = 'perspective(300px) RotateY(' + yRotate + 'deg) RotateX(' + -xRotate + 'deg)';
+    //         //target.style.boxShadow = '0px 0px 62px 9px rgba(53,46,255,0.9), inset 0px 0px 27px 0px rgba(255,255,255,1)';
+    //     });
 
-        // Restore on Exit
-        items[x].addEventListener('mouseleave', (e) => {
-            const target = e.target;
-            target.classList.add('animation-mouseleave')
-            setTimeout(() => {
-                !target.classList.contains('animation-mouseleave') || target.classList.remove('animation-mouseleave')
-                target.style.transform = 'Rotate(0deg)';
-                target.style.boxShadow = 'none'
-                target.classList.add('animation-mousemove')
-            }, 300)
+    //     // Restore on Exit
+    //     items[x].addEventListener('mouseleave', (e) => {
+    //         const target = e.target;
+    //         target.classList.add('animation-mouseleave')
+    //         setTimeout(() => {
+    //             !target.classList.contains('animation-mouseleave') || target.classList.remove('animation-mouseleave')
+    //             target.style.transform = 'Rotate(0deg)';
+    //             target.style.boxShadow = 'none'
+    //             target.classList.add('animation-mousemove')
+    //         }, 300)
 
-        })
-    }
+    //     })
+    // }
 
     /* ==============================================
     button page scroll-top
@@ -745,16 +745,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     const Visible = function (target) {
         let targetPosition = {
-                top: window.pageYOffset + target.getBoundingClientRect().top,
-                left: window.pageXOffset + target.getBoundingClientRect().left,
-                right: window.pageXOffset + target.getBoundingClientRect().right,
-                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+                top: window.scrollY + target.getBoundingClientRect().top,
+                left: window.scrollX + target.getBoundingClientRect().left,
+                right: window.scrollX + target.getBoundingClientRect().right,
+                bottom: window.scrollY + target.getBoundingClientRect().bottom
             },
             windowPosition = {
-                top: window.pageYOffset,
-                left: window.pageXOffset,
-                right: window.pageXOffset + document.documentElement.clientWidth,
-                bottom: window.pageYOffset + document.documentElement.clientHeight
+                top: window.scrollY,
+                left: window.scrollX,
+                right: window.scrollX + document.documentElement.clientWidth,
+                bottom: window.scrollY + document.documentElement.clientHeight - 100
             };
 
         if (targetPosition.bottom > windowPosition.top &&

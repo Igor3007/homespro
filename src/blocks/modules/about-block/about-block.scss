@@ -201,7 +201,7 @@
 
 
                     z-index: 10;
-                    animation: slit-in-vertical 0.65s cubic-bezier(0.175, 0.885, 0.320, 1.275) forwards;
+                    animation: slit-in-vertical 0.65s ease forwards;
 
                     &:nth-child(1) {
                         animation-delay: 0.2s;
