@@ -262,12 +262,12 @@ input[type="date"] {
     }
 
 
-    & h4,
+
     & h5,
     & h6 {
         margin-bottom: 25px;
         line-height: 120%;
-
+        font-size: 16px;
         font-weight: 700;
     }
 
@@ -377,7 +377,7 @@ input[type="date"] {
         & li {
 
             position: relative;
-            padding-left: 30px;
+            padding-left: 36px;
             padding-bottom: 10px;
 
 
@@ -388,16 +388,15 @@ input[type="date"] {
 
             &::before {
                 content: '';
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 2px;
                 display: block;
                 position: absolute;
                 left: -0;
-                top: 0.15em;
+                top: 0.6em;
                 border-radius: 50%;
-                // background-color: #5FB3F6;
+                background-color: var(--color-borders-02);
 
-                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDBhMTAgMTAgMCAxMDAgMjAgMTAgMTAgMCAwMDAtMjB6bTAgMThhOCA4IDAgMTE4LTggOC4wMDkgOC4wMDkgMCAwMS04IDh6bS0uNjAyLTcuNDQ4TDcuMjY2IDguNDIxIDYuMDY0IDkuNjIzbDMuMzM0IDMuMzM0IDQuNzI1LTQuNzI2LTEuMjAxLTEuMjAyLTMuNTI0IDMuNTIzeiIgZmlsbD0iIzVGQjNGNiIvPjwvc3ZnPg==);
             }
         }
     }

@@ -8,14 +8,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         let element = typeof params.elem == 'string' ? document.querySelector(params.elem) : params.elem
         let headerOffset = 15;
-        let elementPosition = element.offsetTop
+        let elementPosition = element.getBoundingClientRect().top + window.scrollY
+
+        console.log(elementPosition)
+
         let offsetPosition = elementPosition - headerOffset - params.offset;
 
 
-        if (document.querySelector('header')) offsetPosition - document.querySelector('header').height
 
         window.scrollTo({
-            top: offsetPosition,
+            top: Number(offsetPosition),
             behavior: "smooth"
         });
     }
@@ -339,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         scrollTop() {
             window.scrollToTargetAdjusted({
                 elem: '.section-video-block',
-                offset: -170
+                offset: -100
             })
         }
 
@@ -793,19 +795,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
     sdsjd
     ========================================*/
 
-
-
     class ItemServices {
         constructor(el) {
             this.$el = el
             this.btnShow = this.$el.querySelectorAll('[data-services="show"]')
             this.tabs = this.$el.querySelector('[data-services="tabs"]')
             this.cont = this.$el.querySelector('[data-services="content"]')
+            this.btnClose = this.$el.querySelector('[data-services="close"]')
             this.addEvents()
         }
 
         open() {
             this.$el.classList.add('is-open')
+
+            if (document.body.clientWidth < 992) {
+                window.scrollToTargetAdjusted({
+                    elem: this.$el,
+                    offset: 50
+                })
+            }
         }
 
         close() {
@@ -850,6 +858,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             this.tabs.querySelectorAll('li').forEach((item, i) => {
                 item.addEventListener('click', e => this.changeTab(i))
+            })
+
+            //close
+
+            this.btnClose.addEventListener('click', e => {
+                e.stopPropagation()
+                this.close()
             })
         }
     }

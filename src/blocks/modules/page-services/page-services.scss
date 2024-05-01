@@ -20,17 +20,13 @@
             padding-bottom: 52px;
         }
     }
-
-
-
-
 }
 
 .item-service {
 
     @media screen and (max-width: $w992) {
         background-color: var(--color-bg-02);
-        padding: 12px;
+        padding: 16px;
     }
 
     @media screen and (min-width: $w992) {
@@ -46,7 +42,7 @@
             background-color: var(--color-bg-03);
             margin-right: -5%;
             z-index: 3;
-            transition: 0.3s ease;
+            transition: background 0.3s ease;
             cursor: pointer;
 
             &:hover {
@@ -76,7 +72,7 @@
 
         &__main {
             width: calc(64% + 10%);
-            padding: 100px 60px 100px 60px;
+            padding: 100px 30px 100px 60px;
             background-color: var(--color-bg-02);
             margin-left: -10%;
             padding-left: 18%
@@ -148,8 +144,6 @@
     &__content,
     &__tabs {
         display: none;
-
-
     }
 
     &__tabs {
@@ -168,20 +162,28 @@
             & li {
                 padding: 14px;
 
-                &.is-active {
 
-                    & span,
-                    & a {
-                        border-bottom: 2px solid #fff;
-                    }
-                }
 
                 & span,
                 & a {
-                    border-bottom: 2px solid transparent;
+
                     padding-bottom: 8px;
                     font-size: 16px;
                     cursor: pointer;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        width: 0%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-color: #fff;
+                        height: 2px;
+                        bottom: -3px;
+                        display: block;
+                        position: absolute;
+                        transition: 0.3s ease;
+                    }
 
                     &:hover {
                         color: var(--color-text-02)
@@ -196,6 +198,16 @@
                     }
                 }
 
+                &.is-active {
+
+                    & span,
+                    & a {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -203,8 +215,22 @@
     &__tab-item {
         display: none;
 
+        @keyframes tab-slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         &.is-active {
             display: block;
+            animation: tab-slide-up 0.35s ease forwards;
+
         }
     }
 
@@ -230,7 +256,6 @@
             display: inline-flex;
             align-items: center;
 
-
             &::after {
                 content: '';
                 background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA5bDQtNC00LTQiIHN0cm9rZT0iIzdFODU4RiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
@@ -244,13 +269,80 @@
                 transition: 0.3s ease;
                 transform: translateX(0.1px);
             }
-
-
-
         }
 
         @media screen and (min-width: $w992) {
             display: block;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        right: 0;
+        transition: 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(0.1deg);
+        top: 0;
+
+        @media screen and (min-width: $w992) {
+            top: auto;
+        }
+
+        & svg {
+            @media screen and (max-width: $w992) {
+                width: 20px;
+            }
+        }
+
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__dl {
+
+        align-items: center;
+        padding-bottom: 36px;
+
+        @media screen and (min-width: $w992) {
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        & .ic_dl {
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+
+            & svg {
+                @media screen and (max-width: $w992) {
+                    width: 24px;
+                }
+            }
+        }
+
+        & span {
+            @include font-h3;
+
+            @media screen and (max-width: $w992) {
+                font-size: 16px;
+            }
+        }
+
+        & svg {
+            fill: #fff;
+        }
+
+        &:hover {
+            color: var(--color-text-02);
+
+            & .ic_dl {
+                & svg {
+                    fill: var(--color-text-02);
+                }
+            }
         }
     }
 
@@ -268,11 +360,65 @@
                 display: block;
             }
 
+            &__tabs {
+
+                padding-bottom: 42px;
+
+                @media screen and (min-width: $w992) {
+                    margin-top: -60px;
+                    padding-bottom: 40px;
+                }
+            }
+
+            &__content {
+                & h3 {
+                    margin-bottom: 26px;
+                }
+
+                & h6 {
+                    margin-bottom: 30px;
+                }
+
+                & ul {
+                    & li {
+                        padding-bottom: 17.5px;
+                    }
+                }
+            }
+
 
             &__label {
-                position: sticky;
-                top: 80px;
-                z-index: 3;
+
+                align-self: flex-start;
+                position: relative;
+                transition: none;
+
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                @media screen and (min-width: $w992) {
+                    position: sticky;
+                    top: 80px;
+                    z-index: 3;
+                    margin-top: 86px;
+                    min-height: 142px;
+                }
+            }
+
+            &__dl {
+                display: flex;
+                width: 100%;
+            }
+
+            &__more {
+                display: none;
+            }
+
+            &__title {
+                @media screen and (min-width: $w992) {
+                    display: none;
+                }
             }
 
         }

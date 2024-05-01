@@ -4,8 +4,9 @@ mixin item-service(data)
             .item-service__label(data-services="show")
                 .item-service__title= data.title
                 .item-service__dl
-                    span Скачать пример
-                    +icons('#ic_dl', 33)
+                    span.ic_dl: +icons('#ic_dl', 33)
+                    a(href='#'): span Скачать пример
+                    span.item-service__close(data-services="close"): +icons('#ic_cross', 24)
                 .item-service__more
                     span Узнать подробнее
             .item-service__main
@@ -19,14 +20,14 @@ mixin item-service(data)
                         li: span Стоимость
                 .item-service__content(data-services="content")
                     
-                    .item-service__tab-item
+                    .item-service__tab-item.is-active
                         .formated-text
-                            h3 Что входит в раздел
+                            h3= data.title
                             p Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем проекте исходя из пожеланий заказчика и исходных данных и возможностей.
                     .item-service__tab-item
                         .formated-text
                             h3 Что входит в раздел
-                            h5 Раздел КЖ (конструкции железобетонные)
+                            h6 Раздел КЖ (конструкции железобетонные)
                             ul
                                 li План котлована под фундамент
                                 li Схема распределения нагрузок на фундамент
@@ -44,7 +45,7 @@ mixin item-service(data)
                                 li Узел сопряжения цокольной части здания со стеной
                                 li Спецификации на монолитные железобетонные изделия (расход арматуры и бетона)
 
-                            h5 Раздел КД (конструкции деревянные)
+                            h6 Раздел КД (конструкции деревянные)
                             ul
                                 li План стропильных ног крыши и навесов
                                 li План стоек и других элементов крыши
@@ -52,7 +53,7 @@ mixin item-service(data)
                                 li Узлы сопряжения элементов крыши
                                 li Конструктивные решения по дополнительным элементам крыши
                                 li Спецификации на элементы крыши
-                    .item-service__tab-item.is-active
+                    .item-service__tab-item
                         .formated-text
                             h3 Стоимость конструктивного раздела
                             ul
