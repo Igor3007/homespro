@@ -793,19 +793,69 @@ document.addEventListener('DOMContentLoaded', function (event) {
     sdsjd
     ========================================*/
 
-    if (document.querySelector('[data-services="show"]')) {
-        const items = document.querySelectorAll('[data-services="show"]')
 
-        items.forEach(item => {
-            item.addEventListener('click', (e) => {
-                item.closest('.item-service').classList.add('is-open')
+
+    class ItemServices {
+        constructor(el) {
+            this.$el = el
+            this.btnShow = this.$el.querySelectorAll('[data-services="show"]')
+            this.tabs = this.$el.querySelector('[data-services="tabs"]')
+            this.cont = this.$el.querySelector('[data-services="content"]')
+            this.addEvents()
+        }
+
+        open() {
+            this.$el.classList.add('is-open')
+        }
+
+        close() {
+            !this.$el.classList.contains('is-open') || this.$el.classList.remove('is-open')
+        }
+
+        changeTab(tabIndex) {
+
+            Array.from(this.cont.children).forEach((item, index) => {
+                !item.classList.contains('is-active') || item.classList.remove('is-active')
+
+                if (tabIndex == index) {
+                    item.classList.add('is-active')
+                }
             })
-        })
 
+            Array.from(this.tabs.children).forEach((item, index) => {
+                !item.classList.contains('is-active') || item.classList.remove('is-active')
+
+                if (tabIndex == index) {
+                    item.classList.add('is-active')
+                }
+            })
+
+
+        }
+
+        addEvents() {
+            this.btnShow.forEach(item => {
+                item.addEventListener('click', () => this.open())
+
+                item.addEventListener('mouseenter', () => {
+                    this.$el.classList.add('is-hover')
+                })
+
+                item.addEventListener('mouseleave', () => {
+                    !this.$el.classList.contains('is-hover') || this.$el.classList.remove('is-hover')
+                })
+            })
+
+            //tab
+
+            this.tabs.querySelectorAll('li').forEach((item, i) => {
+                item.addEventListener('click', e => this.changeTab(i))
+            })
+        }
     }
 
-
-
-
+    if (document.querySelector('.item-service')) {
+        document.querySelectorAll('.item-service').forEach(item => new ItemServices(item))
+    }
 
 });

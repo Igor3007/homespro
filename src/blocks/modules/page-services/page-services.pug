@@ -1,7 +1,7 @@
 mixin item-service(data)
     .item-service
         .item-service__wrp
-            .item-service__label
+            .item-service__label(data-services="show")
                 .item-service__title= data.title
                 .item-service__dl
                     span Скачать пример
@@ -10,19 +10,15 @@ mixin item-service(data)
                     span Узнать подробнее
             .item-service__main
                 .item-service__preview Это разработка общей концепции, предварительный набросок внешнего вида и планировок будущего дома. Во время работы над эскизным проектам становится понятно, какие будут приниматься решения в рабочем проекте исходя из пожеланий заказчика и исходных данных и возможностей.
+                .item-service__hover
+                    span Подробнее об услуге
                 .item-service__tabs
-                    ul
-                        li: span О проекте
+                    ul(data-services="tabs")
+                        li.is-active: span О проекте
                         li: span Что входит
                         li: span Стоимость
-                .item-service__content
-                    .item-service__tab-item
-                        .formated-text
-                            h3 Стоимость конструктивного раздела
-                            ul
-                                li До 90 м2 – <strong>2000 руб/м2</strong>
-                                li От 90 до 200 м2 – <strong>1500 руб/м2</strong>
-                                li От 200 м2 – <strong>1300 руб/м2</strong>
+                .item-service__content(data-services="content")
+                    
                     .item-service__tab-item
                         .formated-text
                             h3 Что входит в раздел
@@ -56,6 +52,13 @@ mixin item-service(data)
                                 li Узлы сопряжения элементов крыши
                                 li Конструктивные решения по дополнительным элементам крыши
                                 li Спецификации на элементы крыши
+                    .item-service__tab-item.is-active
+                        .formated-text
+                            h3 Стоимость конструктивного раздела
+                            ul
+                                li До 90 м2 – <strong>2000 руб/м2</strong>
+                                li От 90 до 200 м2 – <strong>1500 руб/м2</strong>
+                                li От 200 м2 – <strong>1300 руб/м2</strong>
             .item-service__show-all
                 button.btn.btn-white(data-services="show") Узнать подробнее
 

@@ -24,11 +24,17 @@
     padding-top: 8px;
 
     @media screen and (min-width: $w576) {
-        padding-top: 40px;
+        padding-top: 36px;
     }
 
     &__breadcrumb {
-        padding-bottom: 30px
+        padding-bottom: 30px;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 10px;
+        }
+
+
     }
 
     &__title {

@@ -4620,6 +4620,10 @@ header {
   width: 100%;
 }
 
+.section-page-services {
+  overflow: visible;
+}
+
 .page-services {
   padding: 16px 0;
 }
@@ -4628,9 +4632,28 @@ header {
   padding: 12px 0;
 }
 
-.item-service {
-  padding: 12px;
-  background-color: var(--color-bg-02);
+.item-service__main {
+  position: relative;
+}
+
+.item-service__hover {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-left: 18%;
+}
+
+.item-service__hover span {
+  font-size: 24px;
+  font-family: Roboto Condensed;
+  font-weight: 700;
+  line-height: 123%;
+  transform: translateX(60px);
 }
 
 .item-service__title {
@@ -4639,6 +4662,12 @@ header {
   font-weight: 700;
   line-height: 123%;
   padding-bottom: 12px;
+}
+
+.item-service__preview {
+  font-size: 18px;
+  line-height: 160%;
+  transition: 0.5s ease;
 }
 
 .item-service__dl {
@@ -4650,7 +4679,10 @@ header {
   display: none;
 }
 
-.item-service__content ul,
+.item-service__tabs {
+  padding-bottom: 24px;
+}
+
 .item-service__tabs ul {
   display: flex;
   align-items: center;
@@ -4661,29 +4693,34 @@ header {
   scrollbar-width: none !important;
 }
 
-.item-service__content ul li,
 .item-service__tabs ul li {
   padding: 14px;
 }
 
-.item-service__content ul li.is-active span,
-.item-service__content ul li.is-active a,
 .item-service__tabs ul li.is-active span,
 .item-service__tabs ul li.is-active a {
   border-bottom: 2px solid #fff;
 }
 
-.item-service__content ul li span,
-.item-service__content ul li a,
 .item-service__tabs ul li span,
 .item-service__tabs ul li a {
   border-bottom: 2px solid transparent;
   padding-bottom: 8px;
   font-size: 16px;
+  cursor: pointer;
+}
+
+.item-service__tabs ul li span:hover,
+.item-service__tabs ul li a:hover {
+  color: var(--color-text-02);
 }
 
 .item-service__tab-item {
   display: none;
+}
+
+.item-service__tab-item.is-active {
+  display: block;
 }
 
 .item-service__show-all {
@@ -4692,11 +4729,32 @@ header {
 
 .item-service__more {
   display: none;
+  color: var(--color-text-03);
 }
 
+.item-service__more span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item-service__more span::after {
+  content: '';
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA5bDQtNC00LTQiIHN0cm9rZT0iIzdFODU4RiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 6px;
+  margin-top: 2px;
+  transition: 0.3s ease;
+  transform: translateX(0.1px);
+}
+
+.item-service.is-open .item-service__hover,
 .item-service.is-open .item-service__preview,
 .item-service.is-open .item-service__show-all {
-  display: none;
+  display: none !important;
 }
 
 .item-service.is-open .item-service__content,
@@ -4704,13 +4762,10 @@ header {
   display: block;
 }
 
-.item-service.is-open .item-service__content ul,
-.item-service.is-open .item-service__tabs ul {
-  display: flex;
-}
-
-.item-service.is-open .item-service__tab-item {
-  display: block;
+.item-service.is-open .item-service__label {
+  position: sticky;
+  top: 80px;
+  z-index: 3;
 }
 
 /* common styles */
@@ -4849,6 +4904,10 @@ header {
     font-size: 20px;
   }
 
+  .item-service__hover span {
+    font-size: 26px;
+  }
+
   .item-service__title {
     font-size: 26px;
   }
@@ -4927,7 +4986,7 @@ header {
   }
 
   .page {
-    padding-top: 40px;
+    padding-top: 36px;
   }
 }
 
@@ -5376,8 +5435,69 @@ header {
     padding-bottom: 64px;
   }
 
-  .item-service__content ul li span,
-  .item-service__content ul li a,
+  .page-services {
+    padding-top: 40px;
+  }
+
+  .item-service__wrp {
+    display: flex;
+    align-items: center;
+  }
+
+  .item-service__label {
+    width: calc(36% + 5%);
+    padding: 30px 30px;
+    background-color: var(--color-bg-03);
+    margin-right: -5%;
+    z-index: 3;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  .item-service__label:hover {
+    background-color: var(--color-borders-01);
+  }
+
+  .item-service__label:hover .item-service__more {
+    color: var(--color-text-02);
+  }
+
+  .item-service__label:hover .item-service__more span::after {
+    transform: translateX(4px);
+    filter: brightness(1.4);
+  }
+
+  .item-service__label:hover .item-service__preview {
+    opacity: 0;
+  }
+
+  .item-service__main {
+    width: calc(64% + 10%);
+    padding: 100px 60px 100px 60px;
+    background-color: var(--color-bg-02);
+    margin-left: -10%;
+    padding-left: 18%;
+  }
+
+  .item-service.is-hover .item-service__preview {
+    opacity: 0;
+    transition: 0.1s ease;
+  }
+
+  .item-service.is-hover .item-service__hover {
+    display: flex;
+    visibility: visible;
+  }
+
+  .item-service.is-hover .item-service__hover span {
+    transform: translateX(0);
+    transition: 0.3s ease;
+  }
+
+  .item-service__title {
+    padding-bottom: 14px;
+  }
+
   .item-service__tabs ul li span,
   .item-service__tabs ul li a {
     padding-bottom: 5px;
@@ -5655,6 +5775,10 @@ header {
     font-size: 30px;
   }
 
+  .item-service__hover span {
+    font-size: 30px;
+  }
+
   .item-service__title {
     font-size: 30px;
   }
@@ -5689,6 +5813,10 @@ header {
 
   .about-block__text h3 {
     margin-bottom: 30px;
+  }
+
+  .page-services__item {
+    padding-bottom: 52px;
   }
 }
 
@@ -5922,15 +6050,25 @@ header {
     height: 58px;
   }
 
+  .page-services {
+    padding-top: 55px;
+  }
+
+  .item-service__hover span {
+    font-size: 36px;
+  }
+
   .item-service__title {
     font-size: 36px;
   }
 
-  .item-service__content ul li span,
-  .item-service__content ul li a,
   .item-service__tabs ul li span,
   .item-service__tabs ul li a {
     font-size: 18px;
+  }
+
+  .page__breadcrumb {
+    padding-bottom: 10px;
   }
 
   .page__title h1 {
@@ -5942,6 +6080,11 @@ header {
   .section-main-block .container {
     position: relative;
     z-index: 3;
+  }
+
+  .item-service {
+    background-color: var(--color-bg-02);
+    padding: 12px;
   }
 }
 
