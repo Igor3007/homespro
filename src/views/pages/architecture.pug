@@ -1,6 +1,7 @@
 extends ../layouts/main
 
 include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/page-portfolio/page-portfolio
  
 block variables
   include ../../data/data.pug
@@ -9,7 +10,7 @@ block variables
 
 block main
    
-  .page
+  section.page
     .container
       .page__breadcrumb
         +breadcrumb([
@@ -19,7 +20,8 @@ block main
         ])
       .page__title: h1 Архитектура
       .page__desc Индивидуальные архитектурные проекты на любой самый изысканный вкус.
- 
+
+  +page-portfolio 
  
 block scripts
   script(src="/js/vendor.js") 

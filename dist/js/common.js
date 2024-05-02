@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', function (event) {
 
+
+    /* =================================================
+    css variable
+    =================================================*/
+
+    function css_variable() {
+        let vh = window.innerHeight * 0.01;
+        let hgtheader = document.querySelector('header') ? document.querySelector('header').clientHeight : 64
+
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+        document.documentElement.style.setProperty('--hgt-header', hgtheader + 'px');
+    }
+
+    window.addEventListener('load', css_variable)
+    window.addEventListener('resize', css_variable)
+
     /* =================================================
     smooth scroll
     ================================================= */
@@ -872,5 +888,46 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.item-service')) {
         document.querySelectorAll('.item-service').forEach(item => new ItemServices(item))
     }
+
+    /* =========================================
+    filter
+    =========================================*/
+
+    class Filter {
+        constructor(el) {
+            this.$el = el
+            this.btnOpen = null;
+            this.init()
+        }
+
+        init() {
+            document.querySelector('.float-bar').prepend(this.getButtonOpenFilter())
+        }
+
+        getButtonOpenFilter() {
+            this.btnOpen = document.createElement('div')
+            this.btnOpen.classList.add('float-bar__filter')
+            this.btnOpen.innerHTML = '<span>Фильтр</span>'
+            this.btnOpen.addEventListener('click', e => this.toggle())
+
+            return this.btnOpen
+        }
+
+        toggle() {
+            this.$el.classList.contains('is-open') ? this.close() : this.open()
+        }
+
+        open() {
+            this.$el.classList.add('is-open')
+            this.btnOpen.classList.add('is-open')
+        }
+
+        close() {
+            !this.$el.classList.contains('is-open') || this.$el.classList.remove('is-open');
+            !this.btnOpen.classList.contains('is-open') || this.btnOpen.classList.remove('is-open');
+        }
+    }
+
+    if (document.querySelector('[data-portfolio="filter"]')) new Filter(document.querySelector('[data-portfolio="filter"]'))
 
 });

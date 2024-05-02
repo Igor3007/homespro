@@ -272,7 +272,7 @@
     display: flex;
     position: fixed;
     bottom: 0;
-    background-color: #333;
+
     left: 0;
     right: 0;
     cursor: pointer;
@@ -284,9 +284,7 @@
         transform: translateX(0);
     }
 
-    &:hover {
-        background-color: #222;
-    }
+
 
     @media screen and (min-width: $w760) {
         flex-direction: column;
@@ -336,6 +334,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        background-color: #333;
+
+        &:hover {
+            background-color: #222;
+        }
 
         @media screen and (min-width: $w760) {
             min-width: 100%;

@@ -1,0 +1,72 @@
+mixin prop-checkbox(data)
+    .prop-checkbox
+        .prop-checkbox__label= data.label
+        .prop-checkbox__list
+            each item in data.list
+                .prop-checkbox__item
+                    label
+                        input(type="checkbox" value=item)
+                        span=item
+
+mixin card-portfolio(data)
+    .card-portfolio            
+        .card-portfolio__image: a(href='/project-details.html'): +picture(data.image)       
+        .card-portfolio__main
+            .card-portfolio__title
+                a(href='/project-details.html')=data.title
+            .card-portfolio__prop
+                .portfolio-prop
+                    .portfolio-prop__label Общая площадь:
+                    .portfolio-prop__value 375 м2
+                .portfolio-prop
+                    .portfolio-prop__label Архитектор(ы):
+                    .portfolio-prop__value
+                        each arch in data.by
+                            a(href='#')= arch
+            .card-portfolio__details
+                a(href='/project-details.html'): button.btn Смотреть проект
+             
+
+mixin page-portfolio
+
+
+    section.section-page-portfolio
+        .container
+            .page-portfolio
+                .page-portfolio__filter(data-portfolio="filter")
+                    .page-portfolio__overlay
+                        .page-portfolio__wrp
+                            .page-portfolio__row
+                                .page-portfolio__col: +prop-checkbox({
+                                    label: 'Площадь:',
+                                    list: [
+                                        'До 100 м2',
+                                        '100 – 150 м2',
+                                        '150 – 200 м2',
+                                        '200 – 300 м2',
+                                        'От 300 м2',
+                                    ]
+                                })
+                                .page-portfolio__col: +prop-checkbox({
+                                    label: 'Этажность:',
+                                    list: [
+                                        '1 этаж',
+                                        '2 этажа',
+                                        '3 этажа',
+                                    ]
+                                })
+                                .page-portfolio__col: +prop-checkbox({
+                                    label: 'Крыша:',
+                                    list: [
+                                        'Плоская',
+                                        'Скатная',
+                                    ]
+                                })
+
+                                .page-portfolio__col
+                                    .filter-result
+                                        .filter-result__label Найдено:
+                                        .filter-result__value 36 проектов
+                .page-portfolio__list
+                    each item in portfolio
+                        .page-portfolio__item: +card-portfolio(item)
