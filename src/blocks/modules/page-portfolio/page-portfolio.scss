@@ -103,6 +103,33 @@
     height: 100%;
 
     &__image {
+
+        position: relative;
+
+        & a {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include font-h2;
+            opacity: 0;
+            transition: 0.3s ease;
+
+
+        }
+
+        &:hover {
+            & a {
+                opacity: 1
+            }
+        }
+
         & picture {
             @include picture(58.5%, cover);
         }
@@ -111,6 +138,14 @@
     &__title {
         @include font-h3;
         padding-bottom: 12px;
+
+        & a {
+            &:hover {
+                color: var(--color-text-03);
+            }
+        }
+
+
 
         @media screen and (min-width: $w1440) {
             padding-bottom: 24px;
@@ -234,6 +269,12 @@
 
     &__value {
         @include font-h4;
+
+        & a {
+            &:hover {
+                color: var(--color-text-03);
+            }
+        }
     }
 
     &:last-child {

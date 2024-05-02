@@ -10,7 +10,9 @@ mixin prop-checkbox(data)
 
 mixin card-portfolio(data)
     .card-portfolio            
-        .card-portfolio__image: a(href='/project-details.html'): +picture(data.image)       
+        .card-portfolio__image
+            +picture(data.image)
+            a(href='/project-details.html') Смотреть проект
         .card-portfolio__main
             .card-portfolio__title
                 a(href='/project-details.html')=data.title

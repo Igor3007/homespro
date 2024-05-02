@@ -4918,6 +4918,33 @@ header {
   height: 100%;
 }
 
+.card-portfolio__image {
+  position: relative;
+}
+
+.card-portfolio__image a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-family: Roboto Condensed;
+  font-weight: 700;
+  line-height: 123%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.card-portfolio__image:hover a {
+  opacity: 1;
+}
+
 .card-portfolio__image picture {
   position: relative;
   display: block;
@@ -4939,6 +4966,10 @@ header {
   font-weight: 700;
   line-height: 123%;
   padding-bottom: 12px;
+}
+
+.card-portfolio__title a:hover {
+  color: var(--color-text-03);
 }
 
 .card-portfolio__main {
@@ -5025,6 +5056,10 @@ header {
   font-family: Roboto Condensed;
   font-weight: 700;
   line-height: 122%;
+}
+
+.portfolio-prop__value a:hover {
+  color: var(--color-text-03);
 }
 
 .portfolio-prop:last-child {
@@ -5210,6 +5245,10 @@ header {
 
   .item-service__dl span {
     font-size: 26px;
+  }
+
+  .card-portfolio__image a {
+    font-size: 32px;
   }
 
   .card-portfolio__title {
@@ -6170,6 +6209,10 @@ header {
     font-size: 30px;
   }
 
+  .card-portfolio__image a {
+    font-size: 40px;
+  }
+
   .card-portfolio__title {
     font-size: 30px;
   }
@@ -6460,6 +6503,10 @@ header {
 
   .item-service__dl span {
     font-size: 36px;
+  }
+
+  .card-portfolio__image a {
+    font-size: 44px;
   }
 
   .card-portfolio__title {
