@@ -94,6 +94,10 @@
             width: 50%;
         }
     }
+
+    &__nav {
+        padding-top: 40px;
+    }
 }
 
 .card-portfolio {
@@ -186,6 +190,10 @@
 
         & .btn {
             width: 100%;
+
+            &:hover {
+                background-color: #3d3d3d;
+            }
         }
     }
 }
@@ -215,6 +223,7 @@
             font-size: 16px;
             font-weight: 500;
             transition: 0.3s ease;
+            color: var(--color-text-03);
 
             &:hover {
                 background-color: var(--color-bg-03);
@@ -228,6 +237,7 @@
             &:checked {
                 &~span {
                     background-color: var(--color-bg-03);
+                    color: #fff;
                 }
             }
 

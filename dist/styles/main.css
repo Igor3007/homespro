@@ -2804,6 +2804,101 @@ template {
   animation: fadeOutTopStatus 0.3s ease forwards;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pagination__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.pagination__page ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.pagination__page ul li {
+  margin: 0 2px;
+}
+
+.pagination__page ul li span,
+.pagination__page ul li a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-03);
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--color-bg-02);
+}
+
+.pagination__page ul li span svg,
+.pagination__page ul li a svg {
+  fill: var(--color-text-03);
+  min-width: 24px;
+  height: 24px;
+}
+
+.pagination__page ul li span:hover,
+.pagination__page ul li a:hover {
+  color: #fff;
+  background-color: var(--color-bg-03);
+}
+
+.pagination__page ul li span:hover svg,
+.pagination__page ul li a:hover svg {
+  fill: #fff;
+}
+
+.pagination__page ul li span {
+  pointer-events: none;
+}
+
+.pagination__page ul li.active a {
+  background-color: var(--color-bg-03);
+  color: #fff;
+}
+
+.pagination__page ul li.active a svg {
+  fill: #fff;
+}
+
+.pagination__page ul li.next span,
+.pagination__page ul li.prev span {
+  background-color: transparent;
+}
+
+.pagination__more .btn svg {
+  fill: var(--blue-dark);
+  margin-left: 0.5em;
+  margin-right: -0.5em;
+}
+
+.pagination__more .btn:hover svg {
+  fill: var(--blue-medium);
+}
+
+.pagination--showmore .pagination__page {
+  width: auto;
+}
+
+.pagination__total {
+  color: var(--color-text-03);
+  white-space: nowrap;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 header {
   height: 65px;
 }
@@ -4724,6 +4819,11 @@ header {
   color: var(--color-text-02);
 }
 
+.item-service__tabs ul li span:hover::before,
+.item-service__tabs ul li a:hover::before {
+  width: 100%;
+}
+
 .item-service__tabs ul li.is-active span::before,
 .item-service__tabs ul li.is-active a::before {
   width: 100%;
@@ -4815,7 +4915,7 @@ header {
   fill: #fff;
 }
 
-.item-service__dl:hover {
+.item-service__dl a:hover {
   color: var(--color-text-02);
 }
 
@@ -4912,6 +5012,10 @@ header {
   padding: 8px;
 }
 
+.page-portfolio__nav {
+  padding-top: 40px;
+}
+
 .card-portfolio {
   display: flex;
   flex-direction: column;
@@ -4992,6 +5096,10 @@ header {
   width: 100%;
 }
 
+.card-portfolio__details .btn:hover {
+  background-color: #3d3d3d;
+}
+
 .prop-checkbox__label {
   color: var(--color-text-03);
   font-size: 16px;
@@ -5015,6 +5123,7 @@ header {
   font-size: 16px;
   font-weight: 500;
   transition: 0.3s ease;
+  color: var(--color-text-03);
 }
 
 .prop-checkbox__item span:hover {
@@ -5028,6 +5137,7 @@ header {
 
 .prop-checkbox__item input:checked ~ span {
   background-color: var(--color-bg-03);
+  color: #fff;
 }
 
 .filter-result__label {
@@ -5295,6 +5405,10 @@ header {
     margin-top: -25px;
   }
 
+  .pagination__page {
+    justify-content: flex-start;
+  }
+
   .main-block__image svg {
     margin-left: -20%;
     width: calc(100% + 20%);
@@ -5552,6 +5666,12 @@ header {
 
   .toggle {
     font-size: 14px;
+  }
+
+  .pagination__page ul li span,
+  .pagination__page ul li a {
+    width: 48px;
+    height: 40px;
   }
 
   .header__burger {
@@ -5882,6 +6002,10 @@ header {
     z-index: 3;
     margin-top: 86px;
     min-height: 142px;
+  }
+
+  .item-service.is-open .item-service__label:hover {
+    background-color: var(--color-bg-03);
   }
 
   .item-service.is-open .item-service__title {
@@ -6531,6 +6655,10 @@ header {
 }
 
 @media screen and (max-width: 992.98px) {
+  .footer-bottom {
+    padding-bottom: 78px;
+  }
+
   .section-main-block .container {
     position: relative;
     z-index: 3;
@@ -6631,6 +6759,11 @@ header {
 }
 
 @media screen and (max-width: 576px) {
+  .pagination__page ul li.next a:not(:hover),
+  .pagination__page ul li.prev a:not(:hover) {
+    background-color: transparent;
+  }
+
   .section-projects-block {
     padding-bottom: 16px;
   }
@@ -6654,6 +6787,19 @@ header {
 
   .af-popup__close {
     right: 10px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .pagination__more {
+    padding-bottom: 24px;
+  }
+
+  .pagination__more .btn {
+    width: 100%;
   }
 
   .main-menu__bottom .main-menu-link__a a {

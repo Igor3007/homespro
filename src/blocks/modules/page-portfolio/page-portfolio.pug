@@ -1,3 +1,5 @@
+include ../../components/pagination/pagination.pug
+
 mixin prop-checkbox(data)
     .prop-checkbox
         .prop-checkbox__label= data.label
@@ -28,10 +30,7 @@ mixin card-portfolio(data)
             .card-portfolio__details
                 a(href='/project-details.html'): button.btn Смотреть проект
              
-
 mixin page-portfolio
-
-
     section.section-page-portfolio
         .container
             .page-portfolio
@@ -72,3 +71,5 @@ mixin page-portfolio
                 .page-portfolio__list
                     each item in portfolio
                         .page-portfolio__item: +card-portfolio(item)
+                .page-portfolio__nav
+                    +pagination()

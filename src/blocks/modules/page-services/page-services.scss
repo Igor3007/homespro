@@ -186,7 +186,11 @@
                     }
 
                     &:hover {
-                        color: var(--color-text-02)
+                        color: var(--color-text-02);
+
+                        &::before {
+                            width: 100%;
+                        }
                     }
 
                     @media screen and (min-width: $w992) {
@@ -335,8 +339,14 @@
             fill: #fff;
         }
 
+        & a {
+            &:hover {
+                color: var(--color-text-02);
+            }
+        }
+
         &:hover {
-            color: var(--color-text-02);
+
 
             & .ic_dl {
                 & svg {
@@ -403,6 +413,10 @@
                     z-index: 3;
                     margin-top: 86px;
                     min-height: 142px;
+
+                    &:hover {
+                        background-color: var(--color-bg-03);
+                    }
                 }
             }
 

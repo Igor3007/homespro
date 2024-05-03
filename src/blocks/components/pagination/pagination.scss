@@ -5,7 +5,7 @@
 
      @media screen and (max-width: $w480) {
          flex-wrap: wrap;
-         flex-direction: column;
+         flex-direction: column-reverse;
      }
 
      &__page {
@@ -14,6 +14,11 @@
          align-items: center;
          justify-content: center;
          width: 100%;
+         padding: 24px 0;
+
+         @media screen and (min-width: $w576) {
+             justify-content: flex-start;
+         }
 
          & ul {
              display: flex;
@@ -28,47 +33,59 @@
                      width: rem(36);
                      height: rem(36);
                      display: flex;
-                     border-radius: 8px;
                      align-items: center;
                      justify-content: center;
-                     color: $black;
+                     color: var(--color-text-03);
+                     font-size: 16px;
                      font-weight: 500;
+                     background-color: var(--color-bg-02);
 
                      @media screen and (min-width: $w992) {
                          width: rem(48);
-                         height: rem(48);
+                         height: rem(40);
                      }
 
                      & svg {
-                         fill: var(--blue);
-                         min-width: 48px;
-                         height: 48px;
+                         fill: var(--color-text-03);
+                         min-width: 24px;
+                         height: 24px;
                      }
 
                      &:hover {
 
-                         color: $accent-2-1;
-                         background-color: var(--bg-01);
+                         color: #fff;
+                         background-color: var(--color-bg-03);
 
                          & svg {
-                             fill: $accent-2-1;
+                             fill: #fff;
                          }
                      }
                  }
 
                  & span {
-                     & svg {
-                         fill: var(--blue);
-                     }
+                     pointer-events: none;
                  }
 
                  &.active a {
-                     background-color: $accent-2-1;
+                     background-color: var(--color-bg-03);
                      color: #fff;
 
                      & svg {
                          fill: #fff;
 
+                     }
+                 }
+
+                 &.next,
+                 &.prev {
+                     & span {
+                         background-color: transparent;
+                     }
+
+                     & a:not(:hover) {
+                         @media screen and (max-width: $w576) {
+                             background-color: transparent;
+                         }
                      }
                  }
 
@@ -111,5 +128,15 @@
                  width: auto;
              }
          }
+     }
+
+     &__total {
+         color: var(--color-text-03);
+         white-space: nowrap;
+
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: center;
      }
  }
