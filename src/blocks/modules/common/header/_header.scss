@@ -104,7 +104,7 @@ header {
                 opacity: 0;
 
                 &:hover {
-                    border-left: 3px solid #fff;
+                    border-left: 2px solid #fff;
                     background-color: var(--color-bg-01);
                 }
 
@@ -126,8 +126,8 @@ header {
             &>li {
                 padding: 0 12px;
 
-                border-left: 3px solid transparent;
-                border-right: 3px solid transparent;
+                border-left: 2px solid transparent;
+                border-right: 2px solid transparent;
                 position: relative;
 
                 @media screen and (min-width: $w1440) {
@@ -150,7 +150,7 @@ header {
                 }
 
                 &:hover {
-                    border-left: 3px solid #fff;
+                    border-left: 2px solid #fff;
                     background-color: var(--color-bg-01);
 
                     & .sub-menu {

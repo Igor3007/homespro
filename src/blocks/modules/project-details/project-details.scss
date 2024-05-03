@@ -32,7 +32,9 @@
     }
 
     &__images {
-        margin: 0 -16px
+        @media screen and (max-width: $w480) {
+            margin: 0 -16px
+        }
     }
 
     &__gallery {

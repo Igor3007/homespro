@@ -301,8 +301,27 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
-    if (document.querySelector('[data-marquee]')) {
-        document.querySelectorAll('[data-marquee="container"]').forEach(item => new Marquee(item))
+    // if (document.querySelector('[data-marquee]')) {
+    //     document.querySelectorAll('[data-marquee="container"]').forEach(item => new Marquee(item))
+    // }
+
+    if (document.querySelector('.about-block__slider')) {
+
+        window.addEventListener('scroll', e => {
+            if (document.documentElement.scrollTop > 100) {
+                document.querySelector('.about-block__slider').scrollTo({
+                    left: 100,
+                    behavior: 'smooth'
+                })
+            } else {
+                document.querySelector('.about-block__slider').scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                })
+            }
+        })
+
+
     }
 
     /* ==============================================

@@ -157,7 +157,7 @@
 .main-block__image path {
     stroke-dasharray: 3500;
     stroke-dashoffset: 3500;
-    animation: dash 2s cubic-bezier(.95, .37, .57, 1.26)forwards;
+    animation: dash 4s cubic-bezier(.95, .37, .57, 1.26)forwards;
 }
 
 @keyframes dash {

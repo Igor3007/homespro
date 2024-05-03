@@ -126,6 +126,14 @@
 
         padding-bottom: 12px;
 
+        &--services {
+            display: none;
+
+            @media screen and (min-width: $w992) {
+                display: block;
+            }
+        }
+
         @media screen and (min-width: $w1440) {
             padding-bottom: 36px;
         }

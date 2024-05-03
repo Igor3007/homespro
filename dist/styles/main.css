@@ -2972,7 +2972,7 @@ header {
 }
 
 .header__menu .sub-menu > li:hover {
-  border-left: 3px solid #fff;
+  border-left: 2px solid #fff;
   background-color: var(--color-bg-01);
 }
 
@@ -2988,8 +2988,8 @@ header {
 
 .header__menu > ul > li {
   padding: 0 12px;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
   position: relative;
 }
 
@@ -3003,7 +3003,7 @@ header {
 }
 
 .header__menu > ul > li:hover {
-  border-left: 3px solid #fff;
+  border-left: 2px solid #fff;
   background-color: var(--color-bg-01);
 }
 
@@ -3403,6 +3403,10 @@ header {
   padding-bottom: 12px;
 }
 
+.main-menu__menu--services {
+  display: none;
+}
+
 .main-menu__menu ul li {
   padding: 10px 0;
   transition: 0.3s ease;
@@ -3559,7 +3563,7 @@ header {
 .main-block__image path {
   stroke-dasharray: 3500;
   stroke-dashoffset: 3500;
-  animation: dash 2s cubic-bezier(0.95, 0.37, 0.57, 1.26) forwards;
+  animation: dash 4s cubic-bezier(0.95, 0.37, 0.57, 1.26) forwards;
 }
 
 @keyframes dash {
@@ -5213,10 +5217,6 @@ header {
   margin-top: 16px;
 }
 
-.project-details__images {
-  margin: 0 -16px;
-}
-
 .project-details__gallery picture {
   position: relative;
   display: block;
@@ -6174,6 +6174,10 @@ header {
   }
 
   .main-menu__call {
+    display: block;
+  }
+
+  .main-menu__menu--services {
     display: block;
   }
 
@@ -7385,6 +7389,10 @@ header {
 
   .portfolio-prop__value {
     font-size: 20px !important;
+  }
+
+  .project-details__images {
+    margin: 0 -16px;
   }
 
   .question-form__form .form__item--submit .form__subitem {
