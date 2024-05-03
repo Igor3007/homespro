@@ -1,0 +1,93 @@
+.section-question-form {
+    padding: 65px 0;
+    background-color: var(--color-bg-02);
+}
+
+.question-form {
+    &__title {
+
+        padding-bottom: 12px;
+
+        & h2 {
+            @include font-h1;
+        }
+    }
+
+    &__desc {
+        color: var(--color-text-02);
+        padding-bottom: 30px;
+    }
+
+    &__form {
+        & .form {
+
+            &__item {
+                margin: 0;
+                margin-top: -1px;
+
+                &--submit {
+                    padding-top: 22px;
+
+                    @media screen and (min-width: $w480) {
+                        padding-top: 30px;
+                    }
+
+                    & .form {
+                        &__subitem {
+                            flex-grow: 0;
+                            width: auto;
+
+                            @media screen and (max-width: $w480) {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    & .btn {
+                        width: 100%;
+                    }
+
+                }
+            }
+
+            &__subitem {
+                padding: 0;
+                margin-left: -1px;
+            }
+
+            & textarea,
+            & input {
+                &:focus {
+                    z-index: 5;
+                }
+
+                &[required] {
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0zLjMgOGwuMTE2LTMuMDU2LTIuNzE1IDEuNjRMMCA1LjQxNiAyLjg2MSA0IDAgMi41ODNsLjctMS4xNjYgMi43MTYgMS42MzlMMy4zIDBoMS40MDJsLS4xMTcgMy4wNTZMNy4zIDEuNDE2IDggMi41ODQgNS4xMzkgNCA4IDUuNDE3bC0uNyAxLjE2Ni0yLjcxNi0xLjYzOUw0LjcgOEgzLjI5OXoiIGZpbGw9IiM3RTg1OEYiLz48L3N2Zz4=);
+                    background-position: calc(100% - 15px) 22px;
+                    background-repeat: no-repeat;
+                    padding-right: 36px;
+                }
+            }
+        }
+
+        & .checkbox {
+            margin-left: 16px;
+
+            @media screen and (min-width: $w576) {
+                margin-left: 32px;
+            }
+
+            &__text {
+                color: var(--color-text-02);
+                font-size: 15px;
+
+                & a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+}

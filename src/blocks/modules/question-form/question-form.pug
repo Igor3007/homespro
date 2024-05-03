@@ -1,0 +1,20 @@
+mixin question-form 
+    section.section-question-form
+        .container
+            .question-form
+                .question-form__title: h2 Есть вопросы?
+                .question-form__desc Пишите, мы ответим в самое ближайшее время!
+                .question-form__form
+                    .form
+                        .form__item
+                            .form__subitem: input(type="text" placeholder="Ваше имя")
+                            .form__subitem: input(type="tel" placeholder="Номер телефона")
+                            .form__subitem: input(type="email" placeholder="Email" required)
+                        .form__item
+                            .form__subitem
+                                textarea(placeholder="Текст вопроса" required)
+                        .form__item.form__item--submit
+                            .form__subitem
+                                button.btn(type="submit") Отправить
+                            .form__subitem
+                                +checkbox('Нажимая на кнопку «Отправить», вы соглашаетесь с нашей <a href="policy.html" >политикой использования персональных данных</a>')

@@ -23,8 +23,20 @@
 .page {
     padding-top: 8px;
 
+
+
     @media screen and (min-width: $w576) {
         padding-top: 36px;
+    }
+
+    &--details {
+        @media screen and (min-width: $w1440) {
+            & .page {
+                &__breadcrumb {
+                    padding-bottom: 36px;
+                }
+            }
+        }
     }
 
     &__breadcrumb {

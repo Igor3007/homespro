@@ -1,0 +1,18 @@
+mixin project-slider 
+    section.section-project-slider
+        .container
+            .project-slider
+                .project-slider__title: h2 Другие проекты
+                .project-slider__slider
+                    .splide(data-slider="other")
+                        .splide__track
+                            .splide__list
+                                each item in [10,11,10,11]
+                                    .splide__slide
+                                        .other-project
+                                            +picture('/img/slider/asl_' + item)
+                                            if item == 10
+                                                a(href='#') Все архитектурные проекты
+                                            if item == 11
+                                                a(href='#') Раздел «Дизайн интерьеров»
+

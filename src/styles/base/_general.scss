@@ -377,8 +377,12 @@ input[type="date"] {
         & li {
 
             position: relative;
-            padding-left: 36px;
+            padding-left: 28px;
             padding-bottom: 10px;
+
+            @media screen and (min-width: $w576) {
+                padding-left: 36px;
+            }
 
 
 
@@ -388,14 +392,18 @@ input[type="date"] {
 
             &::before {
                 content: '';
-                width: 30px;
+                width: 20px;
                 height: 2px;
                 display: block;
                 position: absolute;
                 left: -0;
                 top: 0.6em;
-                border-radius: 50%;
+
                 background-color: var(--color-borders-02);
+
+                @media screen and (min-width: $w576) {
+                    width: 30px;
+                }
 
             }
         }

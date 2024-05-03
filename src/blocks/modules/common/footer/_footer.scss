@@ -1,6 +1,7 @@
 .footer {
     background-color: var(--color-bg-01);
     padding: 24px 0;
+    border-top: 1px solid var(--color-bg-03);
 
     @media screen and (min-width: $w1440) {
         padding: 92px 0 34px;

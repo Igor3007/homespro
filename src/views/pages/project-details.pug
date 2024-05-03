@@ -1,0 +1,33 @@
+extends ../layouts/main
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/project-details/project-details.pug
+include ../../blocks/modules/project-slider/project-slider.pug
+include ../../blocks/modules/question-form/question-form.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Homespro - Curved Tube"
+ 
+
+block main
+   
+  section.page.page--details
+    .container
+      .page__breadcrumb
+        +breadcrumb([
+          'Главная',
+          'Портфолио',
+          'Архитектура',
+          'Curved Tube',
+        ])
+      .page__title: h1 Curved Tube
+
+  +project-details
+  +project-slider
+  +question-form
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  

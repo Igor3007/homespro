@@ -143,6 +143,8 @@
         @include font-h3;
         padding-bottom: 12px;
 
+
+
         & a {
             &:hover {
                 color: var(--color-text-03);
@@ -279,6 +281,10 @@
 
     &__value {
         @include font-h4;
+
+        @media screen and (max-width: $w480) {
+            font-size: 20px !important;
+        }
 
         & a {
             &:hover {

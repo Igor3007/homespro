@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     /* =========================================
-    filter
+    filter projects list
     =========================================*/
 
     class Filter {
@@ -929,5 +929,114 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     if (document.querySelector('[data-portfolio="filter"]')) new Filter(document.querySelector('[data-portfolio="filter"]'))
+
+
+    /* ===============================================
+    slider data-slider="other"
+    ===============================================*/
+
+    if (document.querySelector('[data-slider="other"]')) {
+        const splideProject = new Splide('[data-slider="other"]', {
+
+            perPage: 2,
+            perMove: 1,
+            gap: 32,
+            pagination: false,
+
+            breakpoints: {
+                1440: {
+                    gap: 24,
+                },
+                1024: {
+                    perPage: 3,
+                    gap: 20
+                },
+                768: {
+                    fixedWidth: 300,
+                    perPage: 1,
+                    pagination: true,
+                },
+            },
+
+            arrowPath: 'M13.531 8.523a1.835 1.835 0 012.567 0l10.37 10.213c.71.698.71 1.83 0 2.528l-10.37 10.213a1.835 1.835 0 01-2.566 0 1.768 1.768 0 010-2.528L22.618 20l-9.088-8.949a1.768 1.768 0 010-2.528z'
+        });
+
+        splideProject.mount();
+    }
+
+    /* ========================================
+    slider on project details 
+    ========================================*/
+
+    if (document.querySelector('[data-slider="main-project"]')) {
+
+        const sliderMain = new Splide('[data-slider="main-project"]', {
+            type: 'fade',
+            pagination: false,
+            arrows: false,
+            cover: true,
+        });
+
+        const thumbnails = new Splide('[data-slider="thumb-project"]', {
+            rewind: true,
+            isNavigation: true,
+            gap: 6,
+            //focus: 'center',
+            pagination: false,
+            fixedWidth: 120,
+            updateOnMove: true,
+            cover: true,
+            arrows: false,
+            dragMinThreshold: {
+                mouse: 4,
+                touch: 10,
+            },
+
+            breakpoints: {
+                768: {
+                    fixedWidth: 100,
+                    gap: 0
+                },
+            },
+
+        });
+
+        const next = document.querySelector('[data-slider="project-thumb-next"]')
+        const prev = document.querySelector('[data-slider="project-thumb-prev"]')
+
+        const checkNavButton = () => {
+
+            let slidesWidth = 0
+            let containerWidth = sliderMain.root.querySelector('.splide__track').clientWidth
+
+            sliderMain.root.querySelectorAll('.splide__slide').forEach(item => {
+                slidesWidth += (item.clientWidth - 3) + sliderMain.options.gap
+            })
+
+            next.style.display = (slidesWidth <= containerWidth ? 'none' : 'flex')
+            prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'flex')
+
+        }
+
+        sliderMain.on('ready', (e) => {
+            checkNavButton()
+        })
+
+        sliderMain.on('resized', (e) => {
+            checkNavButton()
+        })
+
+        sliderMain.on('moved', (e) => {
+            checkNavButton()
+        })
+
+        next.addEventListener('click', e => sliderMain.go('>'))
+        prev.addEventListener('click', e => sliderMain.go('<'))
+
+        sliderMain.sync(thumbnails);
+        sliderMain.mount();
+        thumbnails.mount();
+
+    }
 
 });
