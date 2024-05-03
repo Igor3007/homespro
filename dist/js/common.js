@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     function css_variable() {
         let vh = window.innerHeight * 0.01;
-        let hgtheader = document.querySelector('header') ? document.querySelector('header').clientHeight : 64
+        let hgtheader = document.querySelector('.header') ? document.querySelector('.header').clientHeight : 64
 
         document.documentElement.style.setProperty('--vh', vh + 'px');
         document.documentElement.style.setProperty('--hgt-header', hgtheader + 'px');

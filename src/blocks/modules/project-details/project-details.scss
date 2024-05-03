@@ -17,16 +17,37 @@
 
         margin-top: 16px;
 
-        @media screen and (min-width: $w992) {
-            margin-top: 0;
+        @media screen and (min-width: $w1440) {
+
             width: 448px;
             min-width: 448px;
+
+
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 360px;
+            min-width: 360px;
+            margin-top: 0;
+
+            & .project-aside {
+                position: sticky;
+
+                @media screen and (min-width: $w992) {
+                    top: calc(var(--hgt-header) + 32px);
+                }
+            }
         }
     }
 
     &__content {
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w1440) {
             width: calc(100% - 448px);
+            padding-right: 32px;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: calc(100% - 360px);
             padding-right: 32px;
         }
     }

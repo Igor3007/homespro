@@ -2895,7 +2895,7 @@ template {
 }
 
 header {
-  height: 65px;
+  height: var(--hgt-header, 65px);
 }
 
 .header {
@@ -6503,13 +6503,17 @@ header {
   }
 
   .project-details__aside {
+    width: 360px;
+    min-width: 360px;
     margin-top: 0;
-    width: 448px;
-    min-width: 448px;
+  }
+
+  .project-details__aside .project-aside {
+    position: sticky;
   }
 
   .project-details__content {
-    width: calc(100% - 448px);
+    width: calc(100% - 360px);
     padding-right: 32px;
   }
 }
@@ -6545,6 +6549,12 @@ header {
 
   .main-block__image svg {
     margin-top: -30px;
+  }
+}
+
+@media screen and (min-width: 992.98px) and (min-width: 992.98px) {
+  .project-details__aside .project-aside {
+    top: calc(var(--hgt-header) + 32px);
   }
 }
 
@@ -7123,6 +7133,16 @@ header {
 
   .card-portfolio__main {
     padding: 32px;
+  }
+
+  .project-details__aside {
+    width: 448px;
+    min-width: 448px;
+  }
+
+  .project-details__content {
+    width: calc(100% - 448px);
+    padding-right: 32px;
   }
 
   .project-details__desc {

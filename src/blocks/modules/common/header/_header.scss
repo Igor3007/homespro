@@ -1,5 +1,6 @@
 header {
-    height: 65px;
+
+    height: var(--hgt-header, 65px);
 }
 
 .header {
