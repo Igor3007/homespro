@@ -2956,7 +2956,7 @@ header {
 
 .header__menu .sub-menu {
   position: absolute;
-  left: -3px;
+  left: -2px;
   top: 100%;
   max-width: 300px;
   z-index: 5;
@@ -2965,7 +2965,7 @@ header {
 .header__menu .sub-menu > li {
   padding-left: 24px;
   padding-right: 24px;
-  border-left: 3px solid transparent;
+  border-left: 2px solid transparent;
   transform: rotateY(80deg);
   background-color: var(--color-bg-02);
   transition: opacity .4s, transform .5s;
@@ -2973,7 +2973,7 @@ header {
 }
 
 .header__menu .sub-menu > li:hover {
-  border-left: 2px solid #fff;
+  border-left: 2px solid #7E858F;
   background-color: var(--color-bg-01);
 }
 
@@ -3004,7 +3004,7 @@ header {
 }
 
 .header__menu > ul > li:hover {
-  border-left: 2px solid #fff;
+  border-left: 2px solid #7E858F;
   background-color: var(--color-bg-01);
 }
 
@@ -6488,7 +6488,7 @@ header {
     position: sticky;
     top: 80px;
     z-index: 3;
-    margin-top: 86px;
+    margin-top: 80px;
     min-height: 142px;
   }
 
@@ -7225,7 +7225,7 @@ header {
   }
 
   .project-aside__more {
-    padding-bottom: 83px;
+    padding-bottom: 55px;
   }
 
   .project-slider__title {

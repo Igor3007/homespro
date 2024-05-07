@@ -90,7 +90,7 @@ header {
 
         & .sub-menu {
             position: absolute;
-            left: -3px;
+            left: -2px;
             top: 100%;
             max-width: 300px;
             z-index: 5;
@@ -98,14 +98,14 @@ header {
             &>li {
                 padding-left: 24px;
                 padding-right: 24px;
-                border-left: 3px solid transparent;
+                border-left: 2px solid transparent;
                 transform: rotateY(80deg);
                 background-color: var(--color-bg-02);
                 transition: opacity .4s, transform .5s;
                 opacity: 0;
 
                 &:hover {
-                    border-left: 2px solid #fff;
+                    border-left: 2px solid #7E858F;
                     background-color: var(--color-bg-01);
                 }
 
@@ -151,7 +151,7 @@ header {
                 }
 
                 &:hover {
-                    border-left: 2px solid #fff;
+                    border-left: 2px solid #7E858F;
                     background-color: var(--color-bg-01);
 
                     & .sub-menu {
