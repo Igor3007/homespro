@@ -255,6 +255,7 @@ input[type="date"] {
 
     & h3 {
         @include font-h3;
+
     }
 
     & * {
@@ -276,17 +277,17 @@ input[type="date"] {
 
         & h4 {
             font-size: 28px;
-
+            margin-top: 0.2em;
         }
 
         & h5 {
             font-size: 24px;
-
-
+            margin-top: 1.5em;
         }
 
         & h6 {
             font-size: 18px;
+            margin-top: 0.2em;
         }
     }
 

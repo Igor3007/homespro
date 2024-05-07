@@ -1058,4 +1058,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* ========================================
+    data show props
+    ========================================*/
+
+    if (document.querySelector('[data-show="props"]')) {
+
+        let btn = document.querySelector('[data-show="props"]')
+
+        btn.addEventListener('click', (e) => {
+            let container = e.target.closest('.project-aside').querySelector('.project-aside__props')
+            container.classList.toggle('is-open')
+            btn.classList.toggle('is-open')
+            btn.querySelector('span').innerText = container.classList.contains('is-open') ? 'Скрыть' : 'Больше параметров'
+        })
+    }
+
 });

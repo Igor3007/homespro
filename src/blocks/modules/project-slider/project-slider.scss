@@ -141,11 +141,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                opacity: 0;
+                flex-direction: column;
+
                 transition: 0.3s ease;
                 @include font-h2;
                 padding: 16px;
-
 
                 @media screen and (min-width: $w576) {
                     font-size: 24px;
@@ -154,6 +154,42 @@
                 @media screen and (min-width: $w1440) {
                     font-size: 44px;
                 }
+
+                & span {
+                    position: relative;
+                    transition: 0.3s ease;
+                    transform: translateY(0.1px);
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: calc(100% - 10px);
+                        left: 0;
+                        right: 0;
+                        height: 15px;
+                        background-color: #ffffff2c;
+                        transition: 0.3s ease;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                    box-shadow: 0 0 0 8px var(--color-bg-03) inset;
+
+                    & span {
+
+                        transform: translateY(-15px);
+
+                        &::after {
+                            top: calc(100% + 10px);
+                            height: 2px;
+                            background-color: #fff;
+                        }
+                    }
+                }
+
+
+
 
 
             }

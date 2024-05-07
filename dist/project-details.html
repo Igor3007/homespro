@@ -322,8 +322,20 @@
                     <div class="portfolio-prop__label">Крыша:</div>
                     <div class="portfolio-prop__value">Плоская</div>
                   </div>
+                  <div class="portfolio-prop">
+                    <div class="portfolio-prop__label">Ванных комнат:</div>
+                    <div class="portfolio-prop__value">2</div>
+                  </div>
+                  <div class="portfolio-prop">
+                    <div class="portfolio-prop__label">Гардеробных</div>
+                    <div class="portfolio-prop__value">2</div>
+                  </div>
+                  <div class="portfolio-prop">
+                    <div class="portfolio-prop__label">Гараж</div>
+                    <div class="portfolio-prop__value">1</div>
+                  </div>
                 </div>
-                <div class="project-aside__more"><span>Больше параметров</span></div>
+                <div class="project-aside__more" data-show="props"><span>Больше параметров</span></div>
                 <div class="project-aside__write">
                   <button class="btn btn-white" data-modal="/parts/_popup-callback.html">Напишите нам</button>
                 </div>
@@ -346,28 +358,28 @@
                       <div class="other-project">
                         <picture>
                           <source srcset="/img/slider/asl_10.webp" type="image/webp"/><img src="/img/slider/asl_10.jpg" loading="lazy" alt="image"/>
-                        </picture><a href="#">Все архитектурные проекты</a>
+                        </picture><a href="#"> <span>Все архитектурные проекты</span></a>
                       </div>
                     </div>
                     <div class="splide__slide">
                       <div class="other-project">
                         <picture>
                           <source srcset="/img/slider/asl_11.webp" type="image/webp"/><img src="/img/slider/asl_11.jpg" loading="lazy" alt="image"/>
-                        </picture><a href="#">Раздел «Дизайн интерьеров»</a>
+                        </picture><a href="#"> <span>Раздел «Дизайн интерьеров»</span></a>
                       </div>
                     </div>
                     <div class="splide__slide">
                       <div class="other-project">
                         <picture>
                           <source srcset="/img/slider/asl_10.webp" type="image/webp"/><img src="/img/slider/asl_10.jpg" loading="lazy" alt="image"/>
-                        </picture><a href="#">Все архитектурные проекты</a>
+                        </picture><a href="#"> <span>Все архитектурные проекты</span></a>
                       </div>
                     </div>
                     <div class="splide__slide">
                       <div class="other-project">
                         <picture>
                           <source srcset="/img/slider/asl_11.webp" type="image/webp"/><img src="/img/slider/asl_11.jpg" loading="lazy" alt="image"/>
-                        </picture><a href="#">Раздел «Дизайн интерьеров»</a>
+                        </picture><a href="#"> <span>Раздел «Дизайн интерьеров»</span></a>
                       </div>
                     </div>
                   </div>
@@ -385,34 +397,36 @@
             </div>
             <div class="question-form__desc">Пишите, мы ответим в самое ближайшее время!</div>
             <div class="question-form__form">
-              <div class="form">
-                <div class="form__item">
-                  <div class="form__subitem">
-                    <input type="text" placeholder="Ваше имя"/>
+              <form action="#" method="post">
+                <div class="form">
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <input type="text" placeholder="Ваше имя"/>
+                    </div>
+                    <div class="form__subitem">
+                      <input type="tel" placeholder="Номер телефона"/>
+                    </div>
+                    <div class="form__subitem">
+                      <input type="email" placeholder="Email" required="required"/>
+                    </div>
                   </div>
-                  <div class="form__subitem">
-                    <input type="tel" placeholder="Номер телефона"/>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <textarea placeholder="Текст вопроса" required="required"></textarea>
+                    </div>
                   </div>
-                  <div class="form__subitem">
-                    <input type="email" placeholder="Email" required="required"/>
+                  <div class="form__item form__item--submit">
+                    <div class="form__subitem">
+                      <button class="btn" type="submit">Отправить</button>
+                    </div>
+                    <div class="form__subitem">
+                      <label class="checkbox">
+                        <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Нажимая на кнопку «Отправить», вы соглашаетесь с нашей <a href="policy.html" >политикой использования персональных данных</a></span>
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div class="form__item">
-                  <div class="form__subitem">
-                    <textarea placeholder="Текст вопроса" required="required"></textarea>
-                  </div>
-                </div>
-                <div class="form__item form__item--submit">
-                  <div class="form__subitem">
-                    <button class="btn" type="submit">Отправить</button>
-                  </div>
-                  <div class="form__subitem">
-                    <label class="checkbox">
-                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Нажимая на кнопку «Отправить», вы соглашаетесь с нашей <a href="policy.html" >политикой использования персональных данных</a></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -564,19 +578,19 @@
                       <div class="main-menu__link">
                         <div class="main-menu-link">
                           <div class="main-menu-link__label">Москва: </div>
-                          <div class="main-menu-link__a"><a href="#"> 8 (812) 900-08-40</a></div>
+                          <div class="main-menu-link__a"><a href="tel:8 (812) 900-08-40"> 8 (812) 900-08-40</a></div>
                         </div>
                       </div>
                       <div class="main-menu__link">
                         <div class="main-menu-link">
                           <div class="main-menu-link__label">Cанкт-Петербург:</div>
-                          <div class="main-menu-link__a"><a href="#">8 (812) 900-08-40</a></div>
+                          <div class="main-menu-link__a"><a href="tel:8 (812) 900-08-40">8 (812) 900-08-40</a></div>
                         </div>
                       </div>
                       <div class="main-menu__link">
                         <div class="main-menu-link">
                           <div class="main-menu-link__label">Email:</div>
-                          <div class="main-menu-link__a"><a href="#">homespro@yandex.ru</a></div>
+                          <div class="main-menu-link__a"><a href="mailto:homespro@yandex.ru">homespro@yandex.ru</a></div>
                         </div>
                       </div>
                     </div>
@@ -587,13 +601,13 @@
                     <div class="main-menu__col">
                       <div class="main-menu-link">
                         <div class="main-menu-link__label">HOMESPRO на Неве:</div>
-                        <div class="main-menu-link__a"><a href="#">Санкт-Петербург, Литейный пр-т, 41</a></div>
+                        <div class="main-menu-link__a"><a href="https://yandex.by/maps/-/CDbmeJM5" target="_blank">Санкт-Петербург, Литейный пр-т, 41</a></div>
                       </div>
                     </div>
                     <div class="main-menu__col">
                       <div class="main-menu-link">
                         <div class="main-menu-link__label">HOMESPRO на Бауманке: </div>
-                        <div class="main-menu-link__a"><a href="#">Москва, БЦ Суперметалл, 2-я Бауманская ул., 9/23с3, офис № 13</a></div>
+                        <div class="main-menu-link__a"><a href="https://yandex.by/maps/-/CDbmeO09" target="_blank">Москва, БЦ Суперметалл, 2-я Бауманская ул., 9/23с3, офис № 13</a></div>
                       </div>
                     </div>
                     <div class="main-menu__col">
