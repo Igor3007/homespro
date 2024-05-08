@@ -28,7 +28,7 @@
 
     &__slider {
         //overflow-x: auto;
-        height: 220px;
+        height: auto;
         position: relative;
         scrollbar-width: none !important;
 
@@ -89,17 +89,26 @@
 
     &__track {
         display: flex;
-        position: absolute;
         left: 0;
-        width: 10000px;
+
         transition: 0.280s linear;
+        flex-direction: column;
+
+        @media screen and (min-width: $w576) {
+            flex-direction: row;
+            position: absolute;
+            width: 10000px;
+        }
     }
 
     &__slide {
         display: inline-block;
-        margin-right: 16px;
+        margin-right: 0;
+        transition: transform 3s ease;
 
-        transition: transform 3s cubic-bezier(.19, 1.06, .22, .42), -webkit-transform 4s cubic-bezier(.19, 1.06, .22, .42);
+        @media screen and (min-width: $w576) {
+            margin-right: 16px;
+        }
 
         @media screen and (min-width: $w1200) {
             margin-right: 24px;
@@ -113,16 +122,19 @@
             transform: translateY(20px);
         }
 
-
-
         & img {
-            height: 220px;
+            height: auto;
             width: auto;
             min-width: auto;
             display: block;
-            border: 16px solid var(--color-bg-01);
+            border: 8px solid var(--color-bg-01);
             filter: grayscale(1);
             transition: filter 1s ease;
+            width: 100%;
+
+            @media screen and (min-width: $w576) {
+                height: 220px;
+            }
 
             @media screen and (min-width: $w992) {
                 height: 300px;
@@ -134,6 +146,7 @@
 
             @media screen and (min-width: $w1200) {
                 height: 400px;
+                border: 16px solid var(--color-bg-01);
             }
         }
 
@@ -151,10 +164,11 @@
         color: #fff;
         margin: 0 16px;
         max-width: 500px;
-        margin-top: -20px;
+        margin-top: 20px;
         position: relative;
         z-index: 3;
         color: var(--color-text-01);
+
 
         @media screen and (min-width: $w1440) {
             padding: 44px 48px;
@@ -211,6 +225,10 @@
         @media screen and (min-width: $w760) {
             margin-left: 45px;
             margin-right: 45px;
+        }
+
+        @media screen and (min-width: $w576) {
+            margin-top: -20px;
         }
 
 

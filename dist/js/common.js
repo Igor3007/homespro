@@ -1128,4 +1128,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
     }
 
+
+    /* ==============================================
+    view all photo
+    ============================================== */
+
+    if (document.querySelector('[data-slider="main-project"]')) {
+
+        function openGalleryProduct(index) {
+            const img = document.querySelectorAll('[data-slider="main-project"] img')
+            const arrImage = [];
+
+            img.forEach(image => {
+                arrImage.push(image.getAttribute('src'))
+            })
+
+            const instance = new FsLightbox();
+            instance.props.dots = true;
+            instance.props.type = "image";
+            instance.props.sources = arrImage;
+            instance.open(index)
+
+        }
+
+
+        document.querySelectorAll('[data-slider="main-project"] .splide__slide').forEach((item, index) => {
+            item.addEventListener('click', e => openGalleryProduct(index))
+        })
+
+    }
+
 });
