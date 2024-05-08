@@ -112,6 +112,18 @@
             padding: 32px;
             margin-top: 32px;
         }
+
+        &.animate {
+
+            opacity: 0;
+            transition: 1s ease;
+            transform: translateY(80px);
+
+            &.animated {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     }
 
     &__title {

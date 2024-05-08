@@ -70,6 +70,6 @@ mixin page-portfolio
                                         .filter-result__value 36 проектов
                 .page-portfolio__list
                     each item in portfolio
-                        .page-portfolio__item: +card-portfolio(item)
+                        .page-portfolio__item.animate: +card-portfolio(item)
                 .page-portfolio__nav
                     +pagination()

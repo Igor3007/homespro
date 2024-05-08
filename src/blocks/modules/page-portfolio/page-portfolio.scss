@@ -93,6 +93,34 @@
         @media screen and (min-width: $w576) {
             width: 50%;
         }
+
+        transition: 0.8s ease;
+
+
+        &:nth-child(even) {
+            &.animate {
+                opacity: 0;
+                transform: translateX(100px);
+
+                &.animated {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        }
+
+        &:nth-child(odd) {
+            &.animate {
+                opacity: 0;
+                transform: translateX(-100px);
+
+                &.animated {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        }
+
     }
 
     &__nav {

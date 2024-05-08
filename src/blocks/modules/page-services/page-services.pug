@@ -70,7 +70,7 @@ mixin page-services
             .page-services
                 .page-services__list
                     each item in ['Эскизный проект','Архитектурный раздел','Конструктивный раздел','Инженерный раздел','Дизайн интерьера','Ландшафтный дизайн','Другие услуги']
-                        .page-services__item: +item-service({
+                        .page-services__item.animate: +item-service({
                             title: item
                         })
                          
