@@ -3583,7 +3583,6 @@ header {
 }
 
 .about-block__slider {
-  overflow-x: auto;
   height: 220px;
   position: relative;
   scrollbar-width: none !important;
