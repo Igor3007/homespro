@@ -307,19 +307,73 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     if (document.querySelector('.about-block__slider')) {
 
+        /*  window.addEventListener('scroll', e => {
+             if (document.documentElement.scrollTop > 100) {
+                 document.querySelector('.about-block__slider').scrollTo({
+                     left: 100,
+                     behavior: 'smooth'
+                 })
+             } else {
+                 document.querySelector('.about-block__slider').scrollTo({
+                     left: 0,
+                     behavior: 'smooth'
+                 })
+             }
+         }) */
+
         window.addEventListener('scroll', e => {
+
+            let slider = document.querySelector('.about-block__slider')
+
             if (document.documentElement.scrollTop > 100) {
-                document.querySelector('.about-block__slider').scrollTo({
-                    left: 100,
-                    behavior: 'smooth'
-                })
+                slider.classList.add('animate-middle')
             } else {
-                document.querySelector('.about-block__slider').scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                })
+                !slider.classList.contains('animate-middle') || slider.classList.remove('animate-middle')
+            }
+
+            if (document.documentElement.scrollTop > 700) {
+                slider.classList.add('animate-middle-top')
+            } else {
+                !slider.classList.contains('animate-middle-top') || slider.classList.remove('animate-middle-top')
             }
         })
+
+
+        // const checkScrollDirection = (event) => {
+        //     let scrollDirection = checkScrollDirectionIsUp(event) ? '+' : '-'
+
+        //     let evenTotal = 25;
+        //     let step = 5
+
+
+        //     let even = document.querySelectorAll('.about-block__slide:nth-child(2n)')
+        //     let odd = document.querySelectorAll('.about-block__slide:nth-child(2n+1)')
+
+        //     even.forEach(item => {
+        //         if (checkScrollDirectionIsUp(event)) {
+        //             item.style.transform.translateY = (evenTotal + step) + 'px'
+        //         } else {
+        //             if (evenTotal > 0) {
+        //                 item.style.transform.translateY = (evenTotal - step) + 'px'
+        //             }
+        //         }
+        //     })
+        //     odd.forEach(item => {
+
+        //     })
+
+
+
+        // }
+
+        // const checkScrollDirectionIsUp = (event) => {
+        //     if (event.wheelDelta) {
+        //         return event.wheelDelta > 0;
+        //     }
+        //     return event.deltaY < 0;
+        // }
+
+        // document.body.addEventListener('wheel', checkScrollDirection);
 
 
     }
