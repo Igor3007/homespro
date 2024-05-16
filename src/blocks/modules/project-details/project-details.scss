@@ -60,7 +60,7 @@
 
     &__gallery {
         & picture {
-            @include picture(65.2%, cover);
+            @include picture(65.2%, contain);
             background-color: #222;
 
             @media screen and (min-width: $w760) {
