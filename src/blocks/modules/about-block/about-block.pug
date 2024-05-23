@@ -57,3 +57,38 @@ mixin about-block
                             .mission-block__desc Создавать проект дома как системный продукт, который отвечает на все строительные вопросы: о дизайне и внешнем виде, грамотной функциональной организации планировок, бюджете строительства и технологиях. Это всесторонне-проработанный проект, где учтены все этапы работы от начала до завершения строительства.
                         .mission-block__btn
                             a(href='#'): button.btn Подробнее о нас
+
+
+
+mixin about-block-2
+
+    -
+        const digits = [
+            {
+                num: '400+',
+                desc: 'выполненных проектов',
+            },
+            {
+                num: '100+',
+                desc: 'текущих строящихся объектов',
+            },
+            {
+                num: '50+',
+                desc: 'авторских надзоров в МО и ЛО',
+            },
+            {
+                num: '20+',
+                desc: 'проектов интерьера',
+            }
+        ]
+
+    section.section-about-block.section-about-block--page
+         
+            .about-block__title
+                .container  Архитектурная студия «HOMESPRO»
+            .about-block__photos(data-marquee="container")
+                .about-block__slider.dragscroll
+                    .about-block__track
+                        .about-block__slide: +picture_no_lazy('/img/slider/asl_12')
+                        .about-block__slide: +picture_no_lazy('/img/slider/asl_13')
+                        .about-block__slide: +picture_no_lazy('/img/slider/asl_14')

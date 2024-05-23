@@ -17,6 +17,10 @@
 
 .about-block {
 
+    &__title {
+        @include font-h2;
+    }
+
     &__photos {
         padding: 32px 0;
         position: relative;
@@ -428,4 +432,25 @@
     }
 
 
+}
+
+.section-about-block--page {
+
+    margin-top: 50px;
+
+    @media screen and (min-width: $w1440) {
+        padding-top: 50px;
+    }
+
+    & .about-block {
+        &__track {
+            @media screen and (min-width: $w992) {
+                margin-left: -200px;
+            }
+        }
+
+        &__photos {
+            padding-top: 55px;
+        }
+    }
 }

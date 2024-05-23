@@ -3577,6 +3577,13 @@ header {
   background-color: var(--color-bg-02);
 }
 
+.about-block__title {
+  font-size: 26px;
+  font-family: Roboto Condensed;
+  font-weight: 700;
+  line-height: 123%;
+}
+
 .about-block__photos {
   padding: 32px 0;
   position: relative;
@@ -3779,6 +3786,14 @@ header {
 .mission-block.animate.animated {
   transform: translateY(0);
   opacity: 1;
+}
+
+.section-about-block--page {
+  margin-top: 50px;
+}
+
+.section-about-block--page .about-block__photos {
+  padding-top: 55px;
 }
 
 .section-projects-block {
@@ -5708,6 +5723,14 @@ header {
   margin: 0;
 }
 
+.page__desc {
+  line-height: 155%;
+}
+
+.max-width-960 {
+  max-width: 940px;
+}
+
 @media screen and (min-width: 360.98px) {
   .video-playlist__item {
     width: 50%;
@@ -5765,6 +5788,10 @@ header {
 
   .section-about-block {
     padding-bottom: 50px;
+  }
+
+  .about-block__title {
+    font-size: 32px;
   }
 
   .about-block__text {
@@ -6395,6 +6422,10 @@ header {
     font-size: 16px;
   }
 
+  .section-about-block--page .about-block__track {
+    margin-left: -200px;
+  }
+
   .section-projects-block {
     padding: 80px 0;
   }
@@ -6776,6 +6807,10 @@ header {
 
   .main-block__title h1 {
     font-size: 46px;
+  }
+
+  .about-block__title {
+    font-size: 40px;
   }
 
   .about-block__photos {
@@ -7166,6 +7201,10 @@ header {
     padding-top: 75px;
   }
 
+  .about-block__title {
+    font-size: 44px;
+  }
+
   .about-block__text {
     padding: 44px 48px;
     max-width: 568px;
@@ -7173,6 +7212,10 @@ header {
 
   .digits-block__title {
     font-size: 36px;
+  }
+
+  .section-about-block--page {
+    padding-top: 50px;
   }
 
   .projects-block__title {
