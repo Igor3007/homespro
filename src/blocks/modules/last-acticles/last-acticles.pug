@@ -1,4 +1,31 @@
-mixin last-acticles
-    section.section-last-acticles
+mixin minicard-article(data)
+    .minicard-article
+        .minicard-article__image    
+            +picture(data.img)
+            a(href="/article-details.html") Подробнее
+        .minicard-article__title: a(href="#")= data.title
+        .minicard-article__bottom
+            .minicard-article__catg
+                span Обзоры
+            .minicard-article__date 12 апреля
+
+
+mixin last-acticles(data)
+    section.section-last-acticles(class=data.classes id=data.id )
         .container
-            .last-acticles last-acticles
+            .last-acticles
+                .last-acticles__title: a(href="#")= data.title
+                .last-acticles__link
+                    ul
+                        li: a(href='#') Обзоры 
+                        li: a(href='#') Награды 
+                        li: a(href='#') Новости компаний 
+
+                .last-acticles__list
+                    each item in data.list
+                        .last-acticles__item: +minicard-article(item)
+
+                .last-acticles__more
+                    button.btn
+                        span Загрузить ещё новости
+                        +icons('#ic_load')

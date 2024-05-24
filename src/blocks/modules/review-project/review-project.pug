@@ -1,4 +1,118 @@
+mixin card-review(data)
+    .card-review
+        .card-review__image: +picture(data.img)
+        .card-review__name= data.user
+        .card-review__text= data.text
+        .card-review__bottom
+            .card-review__project
+                span Проект:  
+                strong= data.project
+            .card-review__autor
+                span Дизайнер:
+                strong= data.autor
+
 mixin review-project
-    section.section-review-project
+
+    -
+        const reviews = [
+            {
+                'img' : '/img/slider/asl_9',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+            {
+                'img' : '/img/slider/asl_8',
+                'user' : 'Андрей:',
+                'text' : '"Андрей, добрый день, проект сегодня курьер принес по верному адресу и вручил мне. Так что, все вышло просто отлично. За выходные ознакомлюсь и пришлю обратную связь. По первому взгляду все супер. Спасибо."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+            {
+                'img' : '/img/slider/asl_7',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+            {
+                'img' : '/img/slider/asl_6',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+            {
+                'img' : '/img/slider/asl_3',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+            {
+                'img' : '/img/slider/asl_4',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+            {
+                'img' : '/img/slider/asl_12',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+            {
+                'img' : '/img/slider/asl_13',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+            {
+                'img' : '/img/slider/asl_10',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+            {
+                'img' : '/img/slider/asl_11',
+                'user' : 'Андрей:',
+                'text' : '"Благодаря Валерии реализуются планы нашего интерьера. Это дизайнер, с которым приятно работать."',
+                'project' : 'Дизайн интерьера загородного дома в стиле барнхаус',
+                'autor' : 'Валерия Барг',
+            },
+
+        ]
+
+    section.section-review-project.section-review-project--min(id="review")
         .container
-            .review-project review-project
+            .review-project
+                .review-project__title Отзывы о нашей компании
+                 
+                .review-project__slider
+                    .splide(data-slider="review-project")
+                        .splide__track
+                            .splide__list
+                                each item in reviews
+                                    .splide__slide: +card-review(item)
+
+                .review-project__thumb
+                    .project-thumb
+                        .project-thumb__prev(data-slider="review-thumb-prev"): +icons('#ic_arrow-prev')
+                        .project-thumb__slider
+                            .splide(data-slider="thumb-review")
+                                .splide__track
+                                    .splide__list
+                                        each item in reviews
+                                            .splide__slide: +picture(item.img)
+
+                        .project-thumb__next(data-slider="review-thumb-next"): +icons('#ic_arrow-next')

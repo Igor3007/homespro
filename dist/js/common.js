@@ -1158,4 +1158,111 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* ========================================
+    slider review on project
+    ========================================*/
+
+    if (document.querySelector('[data-slider="review-project"]')) {
+
+        const reviewMain = new Splide('[data-slider="review-project"]', {
+
+            pagination: false,
+            arrows: false,
+            cover: true,
+            perPage: 2,
+            gap: 32,
+
+            breakpoints: {
+                576: {
+                    perPage: 1,
+                    gap: 16
+                },
+            },
+
+        });
+
+        const reviewThumbnails = new Splide('[data-slider="thumb-review"]', {
+            rewind: true,
+            isNavigation: true,
+            gap: 6,
+            //focus: 'center',
+            pagination: false,
+            fixedWidth: 120,
+            updateOnMove: true,
+            cover: true,
+            arrows: false,
+            dragMinThreshold: {
+                mouse: 4,
+                touch: 10,
+            },
+
+            breakpoints: {
+                768: {
+                    fixedWidth: 100,
+                    gap: 0
+                },
+            },
+
+        });
+
+        const next = document.querySelector('[data-slider="review-thumb-next"]')
+        const prev = document.querySelector('[data-slider="review-thumb-prev"]')
+
+        const checkNavButton = () => {
+
+            let slidesWidth = 0
+            let containerWidth = reviewMain.root.querySelector('.splide__track').clientWidth
+
+            reviewMain.root.querySelectorAll('.splide__slide').forEach(item => {
+                slidesWidth += (item.clientWidth - 3) + reviewMain.options.gap
+            })
+
+            next.style.display = (slidesWidth <= containerWidth ? 'none' : 'flex')
+            prev.style.display = (slidesWidth <= containerWidth ? 'none' : 'flex')
+
+        }
+
+        reviewMain.on('ready', (e) => {
+            checkNavButton()
+        })
+
+        reviewMain.on('resized', (e) => {
+            checkNavButton()
+        })
+
+        reviewMain.on('moved', (e) => {
+            checkNavButton()
+        })
+
+        next.addEventListener('click', e => reviewMain.go('>'))
+        prev.addEventListener('click', e => reviewMain.go('<'))
+
+        reviewMain.sync(reviewThumbnails);
+        reviewMain.mount();
+        reviewThumbnails.mount();
+
+    }
+
+    /* =======================================
+    floatNavMenu
+    =======================================*/
+
+    if (document.querySelector('.about-nav')) {
+
+        const container = document.querySelector('.section-about-autor .container')
+        const menu = container.querySelector('.about-nav')
+        const right = (container.offsetLeft + container.clientWidth) - menu.clientWidth
+
+
+        menu.style.left = right + 'px'
+        menu.classList.add('is-init')
+
+        menu.querySelectorAll('a').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault()
+            })
+        })
+
+    }
+
 });

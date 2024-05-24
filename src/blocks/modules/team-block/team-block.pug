@@ -7,9 +7,6 @@ mixin card-member(data)
 
 mixin team-block
 
-
-
-
     -
         const member_list = [
             {
@@ -50,3 +47,94 @@ mixin team-block
                             .splide__list
                                 each item in member_list
                                     .splide__slide: +card-member(item)
+
+
+mixin team-block--list
+
+    -
+        const member_list = [
+            {
+                image: '/img/team/img-project',
+                name: 'Виталий Злобин',
+                desc: 'Руководитель студии, архитектор и преподаватель',
+            },
+            {
+                image: '/img/team/img-project-1',
+                name: 'Егор Холоденко',
+                desc: 'Руководитель направления индивидуального проектирования, ведущий архитектор (офис на Бауманке)',
+            },
+           {
+                image: '/img/team/img-project-5',
+                name: 'Андрей Бутко',
+                desc: 'Руководитель направления типового проектирования, ведущий архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-3',
+                name: 'Вячеслав Новиков',
+                desc: 'Ведущий архитектор (офис на Бауманке)',
+            },
+
+            
+            {
+                image: '/img/team/img-project-6',
+                name: 'Антон Збаровский',
+                desc: 'Руководитель направления концептуального проектирования, ведущий архитектор (офис на Бауманке)',
+            },
+
+            {
+                image: '/img/team/img-project-2',
+                name: 'Александра Тимченко',
+                desc: 'Ведущий архитектор (офис на Бауманке)',
+            },
+
+            {
+                image: '/img/team/img-project-7',
+                name: 'Вячеслав Фаринюк',
+                desc: 'Архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-14',
+                name: 'Вероника Артемова',
+                desc: 'Архитектор (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-8',
+                name: 'Валерия Барг',
+                desc: 'Руководитель направления дизайн интерьера, ведущий дизайнер (офис на Бауманке)',
+            },
+            {
+                image: '/img/team/img-project-9',
+                name: 'Алексей Павлов',
+                desc: 'Архитектор (офис на Литейном)',
+            },
+            {
+                image: '/img/team/img-project-10',
+                name: 'Анна Бычкова',
+                desc: 'Дизайнер интерьера (офис на Литейном)',
+            },
+            {
+                image: '/img/team/img-project-11',
+                name: 'Анастасия Козлова',
+                desc: 'Архитектор (офис на Литейном)',
+            },
+            {
+                image: '/img/team/img-project-12',
+                name: 'Даниил Минников',
+                desc: '3Д-визуализатор (офис на Литейном)',
+            },
+            {
+                image: '/img/team/img-project-13',
+                name: 'Рустам Ягудин',
+                desc: 'Главный инженер проекта (офис на Бауманке)',
+            },
+            
+        ]
+
+    section.section-team-block.section-team-block--list.section-team-block--min(id="team")
+        .container
+            .team-block.animate
+                .team-block__title Наша команда
+                .team-block__subtitle Мы – слаженная команда авторов архитектурных проектов современных жилых резиденций
+                .team-block__list
+                    each item in member_list
+                        .team-block__item: +card-member(item)

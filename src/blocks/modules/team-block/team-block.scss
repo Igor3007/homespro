@@ -5,6 +5,72 @@
     @media screen and (min-width: $w1440) {
         padding: 65px 0;
     }
+
+    &--list {
+
+        background-color: var(--color-bg-01);
+
+        & .team-block {
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+                margin: -6px;
+
+                @media screen and (min-width: $w1440) {
+                    margin: -8px;
+                }
+            }
+
+            &__item {
+                padding: 6px;
+                width: 100%;
+
+                @media screen and (min-width: $w1376) {
+                    width: 25%;
+                    padding: 8px;
+
+                }
+
+                @media screen and (min-width: $w992) {
+                    width: 33.33%;
+                    padding: 8px;
+                }
+
+                @media screen and (min-width: $w480) {
+                    width: 50%;
+                    padding: 8px;
+                }
+
+                & .card-member {
+                    &__main {
+                        padding: 16px;
+                    }
+
+                    &__name {
+                        padding-bottom: 8px;
+                    }
+
+                    &__desc {
+                        font-size: 14px;
+                        line-height: 150%;
+                    }
+                }
+
+
+            }
+        }
+
+    }
+
+    &--min {
+        & .team-block {
+            max-width: 1050px;
+
+            &__title {
+                @include font-h2;
+            }
+        }
+    }
 }
 
 .team-block {

@@ -1,0 +1,160 @@
+.section-last-acticles {
+    padding: 50px 0;
+
+    @media screen and (min-width: $w1440) {
+        padding: 55px 0 100px;
+    }
+
+    &--blog {
+        background-color: var(--color-bg-02);
+    }
+}
+
+.last-acticles {
+
+    max-width: 1050px;
+
+    &__title {
+        @include font-h1;
+        padding-bottom: 0.7em;
+    }
+
+    &__link {
+
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 40px;
+        }
+
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+
+            & li {
+                padding: 0 12px;
+
+                & a {
+                    color: var(--color-text-02);
+
+
+                    &:hover {
+                        color: var(--color-text-01);
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 30px;
+    }
+
+    &__item {
+        width: 100%;
+
+        @media screen and (min-width: $w1200) {
+            width: 33.33%;
+        }
+
+        margin-right: -1px;
+        margin-bottom: -1px;
+    }
+
+    &__more {
+        & svg {
+            margin-left: 3em !important;
+        }
+    }
+}
+
+.minicard-article {
+
+    border: 1px solid var(--color-borders-01);
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        border: 1px solid var(--color-borders-02);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__image {
+        padding-bottom: 12px;
+        position: relative;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 20px;
+        }
+
+        & picture {
+            @include picture(56%, cover);
+        }
+
+        & a {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include font-h4;
+            opacity: 0;
+            transition: 0.3s ease;
+
+
+        }
+
+        &:hover {
+            & a {
+                opacity: 1
+            }
+        }
+    }
+
+    &__title {
+        padding-bottom: 16px;
+
+        & a {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 155%;
+
+            @media screen and (min-width: $w760) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: flex-start;
+        font-size: 14px;
+        color: var(--color-text-02);
+        margin-top: auto;
+    }
+
+    &__catg {
+        & span {
+            background-color: var(--color-bg-02);
+            padding: 6px 12px;
+
+        }
+    }
+
+    &__date {
+        margin-left: 12px;
+    }
+
+
+}

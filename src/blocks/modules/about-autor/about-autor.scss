@@ -1,0 +1,249 @@
+.section-about-autor {
+    background-color: var(--color-bg-02);
+    overflow: visible;
+
+
+
+}
+
+
+
+.about-autor {
+
+    position: relative;
+    z-index: 10;
+
+    &__wrp {
+        @media screen and (min-width: $w760) {
+            display: flex;
+            padding-bottom: 40px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            max-width: 1050px;
+            margin-right: auto;
+        }
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 24px;
+        }
+    }
+
+    &__card {
+        padding: 16px;
+        background-color: var(--color-bg-01);
+
+        @media screen and (min-width: $w760) {
+            width: 41%;
+            margin-top: -10%;
+        }
+
+        @media screen and (min-width: $w1200) {
+            padding: 28px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            margin-top: -13%;
+
+            & .about-autor__desc {
+                font-size: 16px;
+            }
+        }
+
+
+    }
+
+    &__main {
+        @media screen and (min-width: $w760) {
+            width: 59%;
+            padding-left: 24px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            padding-left: 36px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            padding-left: 55px;
+        }
+    }
+
+    &__image {
+        padding-bottom: 12px;
+
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 28px;
+        }
+
+
+        & picture {
+            @include picture(100%, 'cover');
+        }
+    }
+
+    &__title {
+        @include font-h3;
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 8px;
+        }
+    }
+
+    &__desc {
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w760) {
+
+            font-size: 15px;
+            line-height: 155%;
+
+            & p {
+                margin-top: 0;
+            }
+        }
+
+        @media screen and (min-width: $w1200) {
+            font-size: 16px;
+            line-height: 170%;
+        }
+
+        @media screen and (min-width: $w1440) {
+            font-size: 18px;
+        }
+    }
+
+    &__btn {
+        & .btn {
+            width: 100%;
+
+            max-width: 480px;
+
+        }
+    }
+
+    &__dl {
+        padding-bottom: 16px;
+
+        & .btn {
+            width: 100%;
+        }
+    }
+
+    &__digit {
+
+        padding-bottom: 16px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+        }
+
+        & .digits-block {
+            &__item {
+                display: block;
+                opacity: 1;
+                margin: 0;
+                width: 100%;
+
+            }
+        }
+    }
+
+    &__digits {
+        @media screen and (min-width: $w992) {
+            padding-top: 35px;
+            padding-bottom: 20px;
+        }
+
+
+
+        &.animated {
+
+            & .digits-block {
+                &__item {
+
+
+                    z-index: 10;
+                    animation: slit-in-vertical 0.65s ease forwards;
+
+                    &:nth-child(1) {
+                        animation-delay: 0.2s;
+                    }
+
+                    &:nth-child(2) {
+                        animation-delay: 0.5s;
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 0.8s;
+                    }
+
+                    &:nth-child(4) {
+                        animation-delay: 1.1s;
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    &__mission {
+        max-width: 1050px;
+
+        @media screen and (min-width: $w1440) {
+            padding-top: 24px;
+            padding-bottom: 12px;
+        }
+
+        & .mission-block {
+            &__title {
+                @include font-h3;
+            }
+
+            &__desc {
+                line-height: 160%;
+            }
+        }
+    }
+}
+
+
+
+.about-nav {
+    position: fixed;
+    z-index: 10;
+    top: calc(var(--hgt-header) + 30px);
+    left: 73%;
+    opacity: 0;
+    transition: 0.3s ease;
+
+    &.is-init {
+        opacity: 1;
+    }
+
+    & ul {
+        & li {
+            & a {
+                display: block;
+                padding: 16px 18px;
+                background-color: var(--color-bg-03);
+                min-width: 320px;
+                color: var(--color-text-01);
+                border-bottom: 1px solid var(--color-borders-01);
+                border-left: 2px solid transparent;
+
+                &:hover {
+                    border-left: 2px solid #fff;
+                }
+            }
+
+            &:last-child {
+                & a {
+                    border: none;
+                }
+            }
+        }
+    }
+}

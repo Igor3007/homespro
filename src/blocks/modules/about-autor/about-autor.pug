@@ -1,10 +1,37 @@
 mixin about-autor
-    section.section-about-autor
+
+    -
+        const digits2 = [
+             
+            {
+                num: '100+',
+                desc: 'текущих строящихся объектов',
+            },
+            {
+                num: '50+',
+                desc: 'авторских надзоров в МО и ЛО',
+            },
+            {
+                num: '20+',
+                desc: 'проектов интерьера',
+            }
+        ]
+
+    section.section-about-autor()
         .container
+            .about-nav
+                ul
+                    li: a(href='#about') О студии
+                    li: a(href='#ofices') Наши офисы
+                    li: a(href='#team') Наша команда
+                    li: a(href='#review') Отзывы
+                    li: a(href='#press') Пресса о нас
+                    li: a(href='#blog') Блог
+            
             .about-autor
                 .about-autor__wrp
                     .about-autor__card
-                        .about-autor__iamge: +picture('')
+                        .about-autor__image: +picture('/img/team/img-project-4')
                         .about-autor__title Виталий Злобин 
                         .about-autor__desc Архитектор и основатель школы проектирования, создал архитектурную студию «HOMESPRO» в августе 2019 года.
                         .about-autor__btn
@@ -14,9 +41,30 @@ mixin about-autor
                             p «HOMESPRO» — это сильная команда дизайнеров, архитекторов, инженеров с большим опытом архитектурной работы и технического проектирования современных индивидуальных жилых домов.
                             p Наше основное направление — продуманный и комфортный для жизни дизайн дома, созвучный духу нашего времени и подходящий для интеграции с современными технологиями.
                         .about-autor__dl
-                            a(href='#'): button.btn Скачать презентацию компании
-                        .about-autor__digits
+                            a(href='#'): button.btn
+                                +icons('#ic_pdf', 36)
+                                span Скачать презентацию компании
+                        .about-autor__digit
                             .digits-block__item 
                                 .digits-block__title 400+
                                 .digits-block__desc выполненных проектов
                                 .digits-block__wave
+
+               
+                .about-autor__digits.animate
+
+                    .digits-block
+                        .digits-block__list
+                            each item in digits2
+                                .digits-block__item 
+                                    .digits-block__title= item.num
+                                    .digits-block__desc= item.desc
+                                    .digits-block__wave
+                            
+
+                .about-autor__mission
+
+                    .mission-block.animate
+                        .mission-block__main
+                            .mission-block__title Наша миссия
+                            .mission-block__desc Создавать проект дома как системный продукт, который отвечает на все строительные вопросы: о дизайне и внешнем виде, грамотной функциональной организации планировок, бюджете строительства и технологиях. Это всесторонне-проработанный проект, где учтены все этапы работы от начала до завершения строительства.

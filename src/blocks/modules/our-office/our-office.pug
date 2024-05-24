@@ -1,4 +1,65 @@
-mixin our-office
+mixin our-office(data)
     section.section-our-office
         .container
-            .our-office our-office
+            .our-office
+                .our-office__title Офис на Бауманке (Москва)
+                .our-office__contacts
+                    .office-contacts
+                        .office-contacts__label Телефон:
+                        .office-contacts__link: a(href='') 8 (495) 664-55-91
+                    .office-contacts
+                        .office-contacts__label Email:
+                        .office-contacts__link: a(href='') homespro@yandex.ru
+                    .office-contacts
+                        .office-contacts__label Адрес: 
+                        .office-contacts__link: a(href='') БЦ «Суперметалл», 2-я Бауманская ул., 9/23с3, офис № 13
+
+                .our-office__photos
+                    .hp-gallery
+                        .hp-gallery__hv
+                            .hp-gallery__wrp
+                                .hp-gallery__list
+                                    .hp-gallery__hor: a(href="/img/other/g1.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g1')
+                                    .hp-gallery__ver: a(href="/img/other/g2.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g2')
+                        .hp-gallery__hh
+                            .hp-gallery__wrp
+                                .hp-gallery__list
+                                    .hp-gallery__hor: a(href="/img/other/g3.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g3')
+                                    .hp-gallery__ver: a(href="/img/other/g4.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g4')
+                        .hp-gallery__vh
+                            .hp-gallery__wrp
+                                .hp-gallery__list
+                                    .hp-gallery__ver: a(href="/img/other/g5.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g5')
+                                    .hp-gallery__hor: a(href="/img/other/g6.jpg" data-fs-lighbox="office-1"): +picture('/img/other/g6')
+
+
+mixin our-office-2(data)
+    section.section-our-office(id="ofices")
+        .container
+            .our-office
+                .our-office__title Офис на Литейном (Санкт-Петербург)
+                .our-office__contacts
+                    .office-contacts
+                        .office-contacts__label Телефон:
+                        .office-contacts__link: a(href='') 8 (812) 900-08-40
+                    .office-contacts
+                        .office-contacts__label Email:
+                        .office-contacts__link: a(href='') homespro@yandex.ru
+                    .office-contacts
+                        .office-contacts__label Адрес:
+                        .office-contacts__link: a(href='') Литейный пр-т, 41
+
+                .our-office__photos
+                    .hp-gallery
+                        .hp-gallery__hv
+                            .hp-gallery__wrp
+                                .hp-gallery__list
+                                    .hp-gallery__hor: a(href="/img/other/gp1.jpg" data-fs-lighbox="office-2"): +picture('/img/other/gp1')
+                                    .hp-gallery__ver: a(href="/img/other/gp2.jpg" data-fs-lighbox="office-2"): +picture('/img/other/gp2')
+                      
+                        .hp-gallery__vh
+                            .hp-gallery__wrp
+                                .hp-gallery__list
+                                    .hp-gallery__ver: a(href="/img/other/gp3.jpg" data-fs-lighbox="office-2"): +picture('/img/other/gp3')
+                                    .hp-gallery__hor: a(href="/img/other/gp4.jpg" data-fs-lighbox="office-2"): +picture('/img/other/gp4')
+

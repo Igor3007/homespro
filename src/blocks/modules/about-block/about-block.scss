@@ -438,12 +438,20 @@
 
     margin-top: 50px;
 
+    @media screen and (min-width: $w760) {
+        padding-bottom: 0;
+        padding-top: 30px;
+    }
+
     @media screen and (min-width: $w1440) {
-        padding-top: 50px;
+        padding-top: 60px;
     }
 
     & .about-block {
         &__track {
+
+            position: static;
+
             @media screen and (min-width: $w992) {
                 margin-left: -200px;
             }
@@ -451,6 +459,19 @@
 
         &__photos {
             padding-top: 55px;
+
+            @media screen and (min-width: $w760) {
+                padding-top: 30px;
+            }
+
+            @media screen and (min-width: $w1200) {
+                padding-bottom: 30px;
+            }
+
+            @media screen and (min-width: $w1440) {
+                padding-top: 57px;
+            }
+
         }
     }
 }
