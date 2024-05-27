@@ -1,6 +1,10 @@
 .section-our-office {
-    padding: 50px 0;
+    padding: 24px 0;
     background-color: var(--color-bg-02);
+
+    @media screen and (min-width: $w576) {
+        padding: 50px 0;
+    }
 
     @media screen and (min-width: $w1440) {
         padding-bottom: 70px;
@@ -8,7 +12,11 @@
 }
 
 .our-office {
-    max-width: 1050px;
+    max-width: 900px;
+
+    @media screen and (min-width: $w1376) {
+        max-width: 1050px;
+    }
 
     &__title {
         @include font-h3;

@@ -844,6 +844,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 right: window.scrollX + target.getBoundingClientRect().right,
                 bottom: window.scrollY + target.getBoundingClientRect().bottom
             },
+
             windowPosition = {
                 top: window.scrollY,
                 left: window.scrollX,
@@ -1251,17 +1252,94 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         const container = document.querySelector('.section-about-autor .container')
         const menu = container.querySelector('.about-nav')
-        const right = (container.offsetLeft + container.clientWidth) - menu.clientWidth
 
 
-        menu.style.left = right + 'px'
-        menu.classList.add('is-init')
+        function calcRightOffset(container, menu) {
+            const right = (container.offsetLeft + container.clientWidth) - menu.clientWidth
+            menu.style.left = (right - 24) + 'px'
+            menu.classList.add('is-init')
+        }
+
+
+
+        calcRightOffset(container, menu);
+
+        window.addEventListener('resize', () => {
+            calcRightOffset(container, menu);
+        })
 
         menu.querySelectorAll('a').forEach(item => {
             item.addEventListener('click', e => {
                 e.preventDefault()
+
+                if (document.querySelector(item.getAttribute('href'))) {
+                    window.scrollToTargetAdjusted({
+                        elem: document.querySelector(item.getAttribute('href')),
+                        offset: 20
+                    })
+                }
+
+                menu.querySelectorAll('a').forEach(link => !link.classList.contains('is-active') || link.classList.remove('is-active'))
+                item.classList.add('is-active')
+
+
             })
         })
+
+        const isVisible = function (target) {
+            let targetPosition = {
+                    top: window.scrollY + target.getBoundingClientRect().top,
+                    left: window.scrollX + target.getBoundingClientRect().left,
+                    right: window.scrollX + target.getBoundingClientRect().right,
+                    bottom: window.scrollY + target.getBoundingClientRect().bottom
+                },
+
+                windowPosition = {
+                    top: window.scrollY,
+                    left: window.scrollX,
+                    right: window.scrollX + document.documentElement.clientWidth,
+                    bottom: window.scrollY + document.documentElement.clientHeight - 100
+                };
+
+            if (targetPosition.bottom > windowPosition.top &&
+                targetPosition.top < windowPosition.bottom &&
+                targetPosition.right > windowPosition.left &&
+                targetPosition.left < windowPosition.right) {
+                return true
+            } else {
+                return false
+            };
+        };
+
+        const items = document.querySelectorAll('section[id]');
+
+        function debounce(method, delay, e) {
+            clearTimeout(method._tId);
+            method._tId = setTimeout(function () {
+                method(e);
+            }, delay);
+        }
+
+        const checkVisible = (items) => {
+            this._tId = false
+            items.forEach(item => {
+                if (isVisible(item)) {
+                    menu.querySelectorAll('a').forEach(link => !link.classList.contains('is-active') || link.classList.remove('is-active'))
+                    if (menu.querySelector('a[href="#' + item.id + '"]')) {
+                        menu.querySelector('a[href="#' + item.id + '"]').classList.add('is-active')
+                    }
+                }
+            })
+        }
+
+        window.addEventListener('scroll', (e) => {
+
+            const resizeHahdler = (e) => {
+                checkVisible(items)
+            }
+
+            debounce(resizeHahdler, 300, e)
+        });
 
     }
 

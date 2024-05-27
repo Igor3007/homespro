@@ -12,7 +12,11 @@
 
 .last-acticles {
 
-    max-width: 1050px;
+    max-width: 900px;
+
+    @media screen and (min-width: $w1376) {
+        max-width: 1050px;
+    }
 
     &__title {
         @include font-h1;

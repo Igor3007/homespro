@@ -4559,7 +4559,7 @@ header {
 }
 
 .section-team-block--min .team-block {
-  max-width: 1050px;
+  max-width: 900px;
 }
 
 .section-team-block--min .team-block__title {
@@ -5824,7 +5824,7 @@ header {
 }
 
 .about-autor__mission {
-  max-width: 1050px;
+  max-width: 900px;
 }
 
 .about-autor__mission .mission-block__title {
@@ -5840,11 +5840,12 @@ header {
 
 .about-nav {
   position: fixed;
-  z-index: 10;
+  z-index: 200;
   top: calc(var(--hgt-header) + 30px);
   left: 73%;
   opacity: 0;
   transition: 0.3s ease;
+  display: none;
 }
 
 .about-nav.is-init {
@@ -5853,29 +5854,33 @@ header {
 
 .about-nav ul li a {
   display: block;
-  padding: 16px 18px;
+  padding: 14px 18px;
   background-color: var(--color-bg-03);
-  min-width: 320px;
+  min-width: 220px;
   color: var(--color-text-01);
   border-bottom: 1px solid var(--color-borders-01);
   border-left: 2px solid transparent;
 }
 
 .about-nav ul li a:hover {
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-nav ul li a.is-active {
   border-left: 2px solid #fff;
 }
 
 .about-nav ul li:last-child a {
-  border: none;
+  border-bottom: none;
 }
 
 .section-our-office {
-  padding: 50px 0;
+  padding: 24px 0;
   background-color: var(--color-bg-02);
 }
 
 .our-office {
-  max-width: 1050px;
+  max-width: 900px;
 }
 
 .our-office__title {
@@ -5971,7 +5976,7 @@ header {
 }
 
 .section-review-project--min .review-project {
-  max-width: 1050px;
+  max-width: 900px;
 }
 
 .review-project {
@@ -6094,7 +6099,7 @@ header {
 }
 
 .last-acticles {
-  max-width: 1050px;
+  max-width: 900px;
 }
 
 .last-acticles__title {
@@ -6588,6 +6593,10 @@ header {
 
   .question-form__form .checkbox {
     margin-left: 32px;
+  }
+
+  .section-our-office {
+    padding: 50px 0;
   }
 
   .hp-gallery__hor {
@@ -7672,7 +7681,7 @@ header {
   }
 
   .about-autor__wrp {
-    max-width: 1050px;
+    max-width: 900px;
     margin-right: auto;
   }
 
@@ -7695,6 +7704,10 @@ header {
 
   .about-autor__mission .mission-block__title {
     font-size: 30px;
+  }
+
+  .about-nav {
+    display: block;
   }
 
   .our-office__title {
@@ -7762,8 +7775,37 @@ header {
     padding: 8px;
   }
 
+  .section-team-block--min .team-block {
+    max-width: 1050px;
+  }
+
   .page-services__item {
     padding-bottom: 52px;
+  }
+
+  .about-autor__wrp {
+    max-width: 1050px;
+  }
+
+  .about-autor__mission {
+    max-width: 1050px;
+  }
+
+  .about-nav ul li a {
+    min-width: 320px;
+    padding: 16px 18px;
+  }
+
+  .our-office {
+    max-width: 1050px;
+  }
+
+  .section-review-project--min .review-project {
+    max-width: 1050px;
+  }
+
+  .last-acticles {
+    max-width: 1050px;
   }
 }
 

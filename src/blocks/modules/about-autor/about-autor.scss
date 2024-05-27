@@ -20,8 +20,12 @@
         }
 
         @media screen and (min-width: $w1200) {
-            max-width: 1050px;
+            max-width: 900px;
             margin-right: auto;
+        }
+
+        @media screen and (min-width: $w1376) {
+            max-width: 1050px;
         }
 
         @media screen and (min-width: $w1440) {
@@ -190,7 +194,11 @@
     }
 
     &__mission {
-        max-width: 1050px;
+        max-width: 900px;
+
+        @media screen and (min-width: $w1376) {
+            max-width: 1050px;
+        }
 
         @media screen and (min-width: $w1440) {
             padding-top: 24px;
@@ -213,11 +221,16 @@
 
 .about-nav {
     position: fixed;
-    z-index: 10;
+    z-index: 200;
     top: calc(var(--hgt-header) + 30px);
     left: 73%;
     opacity: 0;
     transition: 0.3s ease;
+    display: none;
+
+    @media screen and (min-width: $w1200) {
+        display: block;
+    }
 
     &.is-init {
         opacity: 1;
@@ -227,21 +240,30 @@
         & li {
             & a {
                 display: block;
-                padding: 16px 18px;
+                padding: 14px 18px;
                 background-color: var(--color-bg-03);
-                min-width: 320px;
+                min-width: 220px;
                 color: var(--color-text-01);
                 border-bottom: 1px solid var(--color-borders-01);
                 border-left: 2px solid transparent;
 
+                @media screen and (min-width: $w1376) {
+                    min-width: 320px;
+                    padding: 16px 18px;
+                }
+
                 &:hover {
+                    border-left: 2px solid rgba(255, 255, 255, 0.3);
+                }
+
+                &.is-active {
                     border-left: 2px solid #fff;
                 }
             }
 
             &:last-child {
                 & a {
-                    border: none;
+                    border-bottom: none;
                 }
             }
         }
