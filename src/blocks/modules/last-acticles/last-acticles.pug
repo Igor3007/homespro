@@ -1,5 +1,5 @@
 mixin minicard-article(data)
-    .minicard-article
+    .minicard-article 
         .minicard-article__image    
             +picture(data.img)
             a(href="/article-details.html") Подробнее
@@ -13,7 +13,7 @@ mixin minicard-article(data)
 mixin last-acticles(data)
     section.section-last-acticles(class=data.classes id=data.id )
         .container
-            .last-acticles
+            .last-acticles.animate
                 .last-acticles__title: a(href="#")= data.title
                 .last-acticles__link
                     ul
@@ -29,3 +29,14 @@ mixin last-acticles(data)
                     button.btn
                         span Загрузить ещё новости
                         +icons('#ic_load')
+
+mixin last-acticles_details(data)
+    section.section-last-acticles(class=data.classes id=data.id )
+        .container
+            .last-acticles.animate
+                .last-acticles__title: a(href="#")= data.title
+               
+
+                .last-acticles__list
+                    each item in data.list
+                        .last-acticles__item: +minicard-article(item)

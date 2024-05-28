@@ -1,0 +1,18 @@
+include ../../modules/last-acticles/last-acticles.pug
+include ../../components/pagination/pagination.pug
+
+mixin blog(data) 
+    section.section-blog
+        .container
+            .blog.animate
+                .blog__link
+                    ul
+                        li: a(href='#') Наши проекты 
+                        li: a(href='#') Обучение 
+                        li: a(href='#') Ответы на вопросы
+
+                .blog__list
+                    each item in data.list
+                        .blog__item: +minicard-article(item)
+
+                .blog__pagination: +pagination

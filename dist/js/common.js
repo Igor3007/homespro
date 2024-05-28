@@ -1343,4 +1343,155 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* ===============================================
+    slider gallery article
+    ===============================================*/
+
+    if (document.querySelector('[data-slider="gallery-article"]')) {
+
+        document.querySelectorAll('[data-slider="gallery-article"]').forEach(slider => {
+
+            if (slider.querySelectorAll('.splide__slide').length >= 2) {
+
+                slider['splideInstance'] = new Splide(slider, {
+
+                    perPage: 2,
+                    perMove: 1,
+                    gap: 12,
+                    pagination: true,
+
+                    breakpoints: {
+                        768: {
+
+                            perPage: 1,
+                            pagination: true,
+                        },
+                    },
+
+                    arrowPath: 'M13.531 8.523a1.835 1.835 0 012.567 0l10.37 10.213c.71.698.71 1.83 0 2.528l-10.37 10.213a1.835 1.835 0 01-2.566 0 1.768 1.768 0 010-2.528L22.618 20l-9.088-8.949a1.768 1.768 0 010-2.528z'
+                });
+
+                slider['splideInstance'].mount();
+
+            }
+
+
+        })
+    }
+
+    /* ==============================================
+    details-nav
+    ==============================================*/
+
+    if (document.querySelector('.details-nav')) {
+        class NavDetails {
+            constructor(params) {
+                this.$el = document.querySelector(params.el)
+                this.$article = document.querySelector(params.article)
+                this.headers = this.$article.querySelectorAll('h1, h2, h3, h4')
+
+                this.init()
+            }
+
+            init() {
+
+                this.headers.forEach(el => {
+                    this.createNavList(el)
+                })
+
+                this.addEvents()
+            }
+
+            scrollToEl(header) {
+                window.scrollToTargetAdjusted({
+                    elem: header,
+                    offset: document.querySelector('.header').clientHeight
+                })
+            }
+
+            createNavList(el) {
+                let li = document.createElement('li')
+                li.innerHTML = '<a href="#" >' + el.innerText + '</a>'
+
+                li.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    this.scrollToEl(el)
+                    this.setActiveNav(li)
+                })
+
+                this.$el.querySelector('ul').append(li)
+            }
+
+            setActiveNav(activeEl) {
+                this.$el.querySelectorAll('li').forEach(li => {
+                    !li.classList.contains('is-active') || li.classList.remove('is-active')
+                })
+
+                activeEl.classList.add('is-active')
+            }
+
+            isVisible = function (target) {
+                let targetPosition = {
+                        top: window.scrollY + target.getBoundingClientRect().top,
+                        left: window.scrollX + target.getBoundingClientRect().left,
+                        right: window.scrollX + target.getBoundingClientRect().right,
+                        bottom: window.scrollY + target.getBoundingClientRect().bottom
+                    },
+
+                    windowPosition = {
+                        top: window.scrollY,
+                        left: window.scrollX,
+                        right: window.scrollX + document.documentElement.clientWidth,
+                        bottom: window.scrollY + (document.documentElement.clientHeight / 2)
+                    };
+
+                if (targetPosition.bottom > windowPosition.top &&
+                    targetPosition.top < windowPosition.bottom &&
+                    targetPosition.right > windowPosition.left &&
+                    targetPosition.left < windowPosition.right) {
+                    return true
+                } else {
+                    return false
+                };
+            };
+
+
+
+            debounce(method, delay, e) {
+                clearTimeout(method._tId);
+                method._tId = setTimeout(function () {
+                    method(e);
+                }, delay);
+            }
+
+            addEvents() {
+                window.addEventListener('scroll', (e) => {
+
+                    const resizeHahdler = (e) => {
+                        this.headers.forEach(item => {
+                            if (this.isVisible(item)) {
+
+                                this.$el.querySelectorAll('li').forEach(li => {
+                                    if (item.innerText == li.innerText) {
+                                        li.classList.add('is-active')
+                                    } else {
+                                        !li.classList.contains('is-active') || li.classList.remove('is-active')
+                                    }
+                                })
+
+                            }
+                        })
+                    }
+
+                    this.debounce(resizeHahdler, 300, e)
+                });
+            }
+        }
+
+        new NavDetails({
+            el: '.details-nav',
+            article: '.article',
+        })
+    }
+
 });

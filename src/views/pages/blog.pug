@@ -1,0 +1,29 @@
+extends ../layouts/main
+
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/blog/blog.pug
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Homespro - Блог"
+ 
+
+block main
+   
+  .page
+    .container
+      .page__breadcrumb
+        +breadcrumb([
+          'Главная',
+          'Портфолио',
+          'Блог',
+        ])
+      .page__title: h1 Блог
+      .page__desc Презентации наших проектов, обучающие видео, ответы на вопросы клиентов и архитекторов и многое другое.
+
+  +blog(blog)
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
