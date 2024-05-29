@@ -1494,4 +1494,66 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
     }
 
+    /* ===========================================
+    book slider
+    ===========================================*/
+
+    if (document.querySelector('.book-slider')) {
+        class BookSlider {
+            constructor(el) {
+                this.$el = el
+                this.slides = this.$el.querySelectorAll('.book-slider__item')
+                this.pagination = this.$el.querySelector('.book-slider__pagination ul')
+                this.arrowNext = this.$el.querySelector('[data-bs="next"]')
+                this.arrowPrev = this.$el.querySelector('[data-bs="prev"]')
+
+                this.createPagination()
+                this.addEvents()
+
+                this.currentSlide = 0;
+            }
+
+            createPagination() {
+                this.slides.forEach((item, index) => {
+                    this.pagination.append(document.createElement('li'))
+                })
+
+                this.pagination.querySelector('li').classList.add('is-active')
+            }
+
+            changeSlide(index) {
+                this.slides.forEach(slide => !slide.classList.contains('is-active') || slide.classList.remove('is-active'))
+                this.slides[index].classList.add('is-active')
+            }
+
+            nextSlide() {
+
+                if ((this.currentSlide + 2) < this.slides.length) {
+                    this.currentSlide = this.currentSlide + 2
+                }
+
+
+
+                this.changeSlide(this.currentSlide)
+            }
+            prevSlide() {
+
+                if (this.currentSlide >= 2) {
+                    this.currentSlide = this.currentSlide - 2
+                }
+
+                this.changeSlide(this.currentSlide)
+            }
+
+            addEvents() {
+
+                this.arrowNext.addEventListener('click', e => this.nextSlide())
+                this.arrowPrev.addEventListener('click', e => this.prevSlide())
+
+            }
+        }
+
+        document.querySelectorAll('.book-slider').forEach(el => new BookSlider(el))
+    }
+
 });

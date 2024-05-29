@@ -1,5 +1,9 @@
+
+
 mixin blog-details
+
     section.section-blog-details
+
         .container
             .blog-details
                 .blog-details__main
@@ -13,9 +17,9 @@ mixin blog-details
                         .blog-details__share
                             span Поделиться:
                             ul
-                                li: a(href='#'): +bgimage('/img/icons/icon-vk.svg')
-                                li: a(href='#'): +bgimage('/img/icons/icon-telegram.svg')
-                                li: a(href='#'): +bgimage('/img/icons/icon-zen.svg')
+                                li: a( target="_blank" href='https://vk.com/share.php?url=site.ru'): +bgimage('/img/icons/icon-vk.svg')
+                                li: a( target="_blank" href='https://telegram.me/share/url?url=site.ru'): +bgimage('/img/icons/icon-telegram.svg')
+                                li: a( target="_blank" href='https://dzen.ru'): +bgimage('/img/icons/icon-zen.svg')
 
 
                     .blog-details__cover: +picture('/img/video/video_6')

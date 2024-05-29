@@ -1,0 +1,77 @@
+mixin book-card
+    .book-card
+        .book-card__title «Автор своего дома. Всё, что должен знать заказчик и уметь архитектор при создании планировки»
+        .book-card__details
+            .book-card__detail
+                span Автор:
+                strong Виталий Злобин
+            .book-card__detail
+                span Объём:
+                strong 120 стр.
+
+        .book-card__slider
+            .book-slider(data-bs="el")
+                .book-slider__list( class="lazyload" data-bg="/img/common/book-bg.png")
+                    .book-slider__item.is-active: +picturePng('/img/book/page-left-1')
+                    .book-slider__item: +picturePng('/img/book/page-right-1')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-left')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-right')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-left-1')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-right-1')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-left-2')
+                    .book-slider__item: +picturePng('/img/book/boock1/page-right-2')
+
+                .book-slider__nav
+                    .book-slider__arrow.book-slider__arrow--prev(data-bs="prev"): +icons('#ic_arrow-prev')
+
+                    .book-slider__pagination: ul
+                    .book-slider__arrow.book-slider__arrow--next(data-bs="next"): +icons('#ic_arrow-next')
+
+                
+                     
+
+        .book-card__about
+            .book-card__label О чём эта книга 
+            .book-card__row
+                .book-card__left
+                    .book-card__autor
+                        .book-card__a-photo: +picture('/img/team/img-project')
+                        .book-card__a-desc Виталий Злобин — автор книги, профессиональный архитектор и основатель школы проектирования, руководитель  архитектурной студии HOMESPRO:
+                    
+                    .book-card__text
+                        .formated-text
+                            p Если вы когда-то участвовали в строительстве собственного дома или только задумывались об осуществлении этой мечты, то наверняка задавались вопросом: как продумать обустройство своего будущего дома до мелочей, чтобы он был идеальным и по красоте, и по комфорту? Чтобы после сдачи проекта не появились проблемы, связанные с плохой планировкой? Для этого еще на начальном этапе необходимо сделать целостный, продуманный проект.
+                            p В книге вы найдете четкую авторскую методику, которая позволит решить проблемы ещё на этапе сбора и анализа информации о будущем доме. Вы научитесь функциональному зонированию помещений, начнете разбираться в строительных и инженерных вопросах. Книга будет полезна не только для профессиональных архитекторов, но и для тех, кто хочет понимать основные процессы строительства и активно принимать участие в проектировании будущего дома.
+                    .book-card__action
+                        .book-card__order
+                            a(href='#' class="")
+                                span Заказать книгу
+                                strong 1 200 ₽
+                        .book-card__order
+                            a(href='#' class="")
+                                span Заказать книгу с автографом автора
+                                strong 2 000 ₽
+
+                .book-card__right
+                    .formated-text
+                        strong Книга поможет вам понять:
+                        ul
+                            li Что учитывать при планировке дома на маленькую и большую семью.
+                            li Как предусмотреть все детали, чтобы каждому члену семьи было комфортно в новом доме.
+                            li Как решить вопрос подбора и расстановки мебели таким образом, чтобы все было функционально и удобно.
+
+
+
+mixin page-books
+    section.section-page-books
+        .container
+            .page-books
+                .page-books__wrp
+                    .page-books__main
+                        .page-books__item: +book-card()
+                    .page-books__nav
+                        .books-nav
+                            ul
+                                li: a(href='#') «Автор своего дома. Всё, что должен знать заказчик и уметь архитектор при создании планировки»
+                                li: a(href='#') «Дом, который построишь ты. Как создать современный проект загородного дома»
+                                li: a(href='#') «Заголовок третьей книги»
