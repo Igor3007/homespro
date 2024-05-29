@@ -6520,7 +6520,7 @@ header {
 .article picture {
   position: relative;
   display: block;
-  padding-top: 56%;
+  padding-top: 58%;
 }
 
 .article picture img {
@@ -6580,6 +6580,11 @@ header {
   border: 1px solid var(--color-text-03);
 }
 
+.article__gallery img {
+  border: 8px solid var(--color-bg-01);
+  transition: 0.4s ease;
+}
+
 .article__textblock {
   padding-bottom: 24px;
 }
@@ -6624,7 +6629,7 @@ header {
 
 .details-nav {
   position: sticky;
-  z-index: 200;
+  z-index: 10;
   top: calc(var(--hgt-header) + 30px);
   transition: 0.3s ease;
   display: none;

@@ -172,7 +172,7 @@
     }
 
     & picture {
-        @include picture(56%, cover);
+        @include picture(58%, cover);
     }
 
     &__gallery {
@@ -283,6 +283,13 @@
                 }
             }
         }
+
+        & img {
+            border: 8px solid var(--color-bg-01);
+            transition: 0.4s ease;
+
+
+        }
     }
 
     &__textblock {
@@ -350,7 +357,7 @@
 
 .details-nav {
     position: sticky;
-    z-index: 200;
+    z-index: 10;
     top: calc(var(--hgt-header) + 30px);
     transition: 0.3s ease;
     display: none;
