@@ -1383,114 +1383,121 @@ document.addEventListener('DOMContentLoaded', function (event) {
     details-nav
     ==============================================*/
 
-    if (document.querySelector('.details-nav')) {
-        class NavDetails {
-            constructor(params) {
-                this.$el = document.querySelector(params.el)
-                this.$article = document.querySelector(params.article)
-                this.headers = this.$article.querySelectorAll('h1, h2, h3, h4')
+    class NavDetails {
+        constructor(params) {
+            this.$el = document.querySelector(params.el)
+            this.$article = document.querySelector(params.article)
+            this.headers = this.$article.querySelectorAll('h1, h2, h3, h4')
 
-                this.init()
-            }
-
-            init() {
-
-                this.headers.forEach(el => {
-                    this.createNavList(el)
-                })
-
-                this.addEvents()
-            }
-
-            scrollToEl(header) {
-                window.scrollToTargetAdjusted({
-                    elem: header,
-                    offset: document.querySelector('.header').clientHeight
-                })
-            }
-
-            createNavList(el) {
-                let li = document.createElement('li')
-                li.innerHTML = '<a href="#" >' + el.innerText + '</a>'
-
-                li.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    this.scrollToEl(el)
-                    this.setActiveNav(li)
-                })
-
-                this.$el.querySelector('ul').append(li)
-            }
-
-            setActiveNav(activeEl) {
-                this.$el.querySelectorAll('li').forEach(li => {
-                    !li.classList.contains('is-active') || li.classList.remove('is-active')
-                })
-
-                activeEl.classList.add('is-active')
-            }
-
-            isVisible = function (target) {
-                let targetPosition = {
-                        top: window.scrollY + target.getBoundingClientRect().top,
-                        left: window.scrollX + target.getBoundingClientRect().left,
-                        right: window.scrollX + target.getBoundingClientRect().right,
-                        bottom: window.scrollY + target.getBoundingClientRect().bottom
-                    },
-
-                    windowPosition = {
-                        top: window.scrollY,
-                        left: window.scrollX,
-                        right: window.scrollX + document.documentElement.clientWidth,
-                        bottom: window.scrollY + (document.documentElement.clientHeight / 2)
-                    };
-
-                if (targetPosition.bottom > windowPosition.top &&
-                    targetPosition.top < windowPosition.bottom &&
-                    targetPosition.right > windowPosition.left &&
-                    targetPosition.left < windowPosition.right) {
-                    return true
-                } else {
-                    return false
-                };
-            };
-
-
-
-            debounce(method, delay, e) {
-                clearTimeout(method._tId);
-                method._tId = setTimeout(function () {
-                    method(e);
-                }, delay);
-            }
-
-            addEvents() {
-                window.addEventListener('scroll', (e) => {
-
-                    const resizeHahdler = (e) => {
-                        this.headers.forEach(item => {
-                            if (this.isVisible(item)) {
-
-                                this.$el.querySelectorAll('li').forEach(li => {
-                                    if (item.innerText == li.innerText) {
-                                        li.classList.add('is-active')
-                                    } else {
-                                        !li.classList.contains('is-active') || li.classList.remove('is-active')
-                                    }
-                                })
-
-                            }
-                        })
-                    }
-
-                    this.debounce(resizeHahdler, 300, e)
-                });
-            }
+            this.init()
         }
 
+        init() {
+
+            this.headers.forEach(el => {
+                this.createNavList(el)
+            })
+
+            this.addEvents()
+        }
+
+        scrollToEl(header) {
+            window.scrollToTargetAdjusted({
+                elem: header,
+                offset: document.querySelector('.header').clientHeight
+            })
+        }
+
+        createNavList(el) {
+            let li = document.createElement('li')
+            li.innerHTML = '<a href="#" >' + el.innerText + '</a>'
+
+            li.addEventListener('click', (e) => {
+                e.preventDefault()
+                this.scrollToEl(el)
+                this.setActiveNav(li)
+            })
+
+            this.$el.querySelector('ul').append(li)
+        }
+
+        setActiveNav(activeEl) {
+            this.$el.querySelectorAll('li').forEach(li => {
+                !li.classList.contains('is-active') || li.classList.remove('is-active')
+            })
+
+            activeEl.classList.add('is-active')
+        }
+
+        isVisible = function (target) {
+            let targetPosition = {
+                    top: window.scrollY + target.getBoundingClientRect().top,
+                    left: window.scrollX + target.getBoundingClientRect().left,
+                    right: window.scrollX + target.getBoundingClientRect().right,
+                    bottom: window.scrollY + target.getBoundingClientRect().bottom
+                },
+
+                windowPosition = {
+                    top: window.scrollY,
+                    left: window.scrollX,
+                    right: window.scrollX + document.documentElement.clientWidth,
+                    bottom: window.scrollY + (document.documentElement.clientHeight / 2)
+                };
+
+            if (targetPosition.bottom > windowPosition.top &&
+                targetPosition.top < windowPosition.bottom &&
+                targetPosition.right > windowPosition.left &&
+                targetPosition.left < windowPosition.right) {
+                return true
+            } else {
+                return false
+            };
+        };
+
+
+
+        debounce(method, delay, e) {
+            clearTimeout(method._tId);
+            method._tId = setTimeout(function () {
+                method(e);
+            }, delay);
+        }
+
+        addEvents() {
+            window.addEventListener('scroll', (e) => {
+
+                const resizeHahdler = (e) => {
+                    this.headers.forEach(item => {
+                        if (this.isVisible(item)) {
+
+                            this.$el.querySelectorAll('li').forEach(li => {
+                                if (item.innerText == li.innerText) {
+                                    li.classList.add('is-active')
+                                } else {
+                                    !li.classList.contains('is-active') || li.classList.remove('is-active')
+                                }
+                            })
+
+                        }
+                    })
+                }
+
+                this.debounce(resizeHahdler, 300, e)
+            });
+        }
+    }
+
+    if (document.querySelector('.blog-details')) {
         new NavDetails({
             el: '.details-nav',
             article: '.article',
+        })
+    }
+
+    if (document.querySelector('.page-books')) {
+        new NavDetails({
+            el: '.books-nav',
+            article: '.page-books__main',
         })
     }
 
@@ -1511,19 +1518,69 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.addEvents()
 
                 this.currentSlide = 0;
+
+                this.init()
+            }
+
+            init() {
+                this.$el.classList.add('is-loaded')
+
+                setTimeout(() => {
+                    this.$el.classList.add('is-init')
+                }, 1000)
+
+                //this.changeSlide(0)
             }
 
             createPagination() {
-                this.slides.forEach((item, index) => {
-                    this.pagination.append(document.createElement('li'))
-                })
+
+                for (let i = 0; i <= Math.floor((this.slides.length / 2) - 1); i++) {
+
+                    let page = document.createElement('li')
+
+                    page.addEventListener('click', e => {
+                        this.currentSlide = i * 2
+                        this.changeSlide(i * 2);
+
+                    })
+
+                    this.pagination.append(page)
+                }
 
                 this.pagination.querySelector('li').classList.add('is-active')
             }
 
+            changePagination(slide) {
+
+                slide = slide ? slide : this.currentSlide
+
+                this.pagination.querySelectorAll('li').forEach((li, index) => {
+                    if ((Math.ceil((slide / 2))) == index) {
+                        li.classList.add('is-active')
+                    } else {
+                        !li.classList.contains('is-active') || li.classList.remove('is-active')
+                    }
+                })
+            }
+
             changeSlide(index) {
-                this.slides.forEach(slide => !slide.classList.contains('is-active') || slide.classList.remove('is-active'))
-                this.slides[index].classList.add('is-active')
+                this.slides.forEach(slide => {
+                    if (slide.classList.contains('is-active')) {
+                        slide.classList.add('animate-hide')
+                        setTimeout(() => {
+                            slide.classList.remove('is-active')
+                        }, 500)
+                    }
+
+
+                })
+
+                setTimeout(() => {
+                    this.slides[index].classList.add('is-active');
+                    !this.$el.querySelector('.animate-hide') || this.$el.querySelector('.animate-hide').classList.remove('animate-hide')
+                }, 500)
+
+                this.changePagination()
             }
 
             nextSlide() {

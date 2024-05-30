@@ -1,7 +1,7 @@
-mixin book-card
+mixin book-card(data)
     .book-card
-        .book-card__title «Автор своего дома. Всё, что должен знать заказчик и уметь архитектор при создании планировки»
-        .book-card__details
+        .book-card__title.animate.fadeTop: h2= data.title
+        .book-card__details.animate.fadeTop
             .book-card__detail
                 span Автор:
                 strong Виталий Злобин
@@ -12,14 +12,10 @@ mixin book-card
         .book-card__slider
             .book-slider(data-bs="el")
                 .book-slider__list( class="lazyload" data-bg="/img/common/book-bg.png")
-                    .book-slider__item.is-active: +picturePng('/img/book/page-left-1')
-                    .book-slider__item: +picturePng('/img/book/page-right-1')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-left')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-right')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-left-1')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-right-1')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-left-2')
-                    .book-slider__item: +picturePng('/img/book/boock1/page-right-2')
+                    .book-slider__item.is-active: +picturePng(data.imgActive)
+                    each img in data.img
+                        .book-slider__item: +picturePng(img)
+                    
 
                 .book-slider__nav
                     .book-slider__arrow.book-slider__arrow--prev(data-bs="prev"): +icons('#ic_arrow-prev')
@@ -30,7 +26,7 @@ mixin book-card
                 
                      
 
-        .book-card__about
+        .book-card__about.animate.fadeTop
             .book-card__label О чём эта книга 
             .book-card__row
                 .book-card__left
@@ -68,10 +64,34 @@ mixin page-books
             .page-books
                 .page-books__wrp
                     .page-books__main
-                        .page-books__item: +book-card()
+                        .page-books__item: +book-card({
+                            title: '«Автор своего дома. Всё, что должен знать заказчик и уметь архитектор при создании планировки»',
+                            img: [
+                                '/img/book/page-right-1',
+                                '/img/book/boock1/page-left',
+                                '/img/book/boock1/page-right',
+                                '/img/book/boock1/page-left-1',
+                                '/img/book/boock1/page-right-1',
+                                '/img/book/boock1/page-left-2',
+                                '/img/book/boock1/page-right-2',
+                            ],
+                            imgActive: '/img/book/page-left-1'
+                        })
+                        .page-books__item: +book-card({
+                            title: '«Дом, который построишь ты. Как создать современный проект загородного дома»',
+                            img: [
+                                '/img/book/page-right-1',
+                                '/img/book/boock2/page-left',
+                                '/img/book/boock2/page-right',
+                                '/img/book/boock2/page-left-1',
+                                '/img/book/boock2/page-right-1',
+                                '/img/book/boock2/page-left-2',
+                                '/img/book/boock2/page-right-2',
+                            ],
+                            imgActive: '/img/book/page-left-2'
+
+                        })
+                         
                     .page-books__nav
-                        .books-nav
-                            ul
-                                li: a(href='#') «Автор своего дома. Всё, что должен знать заказчик и уметь архитектор при создании планировки»
-                                li: a(href='#') «Дом, который построишь ты. Как создать современный проект загородного дома»
-                                li: a(href='#') «Заголовок третьей книги»
+                        .books-nav: ul
+                             

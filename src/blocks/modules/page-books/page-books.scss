@@ -2,6 +2,7 @@
     background-color: var(--color-bg-02);
     padding: 45px 0;
     margin-top: 30px;
+    overflow: visible;
 
     @media screen and (min-width: $w1440) {
         margin-top: 45px;
@@ -29,11 +30,26 @@
             padding-left: 50px;
         }
     }
+
+    &__item {
+        padding-top: 60px;
+        padding-bottom: 80px;
+        border-top: 1px solid #ccc;
+
+        &:first-child {
+            border-top: none;
+            padding-top: 0px;
+        }
+    }
 }
 
 .book-card {
     &__title {
-        @include font-h2;
+        & h2 {
+            @include font-h2;
+            margin: 0;
+        }
+
         padding-bottom: 24px;
 
 
@@ -65,6 +81,10 @@
 
     &__about {
         padding-top: 30px;
+
+        @media screen and (min-width: $w1440) {
+            padding-top: 60px;
+        }
     }
 
     &__label {
@@ -102,17 +122,31 @@
         &-photo {
             width: 112px;
             min-width: 112px;
+
+            & picture {
+                @include picture(100%, cover);
+            }
+
+            @media screen and (min-width: $w760) {
+                border: 6px solid var(--color-bg-01);
+            }
         }
 
         &-desc {
             width: calc(100% - 112px);
             padding-left: 24px;
             font-weight: 600;
+            line-height: 155%;
+
+            @media screen and (min-width: $w1440) {
+                font-size: 18px;
+            }
         }
     }
 
     &__action {
-        margin: -4px;
+        margin: -6px;
+        padding-top: 24px;
 
         @media screen and (min-width: $w760) {
             display: flex;
@@ -121,7 +155,7 @@
 
     &__order {
 
-        padding: 4px;
+        padding: 6px;
 
         & a {
             display: flex;
@@ -133,14 +167,29 @@
             border: 3px solid transparent;
             transition: 0.3s ease;
 
+            @media screen and (min-width: $w1440) {
+                padding: 16px 32px;
+            }
+
             &:hover {
                 color: #000;
                 outline: 1px solid #fff;
                 border-color: var(--color-bg-02);
+
+                & span {
+                    background-position: 100% 52%;
+                }
             }
 
             & span {
                 font-size: 16px;
+                padding-right: 24px;
+                display: block;
+
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTS4yOTMgOS43MDdhMSAxIDAgMDEwLTEuNDE0TDMuNTg2IDUgLjI5MyAxLjcwN0ExIDEgMCAwMTEuNzA3LjI5M2w0IDRhMSAxIDAgMDEwIDEuNDE0bC00IDRhMSAxIDAgMDEtMS40MTQgMHoiIGZpbGw9IiMxRjFGMUYiLz48L3N2Zz4=);
+                background-position: 98% 52%;
+                background-repeat: no-repeat;
+                transition: 0.3s ease;
             }
 
             & strong {
@@ -154,17 +203,100 @@
 }
 
 .book-slider {
+
+    @keyframes slideChangeLeft {
+        from {
+            transform: translateY(60px) translateX(-60px);
+        }
+
+        to {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideChangeRight {
+        from {
+            transform: translateY(-60px) translateX(120px);
+        }
+
+        to {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideChangeLeftOut {
+        from {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+
+
+        to {
+            transform: translateY(60px) translateX(-60px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideChangeRightOut {
+
+        from {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+
+        to {
+            transform: translateY(-60px) translateX(120px);
+            opacity: 0;
+        }
+    }
+
+    &:not(.is-loaded) {
+        & .book-slider {
+            &__list {
+                transform: scale(0);
+            }
+        }
+    }
+
+    &:not(.is-init) {
+        & .book-slider {
+            &__item {
+                opacity: 0;
+                animation: none;
+            }
+        }
+    }
+
     &__item {
         display: none;
+        opacity: 0;
+
+
 
         &.is-active {
             display: block;
             padding-top: 6%;
 
+            animation: slideChangeLeft 1s ease forwards;
+
             &+div {
                 display: block;
                 margin-top: -10px;
                 width: 45%;
+
+                animation: slideChangeRight 1s ease forwards;
+
+
+            }
+        }
+
+        &.animate-hide {
+            animation: slideChangeLeftOut 1s ease forwards;
+
+            &+div {
+                animation: slideChangeRightOut 1s ease forwards;
             }
         }
     }
@@ -177,6 +309,8 @@
         background-repeat: no-repeat;
         background-size: contain;
         width: 100%;
+        transition: 1s ease;
+        transform: scale(1);
     }
 
     &__item {
@@ -255,4 +389,21 @@
         }
     }
 
+}
+
+.animate {
+
+    transition: 0.6s ease 0.1s;
+
+    &.fadeTop {
+        opacity: 0;
+        transform: translateY(5vh);
+    }
+
+    &.animated {
+        &.fadeTop {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
