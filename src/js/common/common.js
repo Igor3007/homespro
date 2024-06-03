@@ -411,6 +411,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             this.player.classList.add('is-play')
             this.iframe = document.createElement('iframe')
+            this.iframe.setAttribute('allowfullscreen', '')
             this.iframe.src = '//www.youtube.com/embed/' + this.parseYoutubeId(this.player.dataset.id) + '?autoplay=true'
             this.player.querySelector('.video__iframe').append(this.iframe)
 
@@ -822,6 +823,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                                 })
                             })
+                        }
+
+                        if (instanse.querySelector('.popup-form__title')) {
+                            instanse.querySelector('.popup-form__title').innerHTML = item.dataset.title
+                        }
+
+                        if (instanse.querySelector('.popup-form__desc')) {
+                            instanse.querySelector('.popup-form__desc').innerHTML = item.dataset.desc
                         }
                     })
                 })
@@ -1600,15 +1609,64 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.changeSlide(this.currentSlide)
             }
 
+            openGallery(item, index) {
+
+                const arrImage = [];
+
+                this.slides.forEach(slide => {
+                    arrImage.push(slide.querySelector('img').getAttribute('src'))
+                })
+
+                const instance = new FsLightbox();
+                instance.props.dots = true;
+                instance.props.type = "image";
+                instance.props.sources = arrImage;
+                instance.open(index)
+            }
+
             addEvents() {
 
                 this.arrowNext.addEventListener('click', e => this.nextSlide())
                 this.arrowPrev.addEventListener('click', e => this.prevSlide())
+
+                this.slides.forEach((item, index) => item.addEventListener('click', () => this.openGallery(item, index)))
 
             }
         }
 
         document.querySelectorAll('.book-slider').forEach(el => new BookSlider(el))
     }
+
+    /* =========================================
+    video youtube
+    =========================================*/
+
+    if (document.querySelector('.video')) {
+        document.querySelectorAll('.video').forEach(container => {
+
+            if (container.closest('.video-block__yt')) return false
+
+            const getYoutubeId = (url) => {
+                var m = url.match(/^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/);
+                if (!m || !m[1]) return null;
+                return m[1];
+            }
+
+            container.querySelector('.video__button').addEventListener('click', e => {
+                container.classList.add('is-play')
+
+                let iframe = document.createElement('iframe')
+                iframe.setAttribute('allowfullscreen', '')
+                iframe.setAttribute('src', '//www.youtube.com/embed/' + getYoutubeId(container.dataset.id) + '?autoplay=true')
+
+                container.querySelector('.video__iframe').append(iframe)
+            })
+
+
+        })
+    }
+
+
+
 
 });

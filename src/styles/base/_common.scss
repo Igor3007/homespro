@@ -71,3 +71,19 @@
 .max-width-960 {
     max-width: 940px;
 }
+
+
+.form-auth {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 8%;
+}
+
+.form-auth__title {
+    margin-bottom: 30px;
+}
+
+.form-auth__fields label {
+    padding-bottom: 26px;
+    display: block;
+}

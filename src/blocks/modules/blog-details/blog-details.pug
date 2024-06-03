@@ -1,4 +1,4 @@
-
+include ../../components/video/video.pug
 
 mixin blog-details
 
@@ -83,11 +83,11 @@ mixin blog-details
                                         p После этого, выберите из этих летят вариантов всего три варианта. На всех трёх картинках разные варианты фасадов — продолжайте изучение, если же все похожи, значит, вы определились с образом вашего дома. Пора переходить к выбору планировочных решений в выбранных проектах.
                                         p Это правило 10-3-1 позволит вам сфокусировался на одном стиле и экономит ваше время в поиске дома вашей мечты.
 
-                                .article__gallery.animate
-                                    .splide(data-slider="gallery-article")
-                                        .splide__track
-                                            .splide__list
-                                                .splide__slide: a(href='/img/video/video_0.jpg' data-fslightbox="g4"): +picture('/img/video/video_0') 
+                                .article__video.animate
+                                     +video({
+                                        preview: '/img/video/video_0',
+                                        link: 'https://www.youtube.com/watch?v=IpiIt1EBkGQ'
+                                    })
                                 
                                 .article__textblock.animate
                                     .formated-text

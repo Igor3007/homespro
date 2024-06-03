@@ -291,7 +291,7 @@
 
     @media screen and (min-width: $w760) {
         flex-direction: column;
-        max-width: 150px;
+        max-width: 170px;
         bottom: 10vh;
     }
 
@@ -307,6 +307,7 @@
         @media screen and (min-width: $w760) {
             flex-direction: column;
             text-align: center;
+            padding: 20px 24px;
         }
 
         &-icon {
@@ -322,8 +323,11 @@
         }
 
         &-text {
+
+            font-size: 13px;
+
             @media screen and (min-width: $w760) {
-                font-size: 13px;
+                font-size: 16px;
                 line-height: 120%;
             }
         }
@@ -354,8 +358,14 @@
             align-items: center;
             justify-content: center;
 
+
+
             @media screen and (min-width: $w760) {
                 margin-right: 8px;
+
+                & svg {
+                    width: 40px;
+                }
             }
         }
 

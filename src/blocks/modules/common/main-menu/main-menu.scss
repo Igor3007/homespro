@@ -1,6 +1,6 @@
 .main-menu {
     position: fixed;
-    top: 54px;
+    top: var(--hgt-header, 54px);
     left: 0;
     right: 0;
     bottom: 0;
@@ -13,7 +13,7 @@
     overflow-x: hidden;
 
     @media screen and (min-width: $w992) {
-        top: 65px;
+        top: var(--hgt-header, 65px);
     }
 
     &.is-open {

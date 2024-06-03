@@ -76,6 +76,10 @@
 
         & strong {
             @include font-h4;
+
+            @media screen and (max-width: $w480) {
+                font-size: 18px;
+            }
         }
     }
 
@@ -108,9 +112,13 @@
     }
 
     &__right {
+
+        padding-top: 30px;
+
         @media screen and (min-width: $w992) {
             width: 40%;
             padding-left: 50px;
+            padding-top: 0;
         }
     }
 
@@ -120,8 +128,13 @@
 
     &__a {
         &-photo {
-            width: 112px;
-            min-width: 112px;
+            width: 80px;
+            min-width: 80px;
+
+            @media screen and (min-width: $w576) {
+                width: 112px;
+                min-width: 112px;
+            }
 
             & picture {
                 @include picture(100%, cover);
@@ -166,6 +179,7 @@
             outline: 1px solid var(--color-bg-03);
             border: 3px solid transparent;
             transition: 0.3s ease;
+            cursor: pointer;
 
             @media screen and (min-width: $w1440) {
                 padding: 16px 32px;
@@ -277,14 +291,14 @@
 
         &.is-active {
             display: block;
-            padding-top: 6%;
+            padding-top: 7%;
 
             animation: slideChangeLeft 1s ease forwards;
 
             &+div {
                 display: block;
                 margin-top: -10px;
-                width: 45%;
+
 
                 animation: slideChangeRight 1s ease forwards;
 
@@ -303,19 +317,27 @@
 
     &__list {
         display: flex;
-        margin: 0 -30px;
+        margin: 0 -8px;
         justify-content: flex-start;
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
-        width: 100%;
+        min-width: 100%;
         transition: 1s ease;
         transform: scale(1);
+
+        @media screen and (min-width: $w1440) {
+            margin: 0 -30px;
+        }
     }
 
     &__item {
-        width: 48%;
-        padding: 0 30px;
+        width: 50%;
+        padding: 0 8px;
+
+        @media screen and (min-width: $w1440) {
+            padding: 0 30px;
+        }
 
         & picture {
             @include picture(142%, cover);
@@ -331,6 +353,12 @@
     &__pagination {
 
         padding: 0 16px;
+
+        @media screen and (max-width: $w480) {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
 
         & ul {
             display: flex;
