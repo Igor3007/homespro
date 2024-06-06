@@ -87,3 +87,27 @@
     padding-bottom: 26px;
     display: block;
 }
+
+
+
+.autor {
+    max-width: 563px;
+    padding: 10px;
+
+    @media screen and (min-width: $w576) {
+        padding: 24px;
+    }
+}
+
+.autor__photo {
+    padding-bottom: 32px;
+}
+
+.autor__title {
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+.popup-thanks {
+    padding: 24px;
+}

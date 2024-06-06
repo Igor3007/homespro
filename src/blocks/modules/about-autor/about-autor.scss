@@ -221,7 +221,7 @@
 
 .about-nav {
     position: fixed;
-    z-index: 200;
+    z-index: 90;
     top: calc(var(--hgt-header) + 30px);
     left: 73%;
     opacity: 0;

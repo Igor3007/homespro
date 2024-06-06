@@ -109,16 +109,12 @@
              }
 
              & svg {
-                 fill: var(--blue-dark);
+                 fill: #fff;
                  margin-left: 0.5em;
                  margin-right: -0.5em;
              }
 
-             &:hover {
-                 & svg {
-                     fill: var(--blue-medium);
-                 }
-             }
+
          }
      }
 
@@ -139,4 +135,8 @@
          align-items: center;
          justify-content: center;
      }
+ }
+
+ .card-review__project * {
+     margin: 0;
  }

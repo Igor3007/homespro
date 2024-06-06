@@ -160,6 +160,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         let xhr = new XMLHttpRequest();
         xhr.open((params.type ? params.type : 'POST'), params.url)
 
+        if (params.headers) {
+            for (let key in params.headers) {
+                xhr.setRequestHeader(key, params.headers[key]);
+            }
+        }
+
         if (params.responseType == 'json') {
             xhr.responseType = 'json';
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -589,9 +595,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     window.PS = new ProjectSlider()
 
+
+
     if (document.querySelector('[data-slider="project"]')) {
         const sliderWrp = document.querySelector('.project-thumb__slider')
-        const splideProjects = new Splide('[data-slider="project"]', {
+
+        const sliderMain = document.querySelector('[data-slider="project"]')
+
+        sliderMain['sp'] = new Splide('[data-slider="project"]', {
 
             perPage: 1,
             perMove: 1,
@@ -619,17 +630,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
             arrowPath: 'M13.531 8.523a1.835 1.835 0 012.567 0l10.37 10.213c.71.698.71 1.83 0 2.528l-10.37 10.213a1.835 1.835 0 01-2.566 0 1.768 1.768 0 010-2.528L22.618 20l-9.088-8.949a1.768 1.768 0 010-2.528z'
         });
 
-        splideProjects.on('ready', (e) => {
-            window.PS.setSlider(splideProjects)
+        sliderMain['sp'].on('ready', (e) => {
+            window.PS.setSlider(sliderMain['sp'])
         })
 
-        splideProjects.on('active', (e) => {
+        sliderMain['sp'].on('active', (e) => {
             setTimeout(() => {
                 window.PS.changeProjectActive(e.slide)
             }, 100)
         })
 
-        splideProjects.mount();
+        sliderMain['sp'].mount();
     }
 
     /* ===============================================
@@ -770,17 +781,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
      =================================================*/
 
     function popupSuccess() {
-        window.ajax({
-            type: 'GET',
-            url: '/parts/_popup-thanks.html'
-        }, (status, response) => {
 
-            const instansePopup = new afLightbox({
-                mobileInBottom: true
-            })
-
-            instansePopup.open(response, false)
+        const instansePopup = new afLightbox({
+            mobileInBottom: true
         })
+
+        instansePopup.open(`
+            
+           <div class="popup-thanks" >
+           
+           <h2> Спасибо! </h2>
+           <p>Мы свяжемся с вами в ближайшее время!</p>
+           
+           </div>
+
+            `, false)
+
     }
 
     if (document.querySelector('[data-modal]')) {
@@ -809,14 +825,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
                                 e.preventDefault()
 
                                 const formData = new FormData(e.target)
+                                let params = {}
+                                let btn = form.querySelector('.btn')
+
+                                for (let [name, value] of formData) {
+                                    params[name] = value
+                                }
+
+                                btn.classList.add('btn-loading')
 
                                 window.ajax({
-                                    type: 'GET',
-                                    url: item.dataset.modal
+                                    type: 'POST',
+                                    url: form.getAttribute('action'),
+                                    data: params
+
                                 }, (status, response) => {
 
                                     if (status == 200) {
                                         popupSuccess();
+                                        !btn.classList.contains('btn-loading') || btn.classList.remove('btn-loading')
                                         instansePopup.close()
                                     }
 
@@ -825,11 +852,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             })
                         }
 
-                        if (instanse.querySelector('.popup-form__title')) {
+                        if (item.dataset.title) {
                             instanse.querySelector('.popup-form__title').innerHTML = item.dataset.title
                         }
 
-                        if (instanse.querySelector('.popup-form__desc')) {
+                        if (item.dataset.desc) {
                             instanse.querySelector('.popup-form__desc').innerHTML = item.dataset.desc
                         }
                     })

@@ -320,6 +320,15 @@
                 margin-right: 0;
                 margin-bottom: 6px;
             }
+
+            @media screen and (min-width: $w760) {
+
+
+                & svg {
+                    width: 40px;
+
+                }
+            }
         }
 
         &-text {
@@ -359,14 +368,12 @@
             justify-content: center;
 
 
-
-            @media screen and (min-width: $w760) {
-                margin-right: 8px;
-
-                & svg {
-                    width: 40px;
+            & svg {
+                @media screen and (min-width: $w760) {
+                    margin-left: -10px;
                 }
             }
+
         }
 
         &-text {

@@ -216,6 +216,14 @@
     }
 }
 
+.projects-block__tags a {
+    cursor: pointer;
+}
+
+.blog__link ul li a.is-active {
+    background-color: #383838;
+}
+
 .book-slider {
 
     @keyframes slideChangeLeft {
