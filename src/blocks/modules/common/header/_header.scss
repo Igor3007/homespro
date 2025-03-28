@@ -1,6 +1,9 @@
 header {
+    height: var(--hgt-header, 54px);
 
-    height: var(--hgt-header, 65px);
+    @media screen and (min-width: $w992) {
+        height: var(--hgt-header, 65px);
+    }
 }
 
 .header {
@@ -192,6 +195,22 @@ header {
 
                             &:nth-child(8) {
                                 transition-delay: 450ms;
+                            }
+
+                            &:nth-child(9) {
+                                transition-delay: 500ms;
+                            }
+
+                            &:nth-child(10) {
+                                transition-delay: 550ms;
+                            }
+
+                            &:nth-child(11) {
+                                transition-delay: 600ms;
+                            }
+
+                            &:nth-child(12) {
+                                transition-delay: 650ms;
                             }
                         }
                     }

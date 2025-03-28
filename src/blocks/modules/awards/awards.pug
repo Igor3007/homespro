@@ -1,0 +1,45 @@
+mixin card-awards(data)
+    .card-awards
+        .card-awards__image
+            picture
+                img.lazyload(data-src=data.image)
+        .card-awards__title!= data.title
+        .card-awards__desc= data.desc
+
+mixin awards
+
+    -
+        const awards = [
+            {
+                'image':'/img/awards/img-frame.svg',
+                'title':'Награда «Арх Москвы»',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
+            {
+                'image':'/img/awards/img-frame-1.svg',
+                'title':'Архитектурная премия <br> Санкт-Петербурга',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
+            {
+                'image':'/img/awards/img-frame-2.svg',
+                'title':'Архитектурная премия Москвы',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
+            {
+                'image':'/img/awards/img-frame-3.svg',
+                'title':'Награда «Арх Москвы»',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
+        ]
+
+    section.section-awards
+        .container
+            .awards.animate 
+                .awards__title Награды и достижения
+                .awards__list 
+                    .splide(data-slider="team")
+                        .splide__track
+                            .splide__list
+                                each item in awards
+                                    .splide__slide
+                                        .awards__item: +card-awards(item)

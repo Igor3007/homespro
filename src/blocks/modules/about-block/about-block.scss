@@ -134,7 +134,7 @@
             border: 8px solid var(--color-bg-01);
             filter: grayscale(1);
             transition: filter 1s ease;
-            width: 100%;
+
 
             @media screen and (min-width: $w576) {
                 height: 220px;
