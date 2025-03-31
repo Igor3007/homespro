@@ -5475,6 +5475,30 @@ header {
   transition-delay: 1.4s;
 }
 
+.awards.animate.animated .splide__slide:nth-child(5) {
+  transition-delay: 1.6s;
+}
+
+.awards.animate.animated .splide__slide:nth-child(6) {
+  transition-delay: 1.8s;
+}
+
+.awards.animate.animated .splide__slide:nth-child(7) {
+  transition-delay: 2.0s;
+}
+
+.awards.animate.animated .splide__slide:nth-child(8) {
+  transition-delay: 2.2s;
+}
+
+.awards.animate.animated .splide__slide:nth-child(9) {
+  transition-delay: 2.4s;
+}
+
+.awards.animate.animated .splide__slide:nth-child(10) {
+  transition-delay: 2.6s;
+}
+
 .card-awards {
   position: relative;
 }
