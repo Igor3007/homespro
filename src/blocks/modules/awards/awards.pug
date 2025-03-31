@@ -1,13 +1,14 @@
 mixin card-awards(data)
     .card-awards
         .card-awards__image
-            a(href="/img/common/clip687.png" data-fslightbox="awards")
-                picture
-                    img.lazyload(data-src=data.image)
+            picture
+                img.lazyload(data-src=data.image)
+            .card-awards__tip
+                a(href="/img/common/clip687.png" data-fslightbox="awards")
+                    +bgimage('/img/common/clip687.png')
         .card-awards__title!= data.title
         .card-awards__desc= data.desc
-        .card-awards__tip
-            +bgimage('/img/common/clip687.png')
+        
 
 mixin awards
 
