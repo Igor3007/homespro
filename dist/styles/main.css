@@ -43,6 +43,10 @@ body {
   }
 }
 
+.fslightbox-open > body {
+  margin-right: 0 !important;
+}
+
 html * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -5363,6 +5367,7 @@ header {
 .section-awards {
   background-color: var(--color-bg-01);
   padding: 45px 0 35px;
+  overflow: visible;
 }
 
 .awards__title {
@@ -5470,6 +5475,10 @@ header {
   transition-delay: 1.4s;
 }
 
+.card-awards {
+  position: relative;
+}
+
 .card-awards__title {
   font-size: 24px;
   font-family: Roboto Condensed;
@@ -5500,6 +5509,49 @@ header {
 
 .card-awards__desc {
   color: var(--color-text-02);
+}
+
+.card-awards__tip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 15px);
+  z-index: 1000;
+  background-color: var(--color-bg-03);
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.3s ease;
+  transform: translateY(15px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card-awards__tip::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-bg-03);
+  display: inline-block;
+  transform: rotate(45deg);
+  position: absolute;
+  top: calc(100% - 10px);
+  left: calc(50% - 10px);
+}
+
+.card-awards__tip span {
+  display: block;
+  padding-top: 60%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+}
+
+.card-awards:hover .card-awards__tip {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .section-project-details {
@@ -7588,6 +7640,21 @@ header {
     margin-right: 0;
   }
 
+  .awards .splide .splide {
+    overflow: visible;
+  }
+
+  .awards .splide .splide__list {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 50px 32px;
+    justify-content: center;
+  }
+
+  .awards .splide .splide__track {
+    overflow: visible;
+  }
+
   .section-project-details {
     padding: 32px 0;
   }
@@ -7844,6 +7911,10 @@ header {
 
   .awards .splide__arrow[disabled] {
     opacity: 0;
+  }
+
+  .awards .splide .splide__slide {
+    width: calc(50% - 32px);
   }
 
   .card-awards__image {
@@ -8416,6 +8487,10 @@ header {
     text-align: right;
   }
 
+  .awards .splide .splide__slide {
+    width: calc(33.33% - 32px);
+  }
+
   .project-details {
     display: flex;
   }
@@ -8804,6 +8879,10 @@ header {
 
   .awards__title {
     font-size: 40px;
+  }
+
+  .awards .splide .splide__slide {
+    width: calc(25% - 32px);
   }
 
   .project-details__title {
@@ -9685,6 +9764,10 @@ header {
 
   .float-bar__filter span {
     font-size: 0;
+  }
+
+  .card-awards__tip {
+    display: none;
   }
 
   .project-details__thumb .project-thumb__next,

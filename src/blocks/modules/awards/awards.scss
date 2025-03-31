@@ -1,6 +1,7 @@
 .section-awards {
     background-color: var(--color-bg-01);
     padding: 45px 0 35px;
+    overflow: visible;
 
     @media screen and (min-width: $w1440) {
         padding: 65px 0 35px;
@@ -123,6 +124,52 @@
                 }
             }
         }
+
+        @media screen and (min-width: $w576) {
+
+            & .splide {
+
+                overflow: visible;
+
+
+                &__list {
+                    display: flex !important;
+                    flex-wrap: wrap;
+                    gap: 50px 32px;
+                    justify-content: center;
+                }
+
+                &__track {
+                    overflow: visible;
+                }
+
+            }
+
+        }
+
+        @media screen and (min-width: $w1200) {
+            & .splide {
+                &__slide {
+                    width: calc(25% - 32px);
+                }
+            }
+        }
+
+        @media screen and (min-width: $w992) {
+            & .splide {
+                &__slide {
+                    width: calc(33.33% - 32px);
+                }
+            }
+        }
+
+        @media screen and (min-width: $w760) {
+            & .splide {
+                &__slide {
+                    width: calc(50% - 32px);
+                }
+            }
+        }
     }
 
 
@@ -190,6 +237,9 @@
 }
 
 .card-awards {
+
+    position: relative;
+
     &__title {
         @include font-h4;
         padding-bottom: 0.6em;
@@ -211,6 +261,59 @@
     &__desc {
         color: var(--color-text-02);
 
+    }
+
+    &__tip {
+
+        @media screen and (max-width: $w576) {
+            display: none;
+        }
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(100% + 15px);
+        z-index: 1000;
+        background-color: var(--color-bg-03);
+        border-radius: 8px;
+        padding: 10px;
+        transition: 0.3s ease;
+        transform: translateY(15px);
+        opacity: 0;
+        visibility: hidden;
+
+        &::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-bg-03);
+            display: inline-block;
+            transform: rotate(45deg);
+            position: absolute;
+            top: calc(100% - 10px);
+            left: calc(50% - 10px);
+
+        }
+
+        & span {
+            display: block;
+            padding-top: 60%;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &:hover {
+        & .card-awards {
+            &__tip {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
     }
 
 }

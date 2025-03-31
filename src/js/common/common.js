@@ -569,6 +569,68 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     /* ===============================================
+    slider awards
+    ===============================================*/
+
+    if (document.querySelector('[data-slider="awards"]')) {
+
+        document.querySelectorAll('[data-slider="awards"]').forEach(slider => {
+            slider['splide'] = new Splide(slider, {
+
+                fixedWidth: 300,
+                perPage: 1,
+                perMove: 1,
+                gap: 20,
+                pagination: true,
+                mediaQuery: 'min',
+
+                breakpoints: {
+                    576: {
+                        destroy: true
+                    }
+
+                },
+
+                arrowPath: 'M13.531 8.523a1.835 1.835 0 012.567 0l10.37 10.213c.71.698.71 1.83 0 2.528l-10.37 10.213a1.835 1.835 0 01-2.566 0 1.768 1.768 0 010-2.528L22.618 20l-9.088-8.949a1.768 1.768 0 010-2.528z'
+            });
+
+            const getTopArrowButtons = () => {
+
+                if (slider) {
+                    let heigthEl = slider.querySelector('picture').clientHeight
+                    slider.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                    })
+                }
+
+
+            }
+
+            slider['splide'].on('resize', (e) => getTopArrowButtons(e))
+            slider['splide'].on('mounted', (e) => getTopArrowButtons(e))
+
+            slider['splide'].mount();
+        })
+
+        //hover card
+
+
+        document.querySelectorAll('.card-awards').forEach(el => {
+            el.querySelector('.card-awards__image').addEventListener('mouseenter', () => {
+                const rect = el.getBoundingClientRect()
+
+                if (rect.top < 220) {
+                    window.scrollToTargetAdjusted({
+                        elem: el.querySelector('.card-awards__tip'),
+                        offset: 70
+                    })
+                }
+            })
+        })
+
+    }
+
+    /* ===============================================
     slider project
     ===============================================*/
 

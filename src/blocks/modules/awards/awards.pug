@@ -1,10 +1,13 @@
 mixin card-awards(data)
     .card-awards
         .card-awards__image
-            picture
-                img.lazyload(data-src=data.image)
+            a(href="/img/common/clip687.png" data-fslightbox="awards")
+                picture
+                    img.lazyload(data-src=data.image)
         .card-awards__title!= data.title
         .card-awards__desc= data.desc
+        .card-awards__tip
+            +bgimage('/img/common/clip687.png')
 
 mixin awards
 
@@ -30,6 +33,16 @@ mixin awards
                 'title':'Награда «Арх Москвы»',
                 'desc':'Премия города Москвы в области архитектуры и градостроительства ',
             },
+            {
+                'image':'/img/awards/img-frame-2.svg',
+                'title':'Архитектурная премия Москвы',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
+            {
+                'image':'/img/awards/img-frame-3.svg',
+                'title':'Награда «Арх Москвы»',
+                'desc':'Премия города Москвы в области архитектуры и градостроительства ',
+            },
         ]
 
     section.section-awards
@@ -37,7 +50,7 @@ mixin awards
             .awards.animate 
                 .awards__title Награды и достижения
                 .awards__list 
-                    .splide(data-slider="team")
+                    .splide(data-slider="awards")
                         .splide__track
                             .splide__list
                                 each item in awards

@@ -44,6 +44,10 @@ body {
 
 }
 
+.fslightbox-open>body {
+    margin-right: 0 !important;
+}
+
 html * {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
